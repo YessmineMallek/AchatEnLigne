@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styleHome.css">
+    <link rel="stylesheet" href="productStyle.css">
+
+    <title>Add Product</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--The form to add a product-->
+        <div class="admin-product-form-container">
+            <form action="" method="#">
+                <h3>Add new product</h3>
+                <input type="text" placeholder="Enter product name" name="product_name" class="box">
+                <input type="text" placeholder="Enter product description" name="product_description" class="box">
+                <input type="number" placeholder="Enter product price" name="product_price" class="box">
+                <input type="file" accept="image/png , image/jpeg , image/jpg" name="product_image" class="box">
+                <input type="submit" class="btn" name="add_product" value="add product">
+            </form>
+        </div>
+        <!--the container to display product-->
+        <div class="product-display">
+            <table class="product-display-table" id="product-display-table">
+                <thead>
+                    <tr>
+                        <th>product image</th>
+                        <th>product name</th>
+                        <th>product price</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var products = new Array(
+        { "image": "../images/fem1.jpg", "name": "femme", "price": "20.0DT" },
+        { "image": "../images/fem2.jpg", "name": "ddd", "price": "50.0DT" },
+    );
+    products.forEach(afficher);
+    function afficher(value, index, array) {
+        console.log(value["name"]);
+        //recuperer la zone de saisie 
+        var tableau = document.getElementById("product-display-table");
+        //la ligne a inserer 
+        var tr = document.createElement("tr")
+
+        //colone pour image 
+        var tdImg = document.createElement("td")
+        //creer un image 
+        var img = document.createElement("img");
+        img.src = value["image"];
+        img.height = "100";
+        tdImg.appendChild(img);
+
+
+        //inserer la colonne dans la ligne 
+        tr.appendChild(tdImg)
+
+        tableau.appendChild(tr);
+
+    }
+
+</script>
