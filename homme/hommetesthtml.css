@@ -1,0 +1,216 @@
+/* Cibler tous les elements du page */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 20vh;
+    width: 100%;
+    background-image: url("background.png");
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative
+}
+
+.navBar {
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.navBar li{
+    list-style: none;
+    padding: 0 20xp ;
+}
+.navBar li a{
+    text-decoration: none;
+    font-size: 20xp;
+    font-weight: 100;
+    color: #000;
+}
+.navBar li a:hover{
+    color: #cd90da;
+}
+
+
+.logo {
+    width: 160px;
+    cursor: pointer
+}
+
+.cart {
+    width: 40px;
+    cursor: pointer
+}
+
+nav {
+    flex: 1;
+    padding-left: 60 px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1{  text-decoration: double;
+    text-shadow: #333;
+    font-size: 50px;
+    line-height: 64xp;
+    color: black;
+
+}
+h2{  text-decoration: double;
+    text-shadow: #333;
+    font-size: 40px;
+    line-height: 54xp;
+    color: black;
+}
+h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   
+    font-size: 100xp;
+}
+h4{
+    font-size: 20px;
+    color: #000;
+}
+h6{
+    font-weight: 700;
+    font-size: 12xp;
+
+}
+p{   text-shadow: #465;
+    font-size: 20xp;
+    color: #465;
+    margin: 15xp 0 20xp 0;
+
+}
+
+
+
+.page-header{
+    background-color: rgb(216, 241, 253);
+    width: 100%;
+    height: 20vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+/* ajuster les produits*/
+
+#product{
+    text-align: center;
+    
+}
+#product .pro-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5px;
+    flex-wrap: wrap; 
+
+}
+#product .pro{
+    width: 5%;
+    min-width: 150px;
+    padding: 10px 22px;
+    border: 4px solid #cce7d0;
+    margin: 2%;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15xp 0;
+    transition: 0.2s ease;
+
+
+}
+
+#product .pro:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+
+}
+
+#product .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product .pro .des{
+    padding: 10xp 0;
+}
+#product .pro .des span{
+    color: #545455;
+    font-size: 12px;
+    }
+#product .pro .des h5{
+    padding-top: 7px;
+    color: #000;
+    font-size: 14px;
+}
+#product .pro .des h4{
+    padding-top: 7px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #088;
+
+}
+
+
+
+
+
+
+
+/* ajuster le bouton de add */
+
+.btn{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1xp;
+    font-weight: bold;
+    background-color: rgb(181, 162, 199);
+    width: 10px;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.03;
+    transition-duration: 0.03;
+
+
+}
+.btn:hover, .btn:focus, .btn:active{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
