@@ -18,9 +18,9 @@
             <form action="" method="#">
                 <h3>Add new product</h3>
                 <input type="text" placeholder="Enter product name" name="product_name" class="box">
-                <input type="text" placeholder="Enter product description" name="product_description" class="box">
                 <input type="number" placeholder="Enter product price" name="product_price" class="box">
                 <input type="file" accept="image/png , image/jpeg , image/jpg" name="product_image" class="box">
+
                 <input type="submit" class="btn" name="add_product" value="add product">
             </form>
         </div>
@@ -32,7 +32,7 @@
                         <th>product image</th>
                         <th>product name</th>
                         <th>product price</th>
-                        <th>action</th>
+
                     </tr>
                 </thead>
 
@@ -56,18 +56,31 @@
         var tableau = document.getElementById("product-display-table");
         //la ligne a inserer 
         var tr = document.createElement("tr")
-
-        //colone pour image 
+        tr.id = value["name"];
+        //colonne pour image 
         var tdImg = document.createElement("td")
         //creer un image 
         var img = document.createElement("img");
         img.src = value["image"];
         img.height = "100";
         tdImg.appendChild(img);
-
-
         //inserer la colonne dans la ligne 
-        tr.appendChild(tdImg)
+        tr.appendChild(tdImg);
+
+
+        //colonne pour nom 
+        var tdNom = document.createElement("td");
+        var nom = document.createTextNode(value["name"]);
+        tdNom.appendChild(nom);
+        tr.appendChild(tdNom);
+
+        //colonne pour Prix 
+        var tdPrice = document.createElement("td");
+        var price = document.createTextNode(value["price"]);
+        tdPrice.appendChild(price);
+        tr.appendChild(tdPrice)
+
+
 
         tableau.appendChild(tr);
 
