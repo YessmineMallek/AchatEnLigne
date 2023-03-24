@@ -1,65 +1,89 @@
+:root {
+    --pink: #ff77cd;
+}
+
 /* Cibler tous les elements du page */
 * {
     margin: 0;
     padding: 0;
-}
-
-.container {
-    height: 100vh;
-    width: 100%;
-    background-image: url("images/background.png");
-    background-position: center;
-    background-size: cover;
-    padding-left: 5%;
-    padding-right: 5%;
     box-sizing: border-box;
-    position: relative
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
 }
 
-.navBar {
-    width: 100%;
-    height: 15vh;
-    margin: auto;
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 9%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+
 }
 
-.logo {
-    width: 160px;
-    cursor: pointer
+header .navBar a {
+    font-size: 2rem;
+    padding: 0 1.5rem;
+    color: #666;
 }
 
-.cart {
-    width: 40px;
-    cursor: pointer
+
+header .navBar a:hover {
+    color: var(--pink);
 }
 
-nav {
-    flex: 1;
-    padding-left: 60 px;
-}
-
-nav ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 0px 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
+header .icons a {
+    font-size: 2.5rem;
     color: #333;
+    margin-left: 1.5rem;
 }
 
-.col h1 {
-    font-size: 60px;
+header .icons a:hover {
+    color: var(--pink);
+
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("images/background.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content {
+    padding-left: 50px;
+    padding-top: 10px;
+
+}
+
+.home .content h1 {
+    font-size: 40px;
     font-weight: 100;
     margin-top: 24px;
     margin-bottom: 15px;
     color: #232d60;
 }
 
-
-
+.home .content p {
+    font-size: 20px;
+    color: #6a7199;
+}
 
 .btn {
     display: inline-block;
@@ -84,25 +108,25 @@ nav ul li a {
 
 }
 
-.feature-img {
-    height: 90%;
-    position: absolute;
-    bottom: 0;
-    right: 160px;
+.row {
+    display: flex;
+    align-items: center;
 }
 
-.social-links {
-    transform: rotate(-90deg);
-    position: absolute;
-    left: -80px;
-    bottom: 180px;
+.col {
+    margin-left: 10%;
+    margin-top: 10%;
+    flex-basis: 50%;
 }
 
-.social-links a {
-    text-decoration: none;
+.col p {
+    font-size: 20px;
     color: #6a7199;
-    padding-right: 20px;
-    font-size: 14px;
+}
+
+.col h3 {
+    margin-top: 90%;
+    color: #fff;
 
 }
 
@@ -123,22 +147,22 @@ nav ul li a {
 }
 
 .card1 {
-    background-image: url("images/femme2.jpg");
+    background-image: url("images/fem2.jpg");
 
 }
 
 .card2 {
-    background-image: url("images/homme3.jpg");
+    background-image: url("images/hom.jpg");
 
 }
 
 .card3 {
-    background-image: url("images/enfants.jpg");
+    background-image: url("images/enfant1.jpg");
 
 }
 
 .card4 {
-    background-image: url("images/family.jpg");
+    background-image: url("images/fem1.jpg");
 
 }
 
@@ -146,25 +170,66 @@ nav ul li a {
     transform: translateY(-10px);
 }
 
-.row {
-    display: flex;
-    height: 60%;
-    align-items: center;
+.social-links {
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -80px;
+    bottom: 180px;
 }
 
-.col {
-    margin-left: 10%;
-    margin-top: 10%;
-    flex-basis: 50%;
-}
-
-.col p {
-    font-size: 20px;
+.social-links a {
+    text-decoration: none;
     color: #6a7199;
+    padding-right: 20px;
+    font-size: 14px;
+
 }
 
-.col h3 {
-    margin-top: 90%;
-    color: #fff;
+
+
+
+/*Media queries*/
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+
+    }
+
+    header {
+        padding: 2rem;
+    }
+}
+
+@media (max-width:768px) {
+
+    header .navBar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #eee;
+        border-top: .1rem solid rgba(0, 0, 0, .1);
+    }
+
+    header .navBar a {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: #eee;
+        border: .1rem solid rgba(0, 0, 0, .1);
+        display: block;
+    }
+
+    .home .content h1 {
+        font-size: 30px;
+    }
+
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+
+    }
+
 
 }
