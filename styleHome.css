@@ -86,7 +86,6 @@ header .icons a:hover {
 }
 
 .btn {
-    display: inline-block;
     background: linear-gradient(45deg, #87adfe, #ff77cd);
     border-radius: 6px;
     padding: 10px 20px;
