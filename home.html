@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styleAboutUs.css">
     <link rel="stylesheet" href="serviceStyle.css">
     <link rel="stylesheet" href="styleHome.css">
+    <link rel="stylesheet" href="contactUsStyle.css">
 
     <!--Font awsome links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -23,12 +24,12 @@
             <a href="">Home</a>
             <a href="#about">About</a>
             <a href="">Collection</a>
-            <a href="">Category</a>
+            <a href="#contactUs">Contact Us</a>
 
 
         </div>
         <div class="icons">
-            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="#"><img class="cart" src="images/cart.png"></a>
 
         </div>
     </header>
@@ -52,9 +53,11 @@
                     <div class="card card1">
                         <h3>Femmes</h3>
                     </div>
-                    <div class="card card2">
-                        <h3>hommes</h3>
-                    </div>
+                    <a href="homme/hommetesthtml.html">
+                        <div class="card card2">
+                            <h3>hommes</h3>
+                        </div>
+                    </a>
                     <div class="card card3">
                         <h3>Enfants</h3>
                     </div>
@@ -109,6 +112,36 @@
     </section>
 
     <!--About section ends-->
+    <!--Contacts us starts-->
+    <section class="ContactUs">
+        <h1 class="heading">
+            <span>
+                Contact
+            </span>
+            us
+        </h1>
+        <div class="row">
+            <div class="container" id="contactUs">
+                <form>
+                    <label class="label" for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                    <label class="label" for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+
+                    <label class="label" for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:200px"></textarea>
+
+                    <input class="btn" type="submit" value="Submit">
+                </form>
+
+            </div>
+            <img style="float: right;" width="40%" src="images/contactUs.jpg">
+        </div>
+    </section>
+    <!--Contacts us ends-->
     <!--Service section starts-->
     <section class="service">
 

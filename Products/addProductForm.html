@@ -19,10 +19,20 @@
         <div class="admin-product-form-container">
             <form action="" method="#" name="f1">
                 <h3>Add new product</h3>
-                <input type="text" placeholder="Enter product name" name="product_name" class="box" id="product_name">
+                <label class="label" for="name">Product Name <span class="required">*</span></label>
+                <input type="text" placeholder="Enter product name" name="product_name" class="box" id="product_name"
+                    required>
+                <label class="label" for="Price">Product Price <span class="required">*</span></label>
                 <input type="number" placeholder="Enter product price" name="product_price" class="box"
-                    id="product_price">
-                <input type="file" id="inputFile" accept="image/*" onchange="showFilePath()">
+                    id="product_price" required>
+                <label for="Sexe" class="label">Gender <span class="required">*</span></label><br>
+                <input type="radio" name="sexe" value="femme" checked><span class="sexe">Femme</span>
+                <input type="radio" name="sexe" value="homme"><span class="sexe">Homme</span>
+                <input type="radio" name="sexe" value="enfant"><span class="sexe">Enfant</span>
+                <br>
+                <br>
+
+                <input type="file" id="inputFile" accept="image/*" onchange="showFilePath()" required><br>
 
                 <input type=" button" class="btn" name="add_product" value="Save" onclick="ajouter()">
                 <input type=" button" class="btn" name="update_product" value="Update" onclick="modifier()">
@@ -41,6 +51,7 @@
                         <th>product image</th>
                         <th>product name</th>
                         <th>product price</th>
+                        <th>Gender</th>
 
 
                     </tr>
@@ -58,8 +69,8 @@
 <script>
 
     var products = new Array(
-        { "image": "../images/fem1.jpg", "name": "femme", "price": "20.0" },
-        { "image": "../images/fem2.jpg", "name": "ddd", "price": "50.0" },
+        { "image": "../images/fem1.jpg", "name": "femme", "price": "20.0", "sexe": "femme" },
+        { "image": "../images/fem2.jpg", "name": "ddd", "price": "50.0", "sexe": "homme" },
     );
 
     function creationNoeud(value) {
@@ -103,6 +114,12 @@
         tdPrice.appendChild(price);
         tr.appendChild(tdPrice)
 
+        //colonne pour gender 
+        var tdSexe = document.createElement("td");
+        var sexe = document.createTextNode(value["sexe"]);
+        tdSexe.appendChild(sexe);
+        tr.appendChild(tdSexe);
+
 
         tableau.appendChild(tr);
     }
@@ -126,6 +143,14 @@
         }
         document.getElementById("product_name").value = obj["name"];
         document.getElementById("product_price").value = obj["price"];
+        console.log(document.getElementsByName("sexe"));
+        for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+            if (document.getElementsByName("sexe")[i].value == obj["sexe"]) {
+                console.log(document.getElementsByName("sexe")[i].checked);
+                document.getElementsByName("sexe")[i].checked = true;
+            }
+        }
+
     }
 
 
@@ -140,11 +165,20 @@
         var nom = document.getElementById("product_name").value;
         //price
         var price = document.getElementById("product_price").value;
+        //sexe
+        var sexe;
+        for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+            if (document.getElementsByName("sexe")[i].checked) {
+                sexe = document.getElementsByName("sexe")[i].value;
+            }
+        }
         //image
         let input = document.getElementById("inputFile");
         let file = input.files[0];
-        if (nom != "" && price != "") {
-            var obj = { "image": "../images/" + file.name, "name": nom, "price": price }
+
+        //ajout
+        if (nom != "" && price != "" && input.files.length != 0) {
+            var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
             products.push(obj);
             creationNoeud(obj);
         } else {
@@ -161,12 +195,19 @@
             var nom = document.getElementById("product_name").value;
             //price
             var price = document.getElementById("product_price").value;
-            var obj = { "image": "", "name": nom, "price": price };
+            //sexe
+            var sexe;
+            for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+                if (document.getElementsByName("sexe")[i].checked) {
+                    sexe = document.getElementsByName("sexe")[i].value;
+                }
+            }
+            var obj = { "image": "", "name": nom, "price": price, "sexe": sexe };
 
             if (document.getElementById("inputFile").files.length != 0) {
                 let input = document.getElementById("inputFile");
                 let file = input.files[0];
-                var obj = { "image": "../images/" + file.name, "name": nom, "price": price }
+                var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
 
             } else {
                 for (var i = 0; i < products.length; i++)

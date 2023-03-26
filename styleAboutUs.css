@@ -1,4 +1,6 @@
 .heading {
+    background-color: #D8F2FF;
+
     text-align: center;
     font-size: 4rem;
     color: #87adfe;
@@ -41,7 +43,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 3rem;
-    background: #fff;
+    background: #ffff;
     width: 100%;
     padding: 1rem 2rem;
     text-align: center;
@@ -56,6 +58,7 @@
 .about .row .content h3 {
     font-size: 30px;
     color: #232d60;
+
 }
 
 .about .row .content p {
