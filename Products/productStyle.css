@@ -1,5 +1,8 @@
 :root {
-    --green: #27ae60;
+    --pink: #ff77cd;
+    --blue: #87ADFE;
+    --blueDark: #232D60;
+    --grey: #6A7199;
     --black: #333;
     --white: #fff;
     --bg-color: #ffffffb2;
@@ -7,21 +10,26 @@
     --border: .1rem solid var(--black);
 }
 
+* {
+    font-family: "Lucida Console", Courier, monospace;
+
+}
+
 html {
     background-image: url("../images/background.png");
 }
 
 .btn {
-    display: block;
-    width: 100%;
+    width: 30%;
+    opacity: 0.8;
     cursor: pointer;
     border-radius: .5rem;
     margin-top: 1rem;
-    font-size: 1.7rem;
+    font-size: 1rem;
     padding: 1rem 3rem;
-
     text-align: center;
 }
+
 
 .message {
     display: block;
@@ -57,10 +65,26 @@ html {
 
 .admin-product-form-container form h3 {
     text-transform: uppercase;
-    color: var(--black);
+    color: #87adfe;
     margin-bottom: 1rem;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
+}
+
+.label {
+    width: 100%;
+    font-size: 1.7rem;
+    color: var(--blueDark);
+    text-transform: none;
+}
+
+.required {
+    color: red;
+}
+
+.sexe {
+    font-size: 1.5rem;
+    color: grey;
 }
 
 .admin-product-form-container form .box {
@@ -88,7 +112,8 @@ html {
 
 .product-display .product-display-table th {
     padding: 1rem;
-    font-size: 2rem;
+    color: #87adfe;
+    font-size: 1.5rem;
 }
 
 
@@ -96,16 +121,4 @@ html {
     padding: 1rem;
     font-size: 2rem;
     border-bottom: var(--border);
-}
-
-.product-display .product-display-table .btn:first-child {
-    margin-top: 0;
-}
-
-.product-display .product-display-table .btn:last-child {
-    background: crimson;
-}
-
-.product-display .product-display-table .btn:last-child:hover {
-    background: var(--black);
 }

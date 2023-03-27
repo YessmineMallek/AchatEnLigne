@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styleHome.css">
     <link rel="stylesheet" href="productStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="../images/logo.png">
 
     <title>Add Product</title>
 </head>
@@ -15,24 +17,43 @@
     <div class="container">
         <!--The form to add a product-->
         <div class="admin-product-form-container">
-            <form action="" method="#">
+            <form action="" method="#" name="f1">
                 <h3>Add new product</h3>
-                <input type="text" placeholder="Enter product name" name="product_name" class="box">
-                <input type="text" placeholder="Enter product description" name="product_description" class="box">
-                <input type="number" placeholder="Enter product price" name="product_price" class="box">
-                <input type="file" accept="image/png , image/jpeg , image/jpg" name="product_image" class="box">
-                <input type="submit" class="btn" name="add_product" value="add product">
+                <label class="label" for="name">Product Name <span class="required">*</span></label>
+                <input type="text" placeholder="Enter product name" name="product_name" class="box" id="product_name"
+                    required>
+                <label class="label" for="Price">Product Price <span class="required">*</span></label>
+                <input type="number" placeholder="Enter product price" name="product_price" class="box"
+                    id="product_price" required>
+                <label for="Sexe" class="label">Gender <span class="required">*</span></label><br>
+                <input type="radio" name="sexe" value="femme" checked><span class="sexe">Femme</span>
+                <input type="radio" name="sexe" value="homme"><span class="sexe">Homme</span>
+                <input type="radio" name="sexe" value="enfant"><span class="sexe">Enfant</span>
+                <br>
+                <br>
+
+                <input type="file" id="inputFile" accept="image/*" onchange="showFilePath()" required><br>
+
+                <input type=" button" class="btn" name="add_product" value="Save" onclick="ajouter()">
+                <input type=" button" class="btn" name="update_product" value="Update" onclick="modifier()">
+                <input type=" button" class="btn" name="delete_product" value="Delete" onclick="supprimer()">
+
+                <input type="reset" class="btn" value="Reset" style="align-items: center;">
+
             </form>
         </div>
         <!--the container to display product-->
-        <div class="product-display">
-            <table class="product-display-table" id="product-display-table">
+        <div class=" product-display">
+            <table class="product-display-table" id="product-display-table" name="tab">
                 <thead>
                     <tr>
+                        <th> </th>
                         <th>product image</th>
                         <th>product name</th>
                         <th>product price</th>
-                        <th>action</th>
+                        <th>Gender</th>
+
+
                     </tr>
                 </thead>
 
@@ -43,33 +64,175 @@
     </div>
 </body>
 
+
 </html>
 <script>
+
     var products = new Array(
-        { "image": "../images/fem1.jpg", "name": "femme", "price": "20.0DT" },
-        { "image": "../images/fem2.jpg", "name": "ddd", "price": "50.0DT" },
+        { "image": "../images/fem1.jpg", "name": "femme", "price": "20.0", "sexe": "femme" },
+        { "image": "../images/fem2.jpg", "name": "ddd", "price": "50.0", "sexe": "homme" },
     );
-    products.forEach(afficher);
-    function afficher(value, index, array) {
-        console.log(value["name"]);
+
+    function creationNoeud(value) {
         //recuperer la zone de saisie 
         var tableau = document.getElementById("product-display-table");
         //la ligne a inserer 
         var tr = document.createElement("tr")
+        tr.id = value["name"];
 
-        //colone pour image 
+        //radio button
+        var tdBtn = document.createElement("td");
+        var input = document.createElement("input");
+        input.type = "radio";
+        input.name = "products";
+        input.setAttribute("onclick", "showDonner(this)");
+        input.value = value["name"];
+        tdBtn.appendChild(input);
+        tr.appendChild(tdBtn);
+
+
+        //colonne pour image 
         var tdImg = document.createElement("td")
         //creer un image 
         var img = document.createElement("img");
         img.src = value["image"];
         img.height = "100";
         tdImg.appendChild(img);
-
-
         //inserer la colonne dans la ligne 
-        tr.appendChild(tdImg)
+        tr.appendChild(tdImg);
+
+
+        //colonne pour nom 
+        var tdNom = document.createElement("td");
+        var nom = document.createTextNode(value["name"]);
+        tdNom.appendChild(nom);
+        tr.appendChild(tdNom);
+
+        //colonne pour Prix 
+        var tdPrice = document.createElement("td");
+        var price = document.createTextNode(value["price"]);
+        tdPrice.appendChild(price);
+        tr.appendChild(tdPrice)
+
+        //colonne pour gender 
+        var tdSexe = document.createElement("td");
+        var sexe = document.createTextNode(value["sexe"]);
+        tdSexe.appendChild(sexe);
+        tr.appendChild(tdSexe);
+
 
         tableau.appendChild(tr);
+    }
+
+    products.forEach(afficher);
+    function afficher(value, index, array) {
+
+        creationNoeud(value);
+
+    }
+    function showDonner(data) {
+        console.log(data.value);
+        var sel = document.getElementsByName("products");
+        var obj;
+
+        for (var i = 0; i < products.length; i++) {
+            console.log(i);
+            console.log(products[i]);
+            if (products[i]["name"] == data.value)
+                obj = products[i];
+        }
+        document.getElementById("product_name").value = obj["name"];
+        document.getElementById("product_price").value = obj["price"];
+        console.log(document.getElementsByName("sexe"));
+        for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+            if (document.getElementsByName("sexe")[i].value == obj["sexe"]) {
+                console.log(document.getElementsByName("sexe")[i].checked);
+                document.getElementsByName("sexe")[i].checked = true;
+            }
+        }
+
+    }
+
+
+
+    function showFilePath() {
+        let input = document.getElementById("inputFile");
+        let file = input.files[0];
+        console.log(file.name);
+    }
+    function ajouter() {
+        //nom
+        var nom = document.getElementById("product_name").value;
+        //price
+        var price = document.getElementById("product_price").value;
+        //sexe
+        var sexe;
+        for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+            if (document.getElementsByName("sexe")[i].checked) {
+                sexe = document.getElementsByName("sexe")[i].value;
+            }
+        }
+        //image
+        let input = document.getElementById("inputFile");
+        let file = input.files[0];
+
+        //ajout
+        if (nom != "" && price != "" && input.files.length != 0) {
+            var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
+            products.push(obj);
+            creationNoeud(obj);
+        } else {
+            alert("please fill out all")
+        }
+
+
+    }
+    /*****************************Modifier Method*************************/
+    function modifier() {
+
+
+        if (nom != "" && price != "") {
+            var nom = document.getElementById("product_name").value;
+            //price
+            var price = document.getElementById("product_price").value;
+            //sexe
+            var sexe;
+            for (var i = 0; i < document.getElementsByName("sexe").length; i++) {
+                if (document.getElementsByName("sexe")[i].checked) {
+                    sexe = document.getElementsByName("sexe")[i].value;
+                }
+            }
+            var obj = { "image": "", "name": nom, "price": price, "sexe": sexe };
+
+            if (document.getElementById("inputFile").files.length != 0) {
+                let input = document.getElementById("inputFile");
+                let file = input.files[0];
+                var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
+
+            } else {
+                for (var i = 0; i < products.length; i++)
+                    if (products[i]["name"] == nom) {
+                        console.log(products[i]["image"]);
+                        obj["image"] = products[i]["image"];
+
+                    }
+            }
+
+            products.push(obj);
+            document.getElementById(nom).remove();
+            creationNoeud(obj);
+        }
+
+    }
+    /*****************Supprimer method*********************/
+    function supprimer() {
+        var nom = document.getElementById("product_name").value;
+        for (var i = 0; i < products.length; i++)
+            if (products[i]["name"] == nom) {
+            }
+        document.getElementById(nom).remove();
+        document.getElementById("product_name").value = "";
+        document.getElementById("product_price").value = 0;
 
     }
 
