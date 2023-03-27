@@ -3,66 +3,173 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleAboutUs.css">
+    <link rel="stylesheet" href="serviceStyle.css">
     <link rel="stylesheet" href="styleHome.css">
+    <link rel="stylesheet" href="contactUsStyle.css">
+
+    <!--Font awsome links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png">
     <title>home</title>
 </head>
 
 <body>
-    <div class="container">
+    <!--Heder section starts -->
+    <header>
+        <img width="130px" src="images/logo.png" class="logo">
+
         <div class="navBar">
-            <img src="images/logo.png" class="logo">
-            <nav>
-                <ul>
-                    <li><a htef="">Home</a></li>
-                    <li><a htef="">About</a></li>
-                    <li><a htef="">Collection</a></li>
-                    <li><a htef="">Category</a></li>
 
-                </ul>
-
-            </nav>
-            <img src="images/cart.png" class="cart">
-
-        </div>
-        <div class="row">
-            <div class="col">
-                <a href="" class="btn">2023 collections</a>
-                <h1>You should always feel pretty</h1>
-                <p>clothes that are sure to heat up your winter</p>
-                <div class="arrow-icons">
-                    <img src="images/back-arrow.png">
-                    <img src="images/next-arrow.png">
-
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card1">
-                    <h3>Femmes</h3>
-                </div>
-                <div class="card card2">
-                    <h3>hommes</h3>
-                </div>
-                <div class="card card3">
-                    <h3>Enfants</h3>
-                </div>
-                <div class="card card4">
-                    <h3>Tous</h3>
-                </div>
-
-            </div>
+            <a href="">Home</a>
+            <a href="#about">About</a>
+            <a href="">Collection</a>
+            <a href="#contactUs">Contact Us</a>
 
 
         </div>
+        <div class="icons">
+            <a href="#"><img class="cart" src="images/cart.png"></a>
+
+        </div>
+    </header>
+    <!--Heder section ends -->
+
+    <!--Home section starts-->
+    <section class="home" id="home">
+        <div class="content">
+            <div class="row">
+                <div class="col">
+                    <a href="" class="btn">2023 collections</a>
+                    <h1>You should always feel pretty</h1>
+                    <p>clothes that are sure to heat up your winter</p>
+                    <div class="arrow-icons">
+                        <img src="images/back-arrow.png">
+                        <img src="images/next-arrow.png">
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card card1">
+                        <h3>Femmes</h3>
+                    </div>
+                    <a href="homme/hommetesthtml.html">
+                        <div class="card card2">
+                            <h3>hommes</h3>
+                        </div>
+                    </a>
+                    <div class="card card3">
+                        <h3>Enfants</h3>
+                    </div>
+                    <div class="card card4">
+                        <h3>Tous</h3>
+                    </div>
+
+                </div>
 
 
+            </div>
+        </div>
         <div class="social-links">
             <a href="">FACEBOOK</a>
             <a href="">INSTAGRAM</a>
+        </div>
+    </section>
+
+    <!--Home section ends-->
+
+
+
+
+    <!--About section starts-->
+    <section class="about" id="about">
+        <h1 class="heading">
+            <span>
+                About
+            </span>
+            us
+        </h1>
+        <div class="row">
+            <div class="video-container">
+                <video src="images/video.mp4" loop autoplay muted></video>
+                <h3>Best Clothes sellers</h3>
+            </div>
+            <div class="content">
+                <h3>Why choose us ? </h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus culpa assumenda corrupti ab
+                    reiciendis facilis inventore saepe, consectetur iure nesciunt eaque nam odit iste sit beatae fuga
+                    aperiam rem neque!</p>
+
+
+            </div>
+
+
 
 
 
         </div>
-    </div>
+
+    </section>
+
+    <!--About section ends-->
+    <!--Contacts us starts-->
+    <section class="ContactUs">
+        <h1 class="heading">
+            <span>
+                Contact
+            </span>
+            us
+        </h1>
+        <div class="row">
+            <div class="container" id="contactUs">
+                <form>
+                    <label class="label" for="fname">First Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                    <label class="label" for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+
+                    <label class="label" for="subject">Subject</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:200px"></textarea>
+
+                    <input class="btn" type="submit" value="Submit">
+                </form>
+
+            </div>
+            <img style="float: right;" width="40%" src="images/contactUs.jpg">
+        </div>
+    </section>
+    <!--Contacts us ends-->
+    <!--Service section starts-->
+    <section class="service">
+
+        <div class="box-container">
+
+            <div class="box">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>fast delivery</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-undo"></i>
+                <h3>10 days replacements</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-headset"></i>
+                <h3>24 x 7 support</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+            </div>
+
+        </div>
+
+    </section>
+    <!--Service section ends-->
+
 </body>
 
 </html>
