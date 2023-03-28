@@ -42,10 +42,12 @@
                 <div class="col">
                     <a href="" class="btn">2023 collections</a>
                     <h1>You should always feel pretty</h1>
-                    <p>clothes that are sure to heat up your winter</p>
+                    <p id="displayData"></p>
                     <div class="arrow-icons">
-                        <img src="images/back-arrow.png">
-                        <img src="images/next-arrow.png">
+                        <input type="image" onclick="back()" style=" height: 50px;width: 50px;"
+                            src="images/back-arrow.png">
+                        <input type="image" style=" height: 50px;width: 50px;padding-left: 5px;" onclick="next()"
+                            src="images/next-arrow.png">
 
                     </div>
                 </div>
@@ -173,3 +175,35 @@
 </body>
 
 </html>
+<script>
+    var i = 1;
+    const quotes = [
+        "clothes that are sure to heat up your winter.",
+        "Clothes aren't going to change the world, but the women who wear them will.",
+        "Style is a way to say who you are without having to speak.",
+        "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
+        "Fashion is about dressing according to what's fashionable. Style is more about being yourself.",
+        "The dress must follow the body of a woman, not the body following the shape of the dress.",
+        "Fashion is the armor to survive the reality of everyday life."];
+    var place = document.getElementById("displayData");
+    var texte = document.createTextNode(quotes[0]);
+    place.appendChild(texte);
+    function back() {
+
+        if (i > 0) {
+            i--;
+
+            document.getElementById("displayData").innerHTML = "";
+            var texte = document.createTextNode(quotes[i]);
+            place.appendChild(texte);
+        }
+    }
+    function next() {
+        if (i < quotes.length) {
+            document.getElementById("displayData").innerHTML = "";
+            var texte = document.createTextNode(quotes[i]);
+            place.appendChild(texte);
+            i++;
+        }
+    }
+</script>
