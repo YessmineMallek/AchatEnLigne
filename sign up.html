@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="signUp.css">
+    <title>Sign in and sign up form </title>
+    <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navBar">
+            <img src="images/logo.png" class="logo">
+            <!-- <nav>
+                <ul>
+                    <li><a htef="">Home</a></li>
+                    <li><a htef="">About</a></li>
+                    <li><a htef="">Collection</a></li>
+                    <li><a htef="">Category</a></li>
+
+                </ul>
+
+            </nav>
+            <img src="images/cart.png" class="cart">
+        !-->
+        </div>
+        <div class="main">
+            <div class="form-box">
+                <h1 id="title">Sign up </h1>
+                <form>
+                    <div class="input-group">
+                        <div class="input-field" id="nameField">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" placeholder="Name">
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" placeholder="Email" id="email">
+                        </div>
+
+                        <div class="input-field">
+                            <i class="fa-solid fa-key"></i>
+                            <input type="password" placeholder="Password" id="password">
+                        </div>
+                        <p>Lost password <a href="#">Click here ! </a></p>
+                    </div>
+                    <div class="btn-field">
+                        <button type="button" id="signupBtn" ondblclick="signUp()">Sign up</button>
+                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()">Sign in</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="">FACEBOOK</a>
+            <a href="">INSTAGRAM</a>
+
+
+
+        </div>
+    </div>
+    <script>
+
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameField = document.getElementById("nameField");
+        let title = document.getElementById("title");
+
+        signinBtn.onclick = function () {
+            nameField.style.maxHeight = "0";
+            title.innerHTML = "Sign In ";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+        }
+
+        signupBtn.onclick = function () {
+            nameField.style.maxHeight = "60px";
+            title.innerHTML = "Sign Up ";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+        }
+        function signUp() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            if (email != "" && password != "") {
+                if (email == "admin" && password == "admin") {
+                    localStorage.setItem("role", "admin");
+                } else {
+                    localStorage.setItem("role", "autre");
+                }
+                window.location.href = "home.html";
+            } else {
+                alert("please fill out all");
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

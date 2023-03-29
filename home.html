@@ -23,13 +23,15 @@
 
             <a href="">Home</a>
             <a href="#about">About</a>
-            <a href="">Collection</a>
             <a href="#contactUs">Contact Us</a>
+            <a href="">Collection</a>
+
 
 
         </div>
-        <div class="icons">
-            <a href="#"><img class="cart" src="images/cart.png"></a>
+        <div class="navBar2">
+            <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
+            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
         </div>
     </header>
@@ -40,7 +42,7 @@
         <div class="content">
             <div class="row">
                 <div class="col">
-                    <a href="" class="btn">2023 collections</a>
+                    <a id="product" href="Products/addProductForm.html" class="btn">Add Product</a>
                     <h1>You should always feel pretty</h1>
                     <p id="displayData"></p>
                     <div class="arrow-icons">
@@ -52,20 +54,27 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card card1">
-                        <h3>Femmes</h3>
-                    </div>
-                    <a href="homme/hommetesthtml.html">
+                    <a id="lienFemme">
+                        <div class="card card1">
+                            <h3>Femmes</h3>
+                        </div>
+                    </a>
+                    <a id="lienHomme">
                         <div class="card card2">
                             <h3>hommes</h3>
                         </div>
                     </a>
-                    <div class="card card3">
-                        <h3>Enfants</h3>
-                    </div>
-                    <div class="card card4">
-                        <h3>Tous</h3>
-                    </div>
+                    <a id="lienEnfant">
+                        <div class="card card3">
+                            <h3>Enfants</h3>
+                        </div>
+                    </a>
+                    <a id="lienAll">
+                        <div class="card card4">
+                            <h3>Tous</h3>
+                        </div>
+                    </a>
+
 
                 </div>
 
@@ -176,6 +185,12 @@
 
 </html>
 <script>
+
+    var productsBtn = document.getElementById("product");
+    var lienHom = document.getElementById("lienHomme");
+    var lienFem = document.getElementById("lienFemme");
+    var lienEn = document.getElementById("lienEnfant");
+    var lienAutre = document.getElementById("lienAll");
     var i = 1;
     const quotes = [
         "clothes that are sure to heat up your winter.",
@@ -188,6 +203,15 @@
     var place = document.getElementById("displayData");
     var texte = document.createTextNode(quotes[0]);
     place.appendChild(texte);
+    var role = localStorage.getItem("role");
+
+
+
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "sign up.html"
+    }
+
     function back() {
 
         if (i > 0) {
@@ -200,10 +224,27 @@
     }
     function next() {
         if (i < quotes.length) {
+            i++;
             document.getElementById("displayData").innerHTML = "";
             var texte = document.createTextNode(quotes[i]);
             place.appendChild(texte);
-            i++;
         }
+    }
+    console.log(role);
+
+    if (role == null) {
+        lienHom.setAttribute("href", "sign up.html");
+        lienFem.setAttribute("href", "sign up.html");
+        lienEn.setAttribute("href", "sign up.html");
+        lienAutre.setAttribute("href", "sign up.html");
+
+    } else {
+        if (role != "admin") {
+            productsBtn.hidden = true;
+        }
+        lienHom.setAttribute("href", "homme/hommetesthtml.html");
+        lienFem.setAttribute("href", "");
+        lienEn.setAttribute("href", "");
+        lienAutre.setAttribute("href", "");
     }
 </script>
