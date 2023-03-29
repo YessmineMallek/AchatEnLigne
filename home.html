@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styleAboutUs.css">
     <link rel="stylesheet" href="serviceStyle.css">
@@ -11,6 +12,7 @@
     <!--Font awsome links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="images/logo.png">
+
     <title>home</title>
 </head>
 
@@ -30,6 +32,8 @@
 
         </div>
         <div class="navBar2">
+            <a id="panier" href="#"><img class="cart" src="images/cart.png"></a>
+
             <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
@@ -185,12 +189,12 @@
 
 </html>
 <script>
-
     var productsBtn = document.getElementById("product");
     var lienHom = document.getElementById("lienHomme");
     var lienFem = document.getElementById("lienFemme");
     var lienEn = document.getElementById("lienEnfant");
     var lienAutre = document.getElementById("lienAll");
+    var lienPanier = document.getElementById("panier");
     var i = 1;
     const quotes = [
         "clothes that are sure to heat up your winter.",
@@ -237,6 +241,8 @@
         lienFem.setAttribute("href", "sign up.html");
         lienEn.setAttribute("href", "sign up.html");
         lienAutre.setAttribute("href", "sign up.html");
+        lienPanier.setAttribute("href", "sign up.html");
+
 
     } else {
         if (role != "admin") {
@@ -246,5 +252,6 @@
         lienFem.setAttribute("href", "");
         lienEn.setAttribute("href", "");
         lienAutre.setAttribute("href", "");
+        lienPanier.setAttribute("href", "panier.html");
     }
 </script>

@@ -3,92 +3,119 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleHome.css">
+
     <link rel="stylesheet" href="panier.css">
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
     <title>Your Bag</title>
+
 </head>
 
 <body>
-    <div class="container">
+    <!--Heder section starts -->
+    <header>
+        <img width="130px" src="images/logo.png" class="logo">
+
         <div class="navBar">
-            <img src="images/logo-removebg-preview.png" class="logo">
-            <nav>
-                <ul>
-                    <li><a htef="">Home</a></li>
-                    <li><a htef="">About</a></li>
-                    <li><a htef="">Collection</a></li>
-                    <li><a htef="">Category</a></li>
-                </ul>
-            </nav>
+
+            <a href="home.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#contactUs">Contact Us</a>
+            <a href="">Collection</a>
+
+
+
         </div>
-        <div class="main">
-            <p id="titre">Your Bag </p>
-            <div class="meh">
-                <table>
-                    <tr class="heading">
-                        <td>Products</td>
-                        <td>Description</td>
-                        <td>Quantity</td>
-                        <td>Price</td>
-                        <td>Delete</td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/f1.jpg" class="image"></td>
-                        <td>every day oil </td>
-                        <td>1</td>
-                        <td>50TND</td>
-                        <td><i class="fa-regular fa-circle-xmark"></i></td>
-                    </tr>
-                    <tr>
-                        <td><img src="images/f1.jpg" class="image"></td>
-                        <td>every day oil </td>
-                        <td>1</td>
-                        <td>50TND</td>
-                        <td><i class="fa-regular fa-circle-xmark"></i></td>
-                    </tr>
-                </table>
+        <div class="navBar2">
+            <a id="panier" href="#"><img class="cart" src="images/cart.png"></a>
+
+            <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
+            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+
+        </div>
+    </header>
+    <!--Heder section ends -->
+
+    <!--Home section starts-->
+    <section class="home" id="home">
+        <div class="container">
+
+            <div class="main">
+                <p id="titre">Your Bag </p>
+                <div class="meh">
+                    <table>
+                        <tr class="heading">
+                            <td>Products</td>
+                            <td>Description</td>
+                            <td>Quantity</td>
+                            <td>Price</td>
+                            <td>Delete</td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/fem1.jpg" class="image"></td>
+                            <td>every day oil </td>
+                            <td>1</td>
+                            <td>50TND</td>
+                            <td><i class="fa-regular fa-circle-xmark"></i></td>
+                        </tr>
+                        <tr>
+                            <td><img src="images/fem2.jpg" class="image"></td>
+                            <td>every day oil </td>
+                            <td>1</td>
+                            <td>50TND</td>
+                            <td><i class="fa-regular fa-circle-xmark"></i></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="box">
+                    <p id="font">Order Summary</p>
+                    <hr class="line">
+                    <div class="element">
+                        <div class="left">
+                            <p>Products</p>
+                        </div>
+                        <div class="right">
+                            <p>100TND</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="element">
+                        <div class="left">
+                            <p>Shipping</p>
+                        </div>
+                        <div class="right">
+                            <p>10TND</p>
+                        </div>
+                    </div>
+                    <br>
+                    <hr class="line">
+                    <div class="total">
+                        <div class="left">
+                            <p>Total</p>
+                        </div>
+                        <div class="right">
+                            <p>150TND</p>
+                        </div>
+                    </div>
+                    <div id="checkout">
+                        <p> Checkout </p>
+                    </div>
+                </div>
             </div>
-            <div class="box">
-                <p id="font">Order Summary</p>
-                <hr class="line">
-                <div class="element">
-                    <div class="left">
-                        <p>Products</p>
-                    </div>
-                    <div class="right">
-                        <p>100TND</p>
-                    </div>
-                </div>
-                <br>
-                <div class="element">
-                    <div class="left">
-                        <p>Shipping</p>
-                    </div>
-                    <div class="right">
-                        <p>10TND</p>
-                    </div>
-                </div>
-                <br>
-                <hr class="line">
-                <div class="total">
-                    <div class="left">
-                        <p>Total</p>
-                    </div>
-                    <div class="right">
-                        <p>150TND</p>
-                    </div>
-                </div>
-                <div id="checkout">
-                    <p> Checkout </p>
-                </div>
-            </div>
+
+
+
         </div>
 
         <div class="social-links">
             <a href="">FACEBOOK</a>
             <a href="">INSTAGRAM</a>
         </div>
-    </div>
+    </section>
+
+    <!--Home section ends-->
+
+
 </body>
 
 </html>
