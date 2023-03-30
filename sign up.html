@@ -90,6 +90,8 @@
                 } else {
                     localStorage.setItem("role", "autre");
                 }
+                var products = [];
+                localStorage.setItem("panier", JSON.stringify(products));
                 window.location.href = "home.html";
             } else {
                 alert("please fill out all");

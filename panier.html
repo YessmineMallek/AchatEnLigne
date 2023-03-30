@@ -7,6 +7,10 @@
 
     <link rel="stylesheet" href="panier.css">
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="images/logo.png">
+    <script src="homme/articles.js"></script>
+
     <title>Your Bag</title>
 
 </head>
@@ -43,28 +47,16 @@
             <div class="main">
                 <p id="titre">Your Bag </p>
                 <div class="meh">
-                    <table>
+                    <table id="tab">
                         <tr class="heading">
-                            <td>Products</td>
-                            <td>Description</td>
-                            <td>Quantity</td>
-                            <td>Price</td>
-                            <td>Delete</td>
+                            <th>Products</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Delete</th>
                         </tr>
-                        <tr>
-                            <td><img src="images/fem1.jpg" class="image"></td>
-                            <td>every day oil </td>
-                            <td>1</td>
-                            <td>50TND</td>
-                            <td><i class="fa-regular fa-circle-xmark"></i></td>
-                        </tr>
-                        <tr>
-                            <td><img src="images/fem2.jpg" class="image"></td>
-                            <td>every day oil </td>
-                            <td>1</td>
-                            <td>50TND</td>
-                            <td><i class="fa-regular fa-circle-xmark"></i></td>
-                        </tr>
+
+
                     </table>
                 </div>
                 <div class="box">
@@ -119,3 +111,72 @@
 </body>
 
 </html>
+<script>
+
+
+
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "sign up.html"
+    }
+    var produitsTableau = [];
+
+    function creationNoeud(ele) {
+        var table = document.getElementById("tab")
+        var tr = document.createElement("tr");
+
+        /*************Td image*************************/
+        var tdImage = document.createElement("td");
+        var img = document.createElement("img");
+        img.className = "image";
+        img.src = ele["img"];
+        tdImage.appendChild(img);
+        /*************Td Name*************************/
+        var tdName = document.createElement("td");
+        var name = document.createTextNode(ele["name"]);
+        tdName.appendChild(name);
+
+        /*************td Qte*******************/
+        var tdQte = document.createElement("td");
+        var qte = document.createTextNode(ele["qte"]);
+        tdQte.appendChild(qte);
+
+        /**************td price***********************/
+        var tdPrice = document.createElement("td");
+        var price = document.createTextNode(ele["price"] + "TND");
+        tdPrice.appendChild(price);
+        /*****************td delete Icon***************************/
+        var tdIcon = document.createElement("td");
+        var iIcon = document.createElement("i");
+        iIcon.className = "fa-regular fa-circle-xmark"
+        tdIcon.appendChild(iIcon);
+
+        tr.appendChild(tdImage);
+        tr.appendChild(tdName);
+        tr.appendChild(tdQte);
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdIcon);
+        table.appendChild(tr);
+
+    }
+    var products = JSON.parse(localStorage.getItem("panier"));
+    products.forEach(element => {
+        var obj = { "name": "", "price": 0, "img": "", "qte": 0 }
+        articles.forEach((ele) => {
+
+            if (ele["id"] == element["id"]) {
+                obj["name"] = ele["name"];
+                obj["price"] = ele["price"];
+                obj["img"] = "homme/" + ele["img"];
+                obj["qte"] = element["qte"];
+
+            }
+        });
+        creationNoeud(obj);
+
+    });
+
+
+
+
+</script>

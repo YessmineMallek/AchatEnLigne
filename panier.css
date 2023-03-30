@@ -169,6 +169,10 @@ hr {
     padding-bottom: 7px;
 }
 
+th {
+    font-size: medium;
+}
+
 .right {
     float: right;
 }

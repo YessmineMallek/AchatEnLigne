@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="hommetesthtml.css">
+    <link rel="icon" href="../images/logo.png">
+    <script src="articles.js"></script>
+    <title>Men Collection</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="navBar">
+                <img src="logo.png" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="">home</a></li>
+                        <li><a href="">about</a></li>
+                        <li><a href="">collection</a></li>
+                        <li><a href="">category</a></li>
+
+                    </ul>
+
+                </nav>
+                <img src="../images/cart.png" class="cart">
+
+            </div>
+        </div>
+    </section>
+    <section class="manfashion">
+        <div class="page-header">
+            <h3>man fashion</h3>
+
+            <p> summer collection New Modern Design</p>
+
+        </div>
+    </section>
+    <div>
+        <section id="product">
+
+            <div class="pro-container" id="pro-container">
+
+
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    function navigate(id) {
+
+        window.location.href = 'article.html?id=' + id;
+    }
+    function creationNoeud(art) {
+        var container = document.getElementById("pro-container");
+        /*********div avec classe pro****/
+        var divParante = document.createElement("div");
+        divParante.className = "pro";
+        divParante.id = art["id"]
+        divParante.setAttribute("onclick", "navigate(this.id)")
+
+        /********************Image*****************/
+        var image = document.createElement("img");
+        image.src = art["img"];
+        /********div pour la classe description**************/
+        var divDesc = document.createElement("div");
+        divDesc.className = "des";
+
+        /************le lien***********/
+        var lien = document.createElement("a");
+        var icon = document.createElement("i");
+        icon.className = "fal fa-shopping-cart";
+        lien.appendChild(icon);
+
+        divParante.appendChild(image);
+        divParante.appendChild(divDesc);
+        divParante.appendChild(lien);
+
+        /************Description*****************/
+        //span
+        var span = document.createElement("span");
+        var marque = document.createTextNode(art["marque"]);
+        span.appendChild(marque);
+        //h5
+        var h5 = document.createElement("h5");
+        var name = document.createTextNode(art["name"]);
+        h5.appendChild(name);
+
+        //h4
+        var h4 = document.createElement("h4");
+        var price = document.createTextNode(art["price"] + "dt");
+        h4.appendChild(price);
+        //buy it link
+        var buyIt = document.createElement("a");
+        buyIt.className = "btn";
+        var buyItText = document.createTextNode("buy it");
+        buyIt.appendChild(buyItText);
+
+        divDesc.appendChild(span);
+        divDesc.appendChild(h5);
+        divDesc.appendChild(h4);
+        divDesc.appendChild(buyIt);
+        container.appendChild(divParante);
+    }
+    articles.forEach(afficher);
+    function afficher(value, index, array) {
+
+        creationNoeud(value);
+
+    }
+</script>
