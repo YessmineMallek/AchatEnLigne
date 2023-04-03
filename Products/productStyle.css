@@ -15,6 +15,12 @@
 
 }
 
+.home {
+    margin-top: 10%;
+    margin-left: 30%;
+    background-image: none;
+}
+
 html {
     background-image: url("../images/background.png");
 }
@@ -41,14 +47,9 @@ html {
     text-align: center;
 }
 
-.container {
-    max-width: 1200px;
-    padding: 2rem;
-    margin: 0 auto;
-}
+
 
 .admin-product-form-container.centered {
-    display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
@@ -56,8 +57,8 @@ html {
 }
 
 .admin-product-form-container form {
+
     max-width: 50rem;
-    margin: 0 auto;
     padding: 2rem;
     border-radius: .5rem;
     background: var(--bg-color);

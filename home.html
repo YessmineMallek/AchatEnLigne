@@ -2,16 +2,20 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styleAboutUs.css">
     <link rel="stylesheet" href="serviceStyle.css">
     <link rel="stylesheet" href="styleHome.css">
-    <link rel="stylesheet" href="contactUsStyle.css">
+    <link rel="stylesheet" href="navBarStyle.css">
 
+    <link rel="stylesheet" href="contactUsStyle.css">
     <!--Font awsome links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="images/logo.png">
-    <title>home</title>
+    <script src="authentification.js"></script>
+
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -23,13 +27,17 @@
 
             <a href="">Home</a>
             <a href="#about">About</a>
-            <a href="">Collection</a>
             <a href="#contactUs">Contact Us</a>
+            <a href="">Collection</a>
+
 
 
         </div>
-        <div class="icons">
-            <a href="#"><img class="cart" src="images/cart.png"></a>
+        <div class="navBar2">
+            <a id="panier" href="#"><img class="cart" src="images/cart.png"></a>
+
+            <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
+            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
         </div>
     </header>
@@ -40,30 +48,39 @@
         <div class="content">
             <div class="row">
                 <div class="col">
-                    <a href="" class="btn">2023 collections</a>
+                    <a id="product" href="Products/addProductForm.html" class="btn">Add Product</a>
                     <h1>You should always feel pretty</h1>
-                    <p>clothes that are sure to heat up your winter</p>
+                    <p id="displayData"></p>
                     <div class="arrow-icons">
-                        <img src="images/back-arrow.png">
-                        <img src="images/next-arrow.png">
+                        <input type="image" onclick="back()" style=" height: 50px;width: 50px;"
+                            src="images/back-arrow.png">
+                        <input type="image" style=" height: 50px;width: 50px;padding-left: 5px;" onclick="next()"
+                            src="images/next-arrow.png">
 
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card card1">
-                        <h3>Femmes</h3>
-                    </div>
-                    <a href="homme/hommetesthtml.html">
+                    <a id="lienFemme">
+                        <div class="card card1">
+                            <h3>Femmes</h3>
+                        </div>
+                    </a>
+                    <a id="lienHomme">
                         <div class="card card2">
                             <h3>hommes</h3>
                         </div>
                     </a>
-                    <div class="card card3">
-                        <h3>Enfants</h3>
-                    </div>
-                    <div class="card card4">
-                        <h3>Tous</h3>
-                    </div>
+                    <a id="lienEnfant">
+                        <div class="card card3">
+                            <h3>Enfants</h3>
+                        </div>
+                    </a>
+                    <a id="lienAll">
+                        <div class="card card4">
+                            <h3>Tous</h3>
+                        </div>
+                    </a>
+
 
                 </div>
 
@@ -173,3 +190,69 @@
 </body>
 
 </html>
+<script>
+    var productsBtn = document.getElementById("product");
+    var lienHom = document.getElementById("lienHomme");
+    var lienFem = document.getElementById("lienFemme");
+    var lienEn = document.getElementById("lienEnfant");
+    var lienAutre = document.getElementById("lienAll");
+    var lienPanier = document.getElementById("panier");
+    var i = 1;
+    const quotes = [
+        "clothes that are sure to heat up your winter.",
+        "Clothes aren't going to change the world, but the women who wear them will.",
+        "Style is a way to say who you are without having to speak.",
+        "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
+        "Fashion is about dressing according to what's fashionable. Style is more about being yourself.",
+        "The dress must follow the body of a woman, not the body following the shape of the dress.",
+        "Fashion is the armor to survive the reality of everyday life."];
+    var place = document.getElementById("displayData");
+    var texte = document.createTextNode(quotes[0]);
+    place.appendChild(texte);
+    var role = localStorage.getItem("role");
+
+
+
+
+    function back() {
+
+        if (i > 0) {
+            i--;
+
+            document.getElementById("displayData").innerHTML = "";
+            var texte = document.createTextNode(quotes[i]);
+            place.appendChild(texte);
+        }
+    }
+    function next() {
+        if (i < quotes.length) {
+            i++;
+            document.getElementById("displayData").innerHTML = "";
+            var texte = document.createTextNode(quotes[i]);
+            place.appendChild(texte);
+        }
+    }
+    console.log(role);
+    if (role != "admin") {
+        productsBtn.hidden = true;
+    } else {
+        productsBtn.hidden = false;
+
+    }
+    if (role == null) {
+        lienHom.setAttribute("href", "sign up.html");
+        lienFem.setAttribute("href", "sign up.html");
+        lienEn.setAttribute("href", "sign up.html");
+        lienAutre.setAttribute("href", "sign up.html");
+        lienPanier.setAttribute("href", "sign up.html");
+
+
+    } else {
+
+        lienHom.setAttribute("href", "homme/homme.html");
+        lienFem.setAttribute("href", "");
+        lienEn.setAttribute("href", "");
+        lienAutre.setAttribute("href", "");
+        lienPanier.setAttribute("href", "panier.html");
+    }
+</script>

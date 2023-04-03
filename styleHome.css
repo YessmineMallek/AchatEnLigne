@@ -31,6 +31,24 @@ html {
     align-items: center;
 }
 
+.navBar2 {
+    width: 100%;
+    height: 15vh;
+    margin-left: 50%;
+    display: flex;
+    align-items: center;
+}
+
+header .navBar2 a {
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navBar2 a:hover {
+    color: var(--pink);
+}
+
 header {
     position: absolute;
     top: 0;
@@ -40,6 +58,7 @@ header {
     display: flex;
     align-items: center;
     z-index: 1000;
+
 
 }
 
@@ -54,16 +73,7 @@ header .navBar a:hover {
     color: var(--pink);
 }
 
-header .icons a {
-    font-size: 2.5rem;
-    color: #333;
-    margin-left: 1.5rem;
-}
 
-header .icons a:hover {
-    color: var(--pink);
-
-}
 
 .home {
     display: flex;

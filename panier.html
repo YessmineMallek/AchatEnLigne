@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleHome.css">
+
+    <link rel="stylesheet" href="panier.css">
+    <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="images/logo.png">
+    <script src="homme/articles.js"></script>
+
+    <title>Your Bag</title>
+
+</head>
+
+<body>
+    <!--Heder section starts -->
+    <header>
+        <img width="130px" src="images/logo.png" class="logo">
+
+        <div class="navBar">
+
+            <a href="home.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#contactUs">Contact Us</a>
+            <a href="">Collection</a>
+
+
+
+        </div>
+        <div class="navBar2">
+            <a id="panier" href="#"><img class="cart" src="images/cart.png"></a>
+
+            <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
+            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+
+        </div>
+    </header>
+    <!--Heder section ends -->
+
+    <!--Home section starts-->
+    <section class="home" id="home">
+        <div class="container">
+
+            <div class="main">
+                <p id="titre">Your Bag </p>
+                <div class="meh">
+                    <table id="tab">
+                        <tr class="heading">
+                            <th>Products</th>
+                            <th>Description</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Delete</th>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div class="box">
+                    <p id="font">Order Summary</p>
+                    <hr class="line">
+                    <div class="element">
+                        <div class="left">
+                            <p>Products</p>
+                        </div>
+                        <div class="right">
+                            <p>100TND</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="element">
+                        <div class="left">
+                            <p>Shipping</p>
+                        </div>
+                        <div class="right">
+                            <p>10TND</p>
+                        </div>
+                    </div>
+                    <br>
+                    <hr class="line">
+                    <div class="total">
+                        <div class="left">
+                            <p>Total</p>
+                        </div>
+                        <div class="right">
+                            <p>150TND</p>
+                        </div>
+                    </div>
+                    <div id="checkout">
+                        <p> Checkout </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="social-links">
+            <a href="">FACEBOOK</a>
+            <a href="">INSTAGRAM</a>
+        </div>
+    </section>
+
+    <!--Home section ends-->
+
+
+</body>
+
+</html>
+<script>
+
+
+
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "sign up.html"
+    }
+    var produitsTableau = [];
+
+    function creationNoeud(ele) {
+        var table = document.getElementById("tab")
+        var tr = document.createElement("tr");
+
+        /*************Td image*************************/
+        var tdImage = document.createElement("td");
+        var img = document.createElement("img");
+        img.className = "image";
+        img.src = ele["img"];
+        tdImage.appendChild(img);
+        /*************Td Name*************************/
+        var tdName = document.createElement("td");
+        var name = document.createTextNode(ele["name"]);
+        tdName.appendChild(name);
+
+        /*************td Qte*******************/
+        var tdQte = document.createElement("td");
+        var qte = document.createTextNode(ele["qte"]);
+        tdQte.appendChild(qte);
+
+        /**************td price***********************/
+        var tdPrice = document.createElement("td");
+        var price = document.createTextNode(ele["price"] + "TND");
+        tdPrice.appendChild(price);
+        /*****************td delete Icon***************************/
+        var tdIcon = document.createElement("td");
+        var iIcon = document.createElement("i");
+        iIcon.className = "fa-regular fa-circle-xmark"
+        tdIcon.appendChild(iIcon);
+
+        tr.appendChild(tdImage);
+        tr.appendChild(tdName);
+        tr.appendChild(tdQte);
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdIcon);
+        table.appendChild(tr);
+
+    }
+    var products = JSON.parse(localStorage.getItem("panier"));
+    products.forEach(element => {
+        var obj = { "name": "", "price": 0, "img": "", "qte": 0 }
+        articles.forEach((ele) => {
+
+            if (ele["id"] == element["id"]) {
+                obj["name"] = ele["name"];
+                obj["price"] = ele["price"];
+                obj["img"] = "homme/" + ele["img"];
+                obj["qte"] = element["qte"];
+
+            }
+        });
+        creationNoeud(obj);
+
+    });
+
+
+
+
+</script>
