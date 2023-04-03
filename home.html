@@ -233,7 +233,12 @@
         }
     }
     console.log(role);
+    if (role != "admin") {
+        productsBtn.hidden = true;
+    } else {
+        productsBtn.hidden = false;
 
+    }
     if (role == null) {
         lienHom.setAttribute("href", "sign up.html");
         lienFem.setAttribute("href", "sign up.html");
@@ -243,9 +248,7 @@
 
 
     } else {
-        if (role != "admin") {
-            productsBtn.hidden = true;
-        }
+
         lienHom.setAttribute("href", "homme/homme.html");
         lienFem.setAttribute("href", "");
         lienEn.setAttribute("href", "");
