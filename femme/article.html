@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="femme.css">
+    <link rel="icon" href="logo.png">
+
+    <script src="articles.js"></script>
+
+    <title>article</title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="navBar">
+                <img src="logo.png" class="logo">
+                <nav>
+                    <ul>
+                        <li><a href="../home.html">home</a></li>
+                        <li><a href="">about</a></li>
+                        <li><a href="">collection</a></li>
+                        <li><a href="">category</a></li>
+
+                    </ul>
+
+                </nav>
+                <img src="cart.png" class="cart">
+
+            </div>
+        </div>
+    </section>
+    <section id="prodetails" class="section-p1">
+        <div class="single-pro-image">
+            <img alt="image" width="100%" id="MainImag">
+
+            <div class="small-img-groupe">
+                <div class="small-img-col">
+                    <img width="100%" class="small-img" alt="" id="small-img1">
+                </div>
+                <div class="small-img-col">
+                    <img width="100%" class="small-img" alt="" id="small-img2">
+                </div>
+                <div class="small-img-col">
+                    <img width="100%" class="small-img" alt="" id="small-img3">
+                </div>
+                <div class="small-img-col">
+                    <img width="100%" class="small-img" alt="" id="small-img4">
+                </div>
+            </div>
+
+
+        </div>
+        <div class="single-pro-details">
+            <h6>Men / <span id="nameProduct"></span></h6>
+            <h4>Men's Fashion T Shirt</h4>
+            <h3><span id="priceProduct"></span>dt</h3>
+            <select>
+                <option value="0">select size </option>
+                <option value="1">XXXL </option>
+                <option value="2">XXL </option>
+                <option value="3">XL </option>
+                <option value="4">L </option>
+                <option value="5">M </option>
+                <option value="6">S </option>
+                <option value="7">XS </option>
+
+            </select>
+            <input type="number" value="1" id="qte">
+            <button class="bttn" onclick="addPanier()">Add </button>
+            <h4>details</h4>
+            <span id="description"></span>
+        </div>
+    </section>
+    <script>
+        var myParam = location.search.split('id=')[1]
+        console.log(myParam);
+        articles.forEach(element => {
+            if (element["id"] == myParam) {
+                var img = document.getElementById("MainImag");
+                img.src = element["img"];
+                //small Image1
+                var sImg1 = document.getElementById("small-img1");
+                sImg1.src = element["imgS1"];
+                //small Image2
+                var sImg2 = document.getElementById("small-img2");
+                sImg2.src = element["imgS2"];
+                //small Image3
+                var sImg3 = document.getElementById("small-img3");
+                sImg3.src = element["imgS3"];
+                //small Image4
+                var sImg4 = document.getElementById("small-img4");
+                sImg4.src = element["img"];
+                //name of product 
+                var name = document.getElementById("nameProduct");
+                name.innerHTML = element["name"];
+                //price of product
+                var price = document.getElementById("priceProduct");
+                price.innerHTML = element["price"];
+
+                //description of product
+                var description = document.getElementById("description");
+                description.innerHTML = element["desc"]
+            }
+        });
+
+        var MainImag = document.getElementById("MainImag")
+        var smallimg = document.getElementsByClassName("small-img")
+        smallimg[0].onclick = function () {
+            MainImag.src = smallimg[0].src;
+
+        }
+        smallimg[1].onclick = function () {
+            MainImag.src = smallimg[1].src;
+
+        }
+        smallimg[2].onclick = function () {
+            MainImag.src = smallimg[2].src;
+
+        }
+        smallimg[3].onclick = function () {
+            MainImag.src = smallimg[3].src;
+
+        }
+        var qte;
+        var products
+        function addPanier() {
+            var i = 0;
+            products = JSON.parse(localStorage.getItem("panier"));
+            qte = document.getElementById("qte").value;
+            var product = { "id": myParam, "qte": parseInt(qte, 10) };;
+            while (i < products.length) {
+                if (products[i]["id"] == myParam)
+                    break;
+                i++;
+            }
+            if (i == products.length)
+                products.push(product);
+            else
+                products[i]["qte"] = parseInt(products[i]["qte"], 10) + parseInt(qte, 10);
+
+
+            localStorage.setItem("panier", JSON.stringify(products));
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -52,9 +52,6 @@ header .icons a:hover {
     box-sizing: border-box;
     position: relative
 }
-.MainImag:hover{
-    transform: scale(1.1);
-}
 
 .navBar {
     width: 100%;
@@ -165,7 +162,7 @@ p{   text-shadow: #465;
 }
 #product .pro{
     width: 5%;
-    min-width: 270px;
+    min-width: 250px;
     padding: 10px 22px;
     border: 4px solid #cce7d0;
     margin: 2%;
@@ -180,6 +177,7 @@ p{   text-shadow: #465;
 
 #product .pro:hover{
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+  
 
 }
 
@@ -305,7 +303,6 @@ p{   text-shadow: #465;
     font-size: 80%;
     color: #333;
 }
-<<<<<<< HEAD
 /* styling du services*/
   :root {
       --pink: #ff77cd;
@@ -393,82 +390,3 @@ p{   text-shadow: #465;
 
 
 }
-=======
-@media (max-width:477xp) {
-    .selection-p1{
-        padding: 20px;
-
-    }
-    #header {
-        padding: 10px 30px;
-    }
-    h1 {
-        font-size: 38 px;
-    }
-    h2 {
-        font-size: 32px;
-
-    }
-    #hero{
-        padding: 0 20px;
-        background-position: 55%;
-
-    }
-    #product .pro{
-        width: 100%;
-    }
-    #prodetails {
-        display: flex;
-        flex-direction: column ;
-    }
-    #prodetails .single-pro-image {
-        width: 100%;
-
-        padding-top: 0px;
-    }
-}
-
-
-
-
-:root {
-    --pink: #ff77cd;
-}
-
-.service {
-    display: block;
-}
-
-.service .box-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    border: 1.5rem solid #fff;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-
-    border-radius: .5rem;
-    padding: 2rem;
-}
-
-.service .box-container .box {
-    text-align: center;
-    flex: 1 1 30rem
-}
-
-.service .box-container .box i {
-    font-size: 4rem;
-    color: var(--pink);
-}
-
-.service .box-container .box h3 {
-    font-size: 2rem;
-    color: #6a7199;
-    padding-top: 1rem;
-}
-
-.service .box-container .box p {
-    font-size: 1.5rem;
-    color: #666;
-    padding: 1rem 0;
-}
->>>>>>> main
