@@ -19,6 +19,9 @@ ul {
     display: inline-block;
 }
 
+.imageContactUs {
+    animation: animate 3s linear infinite;
+}
 
 html {
     font-size: 62.5%;
@@ -265,5 +268,16 @@ header .navBar a:hover {
 
     }
 
+
+}
+
+@keyframes animate {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
 
 }
