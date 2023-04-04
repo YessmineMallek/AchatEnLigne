@@ -129,7 +129,7 @@
             var i = 0;
             products = JSON.parse(localStorage.getItem("panier"));
             qte = document.getElementById("qte").value;
-            var product = { "id": myParam, "qte": parseInt(qte, 10) };;
+            var product = { "id": myParam, "qte": parseInt(qte, 10), "sexe": "homme" };;
             while (i < products.length) {
                 if (products[i]["id"] == myParam)
                     break;

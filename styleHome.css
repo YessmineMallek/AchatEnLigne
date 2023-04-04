@@ -101,6 +101,8 @@ header .navBar a:hover {
 .home .content p {
     font-size: 20px;
     color: #6a7199;
+    animation-duration: 3s;
+    animation-name: slidein;
 }
 
 .btn {
@@ -208,6 +210,11 @@ header .navBar a:hover {
     cursor: pointer;
 
 }
+
+#lienEnfant {
+    margin-left: 25%;
+}
+
 
 
 /*Media queries*/

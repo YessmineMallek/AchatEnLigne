@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="kid.css">
     <link rel="icon" href="logo.png">
-    <script src="articles.js"></script>
+    <script src="articlesKids.js"></script>
     <title>kid Collection</title>
     <!--Font awsome links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    
+
 </head>
 
 <body>
@@ -48,8 +48,8 @@
             </div>
         </section>
     </div>
-     <!--Service section starts-->
-     <section class="service">
+    <!--Service section starts-->
+    <section class="service">
 
         <div class="box-container">
 
@@ -103,7 +103,7 @@
         /************le lien***********/
         var lien = document.createElement("a");
         var icon = document.createElement("i");
-        
+
         lien.appendChild(icon);
 
         divParante.appendChild(image);
@@ -136,7 +136,7 @@
         divDesc.appendChild(buyIt);
         container.appendChild(divParante);
     }
-    articles.forEach(afficher);
+    articlesKids.forEach(afficher);
     function afficher(value, index, array) {
 
         creationNoeud(value);
