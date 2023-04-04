@@ -10,6 +10,10 @@
 
     <link rel="icon" href="images/logo.png">
     <script src="homme/articles.js"></script>
+    <script src="femme/articlesFem.js"></script>
+    <script src="enfant/articlesKids.js"></script>
+
+
 
     <title>Your Bag</title>
 
@@ -23,9 +27,7 @@
         <div class="navBar">
 
             <a href="home.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
-            <a href="">Collection</a>
+
 
 
 
@@ -67,7 +69,7 @@
                             <p>Products</p>
                         </div>
                         <div class="right">
-                            <p>100TND</p>
+                            <p><span id="total"></span>TND</p>
                         </div>
                     </div>
                     <br>
@@ -76,7 +78,7 @@
                             <p>Shipping</p>
                         </div>
                         <div class="right">
-                            <p>10TND</p>
+                            <p>0TND</p>
                         </div>
                     </div>
                     <br>
@@ -86,7 +88,7 @@
                             <p>Total</p>
                         </div>
                         <div class="right">
-                            <p>150TND</p>
+                            <p><span id="total2"></span>TND</p>
                         </div>
                     </div>
                     <div id="checkout">
@@ -112,19 +114,97 @@
 
 </html>
 <script>
+    localStorage.setItem("total", 0);
+    var table = document.getElementById("tab")
 
-
-
+    var total1 = document.getElementById("total");
+    var total2 = document.getElementById("total2");
+    total1.innerHTML = 0;
+    total2.innerHTML = 0;
     function LogOut() {
         localStorage.clear();
         window.location.href = "sign up.html"
     }
     var produitsTableau = [];
+    function deleteProd(prod) {
 
+        var id = prod.id;
+        var products = JSON.parse(localStorage.getItem("panier"));
+        var obj = document.getElementsByTagName("tr");
+        var price;
+        var rep = confirm("Are you sure to delete the product");
+        if (rep) {
+            for (var i = 0; i < obj.length; i++) {
+                var trEle = obj[i];
+                if (id == trEle.id) {
+                    if (id.includes("K") == false && id.includes("F") == false) {
+                        products.forEach(element => {
+                            articles.forEach((ele) => {
+                                if (ele["id"] == id) {
+                                    price = ele["price"] * element["qte"];
+                                    console.log(price)
+                                    localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
+                                    articles = articles.filter(e => e["id"] !== id);
+                                    products = products.filter(e => e["id"] !== id);
+                                    localStorage.setItem("panier", JSON.stringify(products));
+                                    trEle.remove();
+                                }
+                            });
+
+                        });
+                    } else
+                        if (id.includes("F")) {
+                            products.forEach(element2 => {
+                                articlesFem.forEach((ele2) => {
+                                    if (ele2["id"] === id) {
+                                        price = ele2["price"] * element2["qte"];
+                                        localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
+                                        articlesFem = articlesFem.filter(e => e["id"] !== id);
+                                        products = products.filter(e => e["id"] !== id);
+                                        localStorage.setItem("panier", JSON.stringify(products));
+                                        trEle.remove();
+
+                                    }
+                                });
+
+                            });
+                        } else {
+                            products.forEach(element3 => {
+                                articlesKids.forEach((ele3) => {
+                                    if (ele3["id"] == id) {
+
+                                        price = ele3["price"] * element3["qte"];
+                                        console.log("kidssssss price" + price);
+
+                                        localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
+                                        articlesKids = articlesKids.filter(e => e["id"] !== id);
+
+                                        products = products.filter(e => e["id"] !== id);
+                                        localStorage.setItem("panier", JSON.stringify(products));
+                                        trEle.remove();
+
+                                    }
+                                });
+
+                            });
+
+                        }
+
+
+
+                }
+            }
+
+        }
+        total1.innerHTML = localStorage.getItem("total");
+        total2.innerHTML = localStorage.getItem("total");
+
+
+    }
     function creationNoeud(ele) {
-        var table = document.getElementById("tab")
-        var tr = document.createElement("tr");
 
+        var tr = document.createElement("tr");
+        tr.id = ele["id"];
         /*************Td image*************************/
         var tdImage = document.createElement("td");
         var img = document.createElement("img");
@@ -142,12 +222,20 @@
         tdQte.appendChild(qte);
 
         /**************td price***********************/
+        var priceENt = ele["price"] * ele["qte"];
+        total1.innerHTML = parseFloat(total1.innerHTML) + priceENt;
+        localStorage.setItem("total", parseFloat(localStorage.getItem("total")) + parseFloat(priceENt));
+        total2.innerHTML = parseFloat(total2.innerHTML) + priceENt;
+
         var tdPrice = document.createElement("td");
-        var price = document.createTextNode(ele["price"] + "TND");
+        var price = document.createTextNode(priceENt + "TND");
         tdPrice.appendChild(price);
         /*****************td delete Icon***************************/
         var tdIcon = document.createElement("td");
-        var iIcon = document.createElement("i");
+        var iIcon = document.createElement("a");
+        iIcon.id = ele["id"];
+        iIcon.setAttribute("onclick", "deleteProd(this)");
+
         iIcon.className = "fa-regular fa-circle-xmark"
         tdIcon.appendChild(iIcon);
 
@@ -161,18 +249,51 @@
     }
     var products = JSON.parse(localStorage.getItem("panier"));
     products.forEach(element => {
-        var obj = { "name": "", "price": 0, "img": "", "qte": 0 }
+        var obj = { "id": "", "name": "", "price": 0, "img": "", "qte": 0 }
         articles.forEach((ele) => {
 
             if (ele["id"] == element["id"]) {
+                obj["id"] = ele["id"];
                 obj["name"] = ele["name"];
                 obj["price"] = ele["price"];
                 obj["img"] = "homme/" + ele["img"];
                 obj["qte"] = element["qte"];
+                creationNoeud(obj);
 
             }
         });
-        creationNoeud(obj);
+
+    });
+    products.forEach(element => {
+        var obj = { "id": "", "name": "", "price": 0, "img": "", "qte": 0 }
+        articlesFem.forEach((ele) => {
+
+            if (ele["id"] == element["id"]) {
+                obj["id"] = ele["id"];
+                obj["name"] = ele["name"];
+                obj["price"] = ele["price"];
+                obj["img"] = "femme/" + ele["img"];
+                obj["qte"] = element["qte"];
+                creationNoeud(obj);
+
+            }
+        });
+
+    });
+    products.forEach(element => {
+        var obj = { "id": "", "name": "", "price": 0, "img": "", "qte": 0 }
+        articlesKids.forEach((ele) => {
+
+            if (ele["id"] == element["id"]) {
+                obj["id"] = ele["id"];
+                obj["name"] = ele["name"];
+                obj["price"] = ele["price"];
+                obj["img"] = "enfant/" + ele["img"];
+                obj["qte"] = element["qte"];
+                creationNoeud(obj);
+
+            }
+        });
 
     });
 

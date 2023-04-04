@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="styleAboutUs.css">
     <link rel="stylesheet" href="serviceStyle.css">
     <link rel="stylesheet" href="styleHome.css">
-    <link rel="stylesheet" href="navBarStyle.css">
 
     <link rel="stylesheet" href="contactUsStyle.css">
     <!--Font awsome links-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="images/logo.png">
-    <script src="authentification.js"></script>
 
     <title>Home Page</title>
 </head>
@@ -34,9 +32,9 @@
 
         </div>
         <div class="navBar2">
-            <a id="panier" href="#"><img class="cart" src="images/cart.png"></a>
+            <a id="panier"><img class="cart" src="images/cart.png"></a>
 
-            <a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a>
+            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
         </div>
@@ -195,7 +193,7 @@
     var lienPanier = document.getElementById("panier");
     var i = 1;
     const quotes = [
-        "clothes that are sure to heat up your winter.",
+        "Clothes that are sure to heat up your winter.",
         "Clothes aren't going to change the world, but the women who wear them will.",
         "Style is a way to say who you are without having to speak.",
         "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
@@ -208,7 +206,10 @@
     var role = localStorage.getItem("role");
 
 
-
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "sign up.html"
+    }
 
     function back() {
 
@@ -228,27 +229,27 @@
             place.appendChild(texte);
         }
     }
-    console.log(role);
     if (role != "admin") {
         productsBtn.hidden = true;
     } else {
         productsBtn.hidden = false;
 
     }
-    if (role == null) {
-        lienHom.setAttribute("href", "sign up.html");
-        lienFem.setAttribute("href", "sign up.html");
-        lienEn.setAttribute("href", "sign up.html");
-        lienAutre.setAttribute("href", "sign up.html");
-        lienPanier.setAttribute("href", "sign up.html");
+    var logInBtn = document.getElementById("logInBtn");
 
+    if (role != null) {
+        lienHom.setAttribute("href", "homme/homme.html");
+        lienFem.setAttribute("href", "femme/femme.html");
+        lienEn.setAttribute("href", "enfant/kid.html");
+        lienPanier.setAttribute("href", "panier.html");
+        logInBtn.hidden = true;
 
     } else {
 
-        lienHom.setAttribute("href", "homme/homme.html");
-        lienFem.setAttribute("href", "");
-        lienEn.setAttribute("href", "");
-        lienAutre.setAttribute("href", "");
-        lienPanier.setAttribute("href", "panier.html");
+
+        lienHom.setAttribute("href", "sign up.html");
+        lienFem.setAttribute("href", "sign up.html");
+        lienEn.setAttribute("href", "sign up.html");
+        lienPanier.setAttribute("href", "sign up.html");
     }
 </script>

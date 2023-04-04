@@ -148,6 +148,8 @@ td {
 
 .meh {
     float: left;
+    height: 65%;
+    overflow: scroll;
 }
 
 .box {
