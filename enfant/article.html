@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="kid.css">
     <link rel="icon" href="logo.png">
 
-    <script src="articles.js"></script>
+    <script src="articlesKids.js"></script>
 
     <title>article</title>
 </head>
@@ -76,7 +76,7 @@
     <script>
         var myParam = location.search.split('id=')[1]
         console.log(myParam);
-        articles.forEach(element => {
+        articlesKids.forEach(element => {
             if (element["id"] == myParam) {
                 var img = document.getElementById("MainImag");
                 img.src = element["img"];
@@ -129,7 +129,7 @@
             var i = 0;
             products = JSON.parse(localStorage.getItem("panier"));
             qte = document.getElementById("qte").value;
-            var product = { "id": myParam, "qte": parseInt(qte, 10) };;
+            var product = { "id": myParam, "qte": parseInt(qte, 10), };;
             while (i < products.length) {
                 if (products[i]["id"] == myParam)
                     break;
