@@ -15,6 +15,11 @@
     transition: .2s linear;
 }
 
+ul {
+    display: inline-block;
+}
+
+
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;

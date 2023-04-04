@@ -175,6 +175,16 @@
                 <h3>24 x 7 support</h3>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
             </div>
+            <div class="box">
+                <i class="fa fa-dollar"></i>
+                <h3>We Accept</h3>
+                <ul style="list-style-image:URL(images/payement/money2.png);">
+                    <li><img src="images/payement/Visa_Logo.png" style="width: small;"></li>
+                    <li><img src="images/payement/MasterCard_logo.png" style="width: small;"></li>
+
+
+                </ul>
+            </div>
 
         </div>
 
@@ -223,10 +233,11 @@
     }
     function next() {
         if (i < quotes.length) {
-            i++;
             document.getElementById("displayData").innerHTML = "";
             var texte = document.createTextNode(quotes[i]);
             place.appendChild(texte);
+            i++;
+
         }
     }
     if (role != "admin") {
