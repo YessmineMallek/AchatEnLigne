@@ -125,7 +125,6 @@
         localStorage.clear();
         window.location.href = "sign up.html"
     }
-    var produitsTableau = [];
     function deleteProd(prod) {
 
         var id = prod.id;
@@ -141,7 +140,7 @@
                         products.forEach(element => {
                             articles.forEach((ele) => {
                                 if (ele["id"] == id) {
-                                    price = ele["price"] * element["qte"];
+                                    var price = ele["price"] * element["qte"];
                                     console.log(price)
                                     localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
                                     articles = articles.filter(e => e["id"] !== id);
@@ -157,7 +156,7 @@
                             products.forEach(element2 => {
                                 articlesFem.forEach((ele2) => {
                                     if (ele2["id"] === id) {
-                                        price = ele2["price"] * element2["qte"];
+                                        var price = ele2["price"] * element2["qte"];
                                         localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
                                         articlesFem = articlesFem.filter(e => e["id"] !== id);
                                         products = products.filter(e => e["id"] !== id);
@@ -173,7 +172,7 @@
                                 articlesKids.forEach((ele3) => {
                                     if (ele3["id"] == id) {
 
-                                        price = ele3["price"] * element3["qte"];
+                                        var price = ele3["price"] * element3["qte"];
                                         console.log("kidssssss price" + price);
 
                                         localStorage.setItem("total", parseFloat(localStorage.getItem("total")) - parseFloat(price));
@@ -196,8 +195,8 @@
             }
 
         }
-        total1.innerHTML = localStorage.getItem("total");
-        total2.innerHTML = localStorage.getItem("total");
+        window.location.href = "panier.html";
+
 
 
     }
