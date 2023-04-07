@@ -200,7 +200,11 @@
 
         //ajout
         
-        if (nom != "" && price != "" && input.files.length != 0 && typeof nom.value ==="string" && typeof price.value ==="number") {   
+        if (nom !== "" && price !== "" && input.files.length != 0) {  
+            if(typeof nom.value !=="string" && typeof price.value !=="number"){
+            alert("it's better to make sure the product name is a string and the price is a number")
+
+        }
             var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
             products.push(obj);
             creationNoeud(obj);
@@ -208,10 +212,7 @@
                 alert("please fill out all")
             }
         
-        if(typeof nom.value !=="string" && typeof price.value !=="number"){
-            alert("it's better to make sure the product name is a string and the price is a number")
-
-        }
+        
 
     }
     /*****************************Modifier Method*************************/
