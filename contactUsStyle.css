@@ -1,5 +1,5 @@
 .ContactUsSection {
-    min-height: 80vh;
+    min-height: 70vh;
     width: 90%;
     align-items: center;
     justify-content: center;
@@ -7,6 +7,7 @@
 }
 
 .container1 {
+    margin-left: 15%;
     width: 80%;
     background: #fff;
     border-radius: 6px;
@@ -86,17 +87,20 @@
     font-weight: 500;
     background: #F0F1F8;
     border-radius: 6px;
-    padding: 0 15px;
+    padding: 0 12px;
     resize: none;
 }
 
 #subject {
     min-height: 110px;
     margin-top: 6px;
+    padding-top: 10px;
 }
 
 .right-side .btnn {
+    display: inline-block;
     color: #fff;
+    margin-top: 90px;
     font-size: 18px;
     outline: none;
     border: none;
