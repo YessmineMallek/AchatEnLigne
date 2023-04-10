@@ -137,6 +137,7 @@ p {
     width: 5%;
     min-width: 270px;
     padding: 10px 22px;
+    background-color: rgb(216, 241, 253);
     margin: 2%;
     border-radius: 20px;
     cursor: pointer;

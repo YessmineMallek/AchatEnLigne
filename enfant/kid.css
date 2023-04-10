@@ -135,6 +135,7 @@ p {
 
 #product .pro {
     width: 5%;
+    background-color: rgb(216, 241, 253);
     min-width: 270px;
     padding: 10px 22px;
     margin: 2%;

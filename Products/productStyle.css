@@ -16,8 +16,9 @@
 }
 
 .home {
-    margin-top: 10%;
-    margin-left: 30%;
+    margin-top: 13%;
+    margin-left: 6%;
+    margin-right: 6%;
     background-image: none;
 }
 
@@ -49,9 +50,9 @@ html {
 
 
 
-.admin-product-form-container.centered {
-    align-items: center;
-    justify-content: center;
+.admin-product-form-container{
+    float: right;
+    width: 550px;
     min-height: 100vh;
 
 }
@@ -93,13 +94,14 @@ html {
     border-radius: .5rem;
     padding: 1.2rem 1.5rem;
     font-size: 1.7rem;
-    margin: 1rem 0;
     background: var(--white);
     text-transform: none;
 }
 
 .product-display {
-    margin: 2rem 0;
+
+    float: left;
+    margin-right: 50px;
 }
 
 .product-display .product-display-table {
