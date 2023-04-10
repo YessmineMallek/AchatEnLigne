@@ -15,7 +15,7 @@
         <div class="container">
             <!--Heder section starts -->
             <header>
-                <img width="130px" src="logo.png" class="logo">
+                <img width="130px" src="../images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
                 <div class="navBar">
 
@@ -87,27 +87,29 @@
         <div class="box-container">
 
             <div class="box">
-                <i class="fas fa-shipping-fast"></i>
+                <div class="rotate"> <i class="fas fa-shipping-fast"></i></div>
                 <h3>fast delivery</h3>
                 <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
                     standard delivery options.</p>
             </div>
 
             <div class="box">
-                <i class="fas fa-undo"></i>
+                <div class="rotate"> <i class="fas fa-undo"></i></div>
                 <h3>10 days replacements</h3>
-                <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
+                <p>This policy is designed to give customers peace of mind when making purchases and ensure that
+                    they
                     receive products that meet their expectations. </p>
             </div>
 
             <div class="box">
-                <i class="fas fa-headset"></i>
+                <div class="rotate"> <i class="fas fa-headset"></i></div>
                 <h3>24 x 7 support</h3>
-                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
-                    or problems they may encounter, without having to wait until normal business hours. </p>
+                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any
+                    issues
+                    or problems they may encounter.</p>
             </div>
             <div class="box">
-                <i class="fa fa-dollar"></i>
+                <div class="rotate"><i class="fa fa-dollar"></i></div>
                 <h3>We Accept</h3>
                 <ul style="list-style-image:URL(../images/payement/money2.png);">
                     <li><img src="../images/payement/Visa_Logo.png" style="width: small;"></li>
@@ -205,7 +207,17 @@
             logInBtn.hidden = true;
 
         }
+        var img = document.getElementById("logo");
+        function hover() {
+            img.width = "200";
+            img.height = "200"
 
+        }
+        function small() {
+            img.width = "130";
+            img.height = "130"
+
+        }
     </script>
 
 </body>

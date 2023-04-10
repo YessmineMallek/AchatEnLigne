@@ -16,12 +16,12 @@
 <body>
     <!--Heder section starts -->
     <header>
-        <img width="130px" src="../images/logo.png" class="logo">
+        <img width="130px" src="../images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
         <div class="navBar">
 
             <a href="../home.html">Home</a>
-           
+
 
 
 
@@ -41,7 +41,7 @@
                     <h3>Add new product</h3>
                     <label class="label" for="name">Product Name <span class="required">*</span></label>
                     <input type="text" placeholder="Enter product name" name="product_name" class="box"
-                        id="product_name" required>           
+                        id="product_name" required>
                     <label class="label" for="Price">Product Price <span class="required">*</span></label>
                     <input type="number" placeholder="Enter product price" name="product_price" class="box"
                         id="product_price" required>
@@ -197,20 +197,20 @@
         let file = input.files[0];
 
         //ajout
-        
-        if (nom !== "" && price !== "" && input.files.length != 0) {  
-            if(typeof nom.value !=="string" && typeof price.value !=="number"){
-            alert("it's better to make sure the product name is a string and the price is a number")
 
-        }
+        if (nom !== "" && price !== "" && input.files.length != 0) {
+            if (typeof nom.value !== "string" && typeof price.value !== "number") {
+                alert("it's better to make sure the product name is a string and the price is a number")
+
+            }
             var obj = { "image": "../images/" + file.name, "name": nom, "price": price, "sexe": sexe }
             products.push(obj);
             creationNoeud(obj);
         } else {
-                alert("please fill out all")
-            }
-        
-        
+            alert("please fill out all")
+        }
+
+
 
     }
     /*****************************Modifier Method*************************/
@@ -259,6 +259,17 @@
         document.getElementById(nom).remove();
         document.getElementById("product_name").value = "";
         document.getElementById("product_price").value = 0;
+
+    }
+    var img = document.getElementById("logo");
+    function hover() {
+        img.width = "200";
+        img.height = "200"
+
+    }
+    function small() {
+        img.width = "130";
+        img.height = "130"
 
     }
 

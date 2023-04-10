@@ -2,7 +2,6 @@
     --pink: #ff77cd;
 }
 
-.logo
 
 /* Cibler tous les elements du page */
 * {
@@ -115,7 +114,7 @@ header .navBar a:hover {
 }
 
 .btn {
-    background-color:  #232d60;
+    background-color: #232d60;
     border-radius: 6px;
     padding: 10px 20px;
     box-sizing: border-box;
