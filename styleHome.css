@@ -42,7 +42,7 @@ html {
 .navBar2 {
     width: 100%;
     height: 15vh;
-    margin-left: 50%;
+    margin-left: 60%;
     display: flex;
     align-items: center;
 }
@@ -281,13 +281,15 @@ header .navBar a:hover {
     }
 
 }
-form span{
+
+form span {
     position: relative;
     margin-left: 4px;
     font-size: 15px;
-    color:red;
+    color: red;
 }
-form span i{
+
+form span i {
     color: seagreen;
     margin-left: 4px;
 }

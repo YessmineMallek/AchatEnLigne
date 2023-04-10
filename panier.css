@@ -10,6 +10,11 @@ html {
 
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .container {
     height: 100vh;
     width: 100%;
@@ -154,7 +159,7 @@ td {
 }
 
 .box2 {
-    
+
     width: 300px;
     float: right;
     padding-right: 20px;

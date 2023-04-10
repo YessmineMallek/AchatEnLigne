@@ -229,7 +229,6 @@
         localStorage.clear();
         window.location.href = "sign up.html"
     }
-    setInterval(next, 2000);
 
     function back() {
 
@@ -294,13 +293,13 @@
         return true;
     }
     function validateLName() {
-        var name = document.getElementById('lname').value;
-        if (name.length == 0) {
-            fnameError.innerHTML = 'Last Name is required ';
+        var Lname = document.getElementById('lname').value;
+        if (Lname.length == 0) {
+            lnameError.innerHTML = 'Last Name is required ';
             return false;
         }
-        if (name.length < 3) {
-            fnameError.innerHTML = 'Last Name has to be at least 3 characters ';
+        if (Lname.length < 3) {
+            lnameError.innerHTML = 'Last Name has to be at least 3 characters ';
             return false;
         }
         fnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
