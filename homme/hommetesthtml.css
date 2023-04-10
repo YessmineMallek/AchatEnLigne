@@ -106,13 +106,11 @@ p {
 
 
 .page-header {
-    background-color: rgb(216, 241, 253);
+    background-color: white;
     width: 100%;
     height: 20vh;
     background-size: cover;
     display: flex;
-    padding-left: 20px;
-    padding-right: 20px;
     justify-content: center;
     text-align: center;
     flex-direction: column;
