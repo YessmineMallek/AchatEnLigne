@@ -55,7 +55,9 @@
 }
 
 .contactUs .left-side .details .text-one,
-.contactUs .left-side .details .text-two {
+.contactUs .left-side .details .text-two,
+.contactUs .left-side .details .text-two a,
+.contactUs .left-side .details .text-one a {
     font-size: 14px;
     color: #afafb6;
 

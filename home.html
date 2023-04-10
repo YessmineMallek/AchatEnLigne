@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styleHome.css">
 
     <link rel="stylesheet" href="contactUsStyle.css">
+    <link rel="stylesheet" href="productReview.css">
+
     <!--Font awsome links-->
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -62,12 +64,12 @@
                 <div class="col">
                     <a id="lienFemme">
                         <div class="card card1">
-                            <h3>Women</h3>
+                            <h3>Womens</h3>
                         </div>
                     </a>
                     <a id="lienHomme">
                         <div class="card card2">
-                            <h3>Men</h3>
+                            <h3>Mens</h3>
                         </div>
                     </a>
                     <a id="lienEnfant">
@@ -129,6 +131,91 @@
     </section>
 
     <!--About section ends-->
+    <!---Product review starts-->
+    <section>
+        <h1 class="heading">
+            <span>
+                Product
+            </span>
+            Review
+        </h1>
+        <div class="container2">
+            <div class="ProductReview">
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle1" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Men's Collection</div>
+
+
+
+
+                </div>
+                <!--Skill 2--->
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number2">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle2" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Women's Collection</div>
+
+
+                </div>
+                <!--Skill 3--->
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number3">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle3" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Kid's Collection</div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-----Product review END----->
     <!--Contacts us starts-->
     <section class="ContactUsSection">
         <h1 class="heading">
@@ -156,8 +243,8 @@
                     <div class="Email details">
                         <i class="fas fa-envelope"></i>
                         <div class="topic">Email</div>
-                        <div class="text-one">Jeasmine@gmail.Com</div>
-                        <div class="text-two">info@gmail.Com</div>
+                        <div class="text-one"><a href="mailto:Jeasmine@gmail.Com">Jeasmine@gmail.Com</a></div>
+                        <div class="text-two"><a href="mailto:info@gmail.Com">info@gmail.Com</a></div>
 
                     </div>
 
@@ -357,4 +444,37 @@
             return false;
         }
     }
+    var numb1 = document.getElementById("number");
+
+    let counter = 0;
+    setInterval(() => {
+        if (counter == 60) {
+            clearInterval();
+        } else {
+            counter += 1;
+            numb1.textContent = counter + "%";
+        }
+    }, 30);
+    var numb2 = document.getElementById("number2");
+
+    let counter2 = 0;
+    setInterval(() => {
+        if (counter2 == 90) {
+            clearInterval();
+        } else {
+            counter2 += 1;
+            numb2.textContent = counter2 + "%";
+        }
+    }, 25);
+    var numb3 = document.getElementById("number3");
+
+    let counter3 = 0;
+    setInterval(() => {
+        if (counter3 == 70) {
+            clearInterval();
+        } else {
+            counter3 += 1;
+            numb3.textContent = counter3 + "%";
+        }
+    }, 30);
 </script>
