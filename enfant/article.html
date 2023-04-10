@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="kid.css">
     <link rel="icon" href="logo.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="articlesKids.js"></script>
 
     <title>article</title>
@@ -14,27 +14,27 @@
 <body>
     <section>
         <div class="container">
-             <!--Heder section starts -->
-    <header>
-        <img width="130px" src="logo.png" class="logo">
+            <!--Heder section starts -->
+            <header>
+                <img width="130px" src="logo.png" class="logo">
 
-        <div class="navBar">
+                <div class="navBar">
 
-            <a href="">Home</a>
-            <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
-    
+                    <a href="">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contactUs">Contact Us</a>
 
-        </div>
-        <div class="navBar2">
-            <a id="panier"><img class="cart" src="cart.png"></a>
 
-            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
-            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+                </div>
+                <div class="navBar2">
+                    <a id="panier"><img class="cart" src="cart.png"></a>
 
-        </div>
-    </header>
-    <!--Heder section ends -->
+                    <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
+                    <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+
+                </div>
+            </header>
+            <!--Heder section ends -->
         </div>
     </section>
     <section id="prodetails" class="section-p1">
@@ -190,7 +190,13 @@
             localStorage.setItem("panier", JSON.stringify(products));
 
         }
+        //logIn Button
+        var role = localStorage.getItem("role");
+        var logInBtn = document.getElementById("logInBtn");
+        if (role != null) {
+            logInBtn.hidden = true;
 
+        }
 
     </script>
 

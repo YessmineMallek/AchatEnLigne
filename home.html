@@ -27,7 +27,7 @@
             <a href="">Home</a>
             <a href="#about">About</a>
             <a href="#contactUs">Contact Us</a>
-    
+
 
         </div>
         <div class="navBar2">
@@ -59,17 +59,17 @@
                 <div class="col">
                     <a id="lienFemme">
                         <div class="card card1">
-                            <h3>Femmes</h3>
+                            <h3>Women</h3>
                         </div>
                     </a>
                     <a id="lienHomme">
                         <div class="card card2">
-                            <h3>hommes</h3>
+                            <h3>Men</h3>
                         </div>
                     </a>
                     <a id="lienEnfant">
                         <div class="card card3">
-                            <h3>Enfants</h3>
+                            <h3>Kids</h3>
                         </div>
                     </a>
 
@@ -106,7 +106,11 @@
             </div>
             <div class="content">
                 <h3>Why choose us ? </h3>
-                <p>Choose our online clothing store for high-quality clothing from top brands, fast and reliable shipping, easy returns and exchanges, and competitive prices. Our website is user-friendly, providing detailed descriptions and images to help you make informed purchases. We prioritize customer satisfaction and are committed to providing a convenient and enjoyable shopping experience. Shop with us and elevate your style with our trendy and affordable clothing options.</p>
+                <p>Choose our online clothing store for high-quality clothing from top brands, fast and reliable
+                    shipping, easy returns and exchanges, and competitive prices. Our website is user-friendly,
+                    providing detailed descriptions and images to help you make informed purchases. We prioritize
+                    customer satisfaction and are committed to providing a convenient and enjoyable shopping experience.
+                    Shop with us and elevate your style with our trendy and affordable clothing options.</p>
 
 
             </div>
@@ -133,16 +137,18 @@
                 <form>
                     <label class="label" for="fname">First Name</label>
                     <span id="fname-error"></span>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." id="contact-fname" onkeyup="validateFName()">
-            
+                    <input type="text" id="fname" name="firstname" placeholder="Your name.." id="contact-fname"
+                        onkeyup="validateFName()">
+
                     <label class="label" for="lname">Last Name</label>
                     <span id="lname-error"></span>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." id="contact-lname" onkeyup="validateLName()">
-        
+                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." id="contact-lname"
+                        onkeyup="validateLName()">
+
                     <label class="label" for="subject">Subject</label>
                     <span id="message-error"></span>
-                    <textarea id="subject" name="subject" placeholder="Write something.."
-                        style="height:200px" onkeyup="validateMessage()"></textarea>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
+                        onkeyup="validateMessage()"></textarea>
 
                     <input class="btn" type="submit" value="Submit" onclick="return validateForm()">
                     <span id="submit-error"></span>
@@ -223,7 +229,7 @@
         localStorage.clear();
         window.location.href = "sign up.html"
     }
-    setInterval(next,4000);
+    setInterval(next, 2000);
 
     function back() {
 
@@ -268,54 +274,54 @@
         lienPanier.setAttribute("href", "sign up.html");
     }
 
-      //Javascript Form Validation 
-var fnameError = document.getElementById('fname-error')
-var lnameError = document.getElementById('lname-error')
-var messageError = document.getElementById('message-error')
-var submitError = document.getElementById('submit-error')
+    //Javascript Form Validation 
+    var fnameError = document.getElementById('fname-error')
+    var lnameError = document.getElementById('lname-error')
+    var messageError = document.getElementById('message-error')
+    var submitError = document.getElementById('submit-error')
 
-function validateFName(){
-    var name= document.getElementById('fname').value; 
-    if(name.length==0){
-        fnameError.innerHTML= 'First Name is required ';
-        return false ;
+    function validateFName() {
+        var name = document.getElementById('fname').value;
+        if (name.length == 0) {
+            fnameError.innerHTML = 'First Name is required ';
+            return false;
+        }
+        if (name.length < 3) {
+            fnameError.innerHTML = 'First Name has to be at least 3 characters ';
+            return false;
+        }
+        fnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
     }
-    if(name.length<3){
-        fnameError.innerHTML= 'First Name has to be at least 3 characters ';
-        return false ;
+    function validateLName() {
+        var name = document.getElementById('lname').value;
+        if (name.length == 0) {
+            fnameError.innerHTML = 'Last Name is required ';
+            return false;
+        }
+        if (name.length < 3) {
+            fnameError.innerHTML = 'Last Name has to be at least 3 characters ';
+            return false;
+        }
+        fnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
     }
-    fnameError.innerHTML='<i class="fa-solid fa-circle-check"></i>'; 
-    return true ; 
-}
-function validateLName(){
-    var name= document.getElementById('lname').value; 
-    if(name.length==0){
-        fnameError.innerHTML= 'Last Name is required ';
-        return false ;
-    }
-    if(name.length<3){
-        fnameError.innerHTML= 'Last Name has to be at least 3 characters ';
-        return false ;
-    }
-    fnameError.innerHTML='<i class="fa-solid fa-circle-check"></i>'; 
-    return true ; 
-}
-function validateMessage(){
-    var message=document.getElementById('subject').value ; 
-    var required =30; 
-    var left =required-message.length ; 
+    function validateMessage() {
+        var message = document.getElementById('subject').value;
+        var required = 30;
+        var left = required - message.length;
 
-    if(left>0) {
-        messageError.innerHTML=left+ ' more characters required' ; 
-        return false ; 
+        if (left > 0) {
+            messageError.innerHTML = left + ' more characters required';
+            return false;
+        }
+        messageError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        return true;
     }
-    messageError.innerHTML= '<i class="fa-solid fa-circle-check"></i>'; 
-    return true ; 
-}
-function validateForm(){
-    if(!validateFName()|| !validateLName() || !validateMessage()){
-        submitError.innerHTML= 'please fix error to submit' ; 
-        return false ; 
+    function validateForm() {
+        if (!validateFName() || !validateLName() || !validateMessage()) {
+            submitError.innerHTML = 'please fix error to submit';
+            return false;
+        }
     }
-}
 </script>

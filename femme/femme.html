@@ -17,34 +17,35 @@
 
         <div class="container">
             <!--Heder section starts -->
-    <header>
-        <img width="130px" src="logo.png" class="logo">
+            <header>
+                <img width="130px" src="logo.png" class="logo">
 
-        <div class="navBar">
+                <div class="navBar">
 
-            <a href="">Home</a>
-            <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
-    
+                    <a href="">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#contactUs">Contact Us</a>
 
+
+                </div>
+                <div class="navBar2">
+                    <a id="panier"><img class="cart" src="cart.png"></a>
+
+                    <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
+                    <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+
+                </div>
+            </header>
+            <!--Heder section ends -->
         </div>
-        <div class="navBar2">
-            <a id="panier"><img class="cart" src="cart.png"></a>
-
-            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
-            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
-
-        </div>
-    </header>
-    <!--Heder section ends -->
-  </div>
     </section>
     <section class="women fashion">
         <div class="page-header">
             <h3>Summer Collection</h3>
 
-            <p> 
-                "Dress like a boss, feel like a boss - our premium women's clothing is tailored to help every boss lady make a powerful statement with her style 🔥"</p>
+            <p>
+                "Dress like a boss, feel like a boss - our premium women's clothing is tailored to help every boss lady
+                make a powerful statement with her style 🔥"</p>
 
         </div>
     </section>
@@ -163,4 +164,11 @@
         creationNoeud(value);
 
     }
+    //logIn Button
+    var role = localStorage.getItem("role");
+    var logInBtn = document.getElementById("logInBtn");
+    if (role != null) {
+        logInBtn.hidden = true;
+
+    } 
 </script>
