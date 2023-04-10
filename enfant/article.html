@@ -20,14 +20,14 @@
 
                 <div class="navBar">
 
-            <a href="../home.html">Home</a>
-            <a href="../home.html">About</a>
-            <a href="../home.html">Contact Us</a>
-    
+                    <a href="../home.html">Home</a>
+                    <a href="../home.html">About</a>
+                    <a href="../home.html">Contact Us</a>
 
-        </div>
-        <div class="navBar2">
-            <a id="panier" href="../panier.html"><img class="cart" src="cart.png"></a>
+
+                </div>
+                <div class="navBar2">
+                    <a id="panier" href="../panier.html"><img class="cart" src="cart.png"></a>
 
                     <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
                     <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
@@ -120,6 +120,18 @@
     </section>
     <!--Service section ends-->
     <script>
+        function LogOut() {
+            localStorage.clear();
+            window.location.href = "../sign up.html"
+        }
+        //logIn Button
+        var role = localStorage.getItem("role");
+        var logInBtn = document.getElementById("logInBtn");
+        if (role != null) {
+            logInBtn.hidden = true;
+
+        }
+
         var myParam = location.search.split('id=')[1]
         console.log(myParam);
         articlesKids.forEach(element => {
@@ -188,15 +200,10 @@
 
 
             localStorage.setItem("panier", JSON.stringify(products));
+            alert("Product successfully added!");
 
         }
-        //logIn Button
-        var role = localStorage.getItem("role");
-        var logInBtn = document.getElementById("logInBtn");
-        if (role != null) {
-            logInBtn.hidden = true;
 
-        }
 
     </script>
 
