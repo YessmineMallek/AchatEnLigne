@@ -12,21 +12,25 @@
 
 <body>
     <div class="container">
+        <!--Heder section starts -->
+    <header>
+        <img width="130px" src="images/logo.png" class="logo">
+
         <div class="navBar">
-            <img src="images/logo.png" class="logo">
-            <!-- <nav>
-                <ul>
-                    <li><a htef="">Home</a></li>
-                    <li><a htef="">About</a></li>
-                    <li><a htef="">Collection</a></li>
-                    <li><a htef="">Category</a></li>
 
-                </ul>
+            <a href="">Home</a>
+            <a href="#about">About</a>
+            <a href="#contactUs">Contact Us</a>
+    
 
-            </nav>
-            <img src="images/cart.png" class="cart">
-        !-->
         </div>
+        <div class="navBar2">
+            <a id="panier"><img class="cart" src="images/cart.png"></a>
+
+            
+        </div>
+    </header>
+    <!--Heder section ends -->
         <div class="main">
             <div class="form-box">
                 <h1 id="title">Sign up </h1>
@@ -34,23 +38,29 @@
                     <div class="input-group">
                         <div class="input-field" id="nameField">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Name" id="contact-name" onkeyup="validateName()">
+                            <span id="name-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" placeholder="Email" id="email">
+                            <input type="email" placeholder="Email" id="email" onkeyup="validateEmail()">
+                            <span id="email-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" placeholder="Password" id="password">
+                            <input type="password" placeholder="Password" id="password" onkeyup="validatePassword()" >
+                            <span id="password-error"></span>
+
                         </div>
                         <p>Lost password <a href="#">Click here ! </a></p>
                     </div>
                     <div class="btn-field">
-                        <button type="button" id="signupBtn" ondblclick="signUp()">Sign up</button>
-                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()">Sign in</button>
+                        <button type="button" id="signupBtn" ondblclick="signUp()" onclick="return validateFormup()">Sign up</button>
+                        <span id="signup-error"></span>
+                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()" onclick="return validateFormin()">Sign in</button>
+                        <span id="signin-error"></span>
                     </div>
                 </form>
             </div>
@@ -101,6 +111,66 @@
 
 
         }
+      //Javascript Form Validation 
+var nameError = document.getElementById('name-error')
+var emailError = document.getElementById('email-error')
+var passwordError = document.getElementById('password-error')
+var signupError = document.getElementById('signup-error')
+var signinError = document.getElementById('signin-error')
+
+function validateName(){
+    var name= document.getElementById('contact-name').value; 
+    if(name.length==0){
+        nameError.innerHTML= 'Name is required ';
+        return false ;
+    }
+    if(name.length<3){
+        nameError.innerHTML= 'Name is at least 3 characters';
+        return false ; 
+    }
+    nameError.innerHTML='<i class="fa-solid fa-circle-check"></i>'; 
+    return true ; 
+}
+function validateEmail(){
+    var email = document.getElementById('email').value ; 
+     
+    if(email.length ==0){
+        emailError.innerHTML = 'Email is required' ;
+        return false;  
+    }
+    if(!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)){
+        emailError.innerHTML='Email Invalid';
+        return false ; 
+    }
+    emailError.innerHTML='<i class="fa-solid fa-circle-check"></i>'; 
+    return true ; 
+}
+function validatePassword(){
+    var password = document.getElementById('password').value ; 
+     
+    if(password.length ==0){
+        passwordError.innerHTML = 'Password is required' ;
+        return false;  
+    }
+    if(password.length <6){
+        passwordError.innerHTML = 'Password has to be at least 6 characters' ;
+        return false;  
+    }
+    passwordError.innerHTML='<i class="fa-solid fa-circle-check"></i>'; 
+    return true ; 
+}
+function validateFormup(){
+    if(!validateName()|| !validateEmail() || !validatePassword()){
+        signupError.innerHTML= 'please fix error to submit' ; 
+        return false ; 
+    }
+}
+function validateFormin(){
+    if( !validateEmail() || !validatePassword()){
+        signinError.innerHTML= 'please fix error to submit' ; 
+        return false ; 
+    }
+}
     </script>
 </body>
 

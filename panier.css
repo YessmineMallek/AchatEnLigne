@@ -146,16 +146,18 @@ td {
     vertical-align: top;
 }
 
-.meh {
+.box1 {
     float: left;
     height: 65%;
     overflow: scroll;
+    font-size: large;
 }
 
-.box {
-    width: 350px;
+.box2 {
+    width: 330px;
     float: right;
     padding-right: 20px;
+    font-size: large;
 }
 
 hr {

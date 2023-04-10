@@ -3,6 +3,53 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Lucida Console", Courier, monospace;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+ul {
+    display: inline-block;
+}
+
+.imageContactUs {
+    animation: animate 3s linear infinite;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+
+}
+.navBar {
+    width: 100%;
+    height: 15vh;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.navBar2 {
+    width: 100%;
+    height: 15vh;
+    margin-left: 50%;
+    display: flex;
+    align-items: center;
+}
+
+header .navBar2 a {
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navBar2 a:hover {
+    color: var(--pink);
 }
 
 header {
@@ -10,11 +57,10 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding: 0;
+    padding: 2rem 9%;
     display: flex;
     align-items: center;
     z-index: 1000;
-
 }
 
 header .navBar a {
@@ -28,19 +74,6 @@ header .navBar a:hover {
     color: var(--pink);
 }
 
-header .icons a {
-    font-size: 2.5rem;
-    color: #333;
-    margin-left: 1.5rem;
-    padding-right:80px;
-}
-
-header .icons a:hover {
-    color: var(--pink);
-
-}
-
-
 .container {
     height: 20vh;
     width: 100%;
@@ -50,37 +83,10 @@ header .icons a:hover {
     padding-left: 5%;
     padding-right: 5%;
     box-sizing: border-box;
-    position: relative
+    position: relative; 
 }
 .MainImag:hover{
     transform: scale(1.1);
-}
-
-.navBar {
-    width: 100%;
-    height: 15vh;
-    margin: auto;
-    display: flex;
-    align-items: center;
-}
-.navBar li{
-    list-style: none;
-    padding: 0 20xp ;
-}
-.navBar li a{
-    text-decoration: none;
-    font-size: 20xp;
-    font-weight: 100;
-    color: #000;
-}
-.navBar li a:hover{
-    color: #cd90da;
-}
-
-
-.logo {
-    width: 140px;
-    cursor: pointer
 }
 
 .cart {
@@ -88,56 +94,12 @@ header .icons a:hover {
     cursor: pointer
 }
 
-nav {
-    flex: 1;
-    padding-left: 60 px;
-}
-
-nav ul li {
-    display: inline-block;
-    list-style: none;
-    margin: 0px 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
-h1{  text-decoration: double;
-    text-shadow: #333;
-    font-size: 50px;
-    line-height: 64xp;
-    color: black;
-
-}
-h2{  text-decoration: double;
-    text-shadow: #333;
-    font-size: 40px;
-    line-height: 54xp;
-    color: black;
-}
-h3{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-   
-    font-size: 100xp;
-}
-h4{
-    font-size: 20px;
-    color: #000;
-}
-h6{
-    font-weight: 700;
-    font-size: 12xp;
-
-}
 p{   text-shadow: #465;
     font-size: 20xp;
     color: #465;
     margin: 15xp 0 20xp 0;
 
 }
-
 
 
 .page-header{
@@ -149,11 +111,13 @@ p{   text-shadow: #465;
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    font-size: large;
 }
 /* ajuster les produits*/
 
 #product{
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     
 }
 #product .pro-container {
@@ -167,13 +131,13 @@ p{   text-shadow: #465;
     width: 5%;
     min-width: 270px;
     padding: 10px 22px;
-    border: 4px solid #cce7d0;
     margin: 2%;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15xp 0;
     transition: 0.2s ease;
+    
 
 
 }
@@ -211,9 +175,6 @@ p{   text-shadow: #465;
 
 
 
-
-
-
 /* ajuster le bouton de add */
 
 .btn{
@@ -245,6 +206,11 @@ p{   text-shadow: #465;
 #prodetails{
    display: flex;
    margin-top: 30px;
+   text-decoration: double;
+   text-shadow: #333;
+   font-size: 20px;
+   line-height: 54xp;
+   color: black;
 
 }
 
@@ -305,95 +271,6 @@ p{   text-shadow: #465;
     font-size: 80%;
     color: #333;
 }
-<<<<<<< HEAD
-/* styling du services*/
-  :root {
-      --pink: #ff77cd;
-  }
-
-  .service {
-      display: block;
-  }
-
-  .service .box-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      border: 1.5rem solid #fff;
-      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-
-      border-radius: .5rem;
-      padding: 2rem;
-  }
-
-  .service .box-container .box {
-      text-align: center;
-      flex: 1 1 30rem
-  }
-
-  .service .box-container .box i {
-      font-size: 4rem;
-      color: var(--pink);
-  }
-
-  .service .box-container .box h3 {
-      font-size: 2rem;
-      color: #6a7199;
-      padding-top: 1rem;
-  }
-
-  .service .box-container .box p {
-      font-size: 1.5rem;
-      color: #666;
-      padding: 1rem 0;
-  }
-
-/*Media queries*/
-@media (max-width:991px) {
-    html {
-        font-size: 55%;
-
-    }
-
-    header {
-        padding: 2rem;
-    }
-}
-
-@media (max-width:768px) {
-
-    header .navBar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #eee;
-        border-top: .1rem solid rgba(0, 0, 0, .1);
-    }
-
-    header .navBar a {
-        margin: 1.5rem;
-        padding: 1.5rem;
-        background: #eee;
-        border: .1rem solid rgba(0, 0, 0, .1);
-        display: block;
-    }
-
-    .home .content h1 {
-        font-size: 30px;
-    }
-
-}
-
-@media (max-width:450px) {
-    html {
-        font-size: 50%;
-
-    }
-
-
-}
-=======
 @media (max-width:477xp) {
     .selection-p1{
         padding: 20px;
@@ -427,7 +304,6 @@ p{   text-shadow: #465;
         padding-top: 0px;
     }
 }
-
 
 
 
@@ -471,4 +347,3 @@ p{   text-shadow: #465;
     color: #666;
     padding: 1rem 0;
 }
->>>>>>> main

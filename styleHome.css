@@ -130,7 +130,7 @@ header .navBar a:hover {
 }
 
 .arrow-icons img {
-    width: 40px;
+    width: 400px;
     margin-right: 25px;
 
 }
@@ -280,4 +280,14 @@ header .navBar a:hover {
         filter: hue-rotate(360deg);
     }
 
+}
+form span{
+    position: relative;
+    margin-left: 4px;
+    font-size: 15px;
+    color:red;
+}
+form span i{
+    color: seagreen;
+    margin-left: 4px;
 }
