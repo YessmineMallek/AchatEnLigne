@@ -182,6 +182,14 @@ p {
 
 }
 
+#MainImag{
+    border-radius: 8%;
+    
+}
+#MainImag :hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+
+}
 
 
 
@@ -219,7 +227,8 @@ p {
 /* ajuster la page de l'article avec styling de chaque small img*/
 #prodetails {
     display: flex;
-    margin-top: 30px;
+    margin-top: 50px;
+    margin-bottom: 40px;
     text-decoration: double;
     text-shadow: #333;
     font-size: 20px;
@@ -230,18 +239,23 @@ p {
 
 #prodetails .single-pro-image {
     width: 30%;
-    margin: 8px;
-    margin-left: 6%;
+    margin: 40px;
+    margin-left: 10%;
 }
 
 .small-img-groupe {
     display: flex;
     justify-content: space-between;
 }
-
+.small-img-groupe :hover{
+    box-shadow: 30px 20px 30px rgba(0, 0, 0, 0.4);
+}
 .small-img-col {
     flex-basis: 24%;
     cursor: pointer;
+}
+.small-img{
+    border-radius: 10%;
 }
 
 #prodetails .single-pro-details {
@@ -253,6 +267,7 @@ p {
 #prodetails .single-pro-details h4 {
     padding: 10px 0 10px 0;
 }
+
 
 #prodetails .single-pro-details h2 {
     font-size: 20px;
