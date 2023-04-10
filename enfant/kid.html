@@ -15,11 +15,12 @@
 <body>
     <section>
         <div class="container">
-             <!--Heder section starts -->
-    <header>
-        <img width="130px" src="logo.png" class="logo">
+            <!--Heder section starts -->
+            <header>
+                <img width="130px" src="logo.png" class="logo">
 
-        <div class="navBar">
+                <div class="navBar">
+
 
             <a href="../home.html">Home</a>
             <a href="../home.html">About</a>
@@ -33,9 +34,9 @@
             <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="../sign up.html"></a></span>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
-        </div>
-    </header>
-    <!--Heder section ends -->
+                </div>
+            </header>
+            <!--Heder section ends -->
         </div>
     </section>
     <section class="women fashion">
@@ -161,4 +162,12 @@
         creationNoeud(value);
 
     }
+
+    //logIn Button
+    var role = localStorage.getItem("role");
+    var logInBtn = document.getElementById("logInBtn");
+    if (role != null) {
+        logInBtn.hidden = true;
+
+    } 
 </script>
