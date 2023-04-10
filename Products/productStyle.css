@@ -6,12 +6,17 @@
     --black: #333;
     --white: #fff;
     --bg-color: #ffffffb2;
-    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --box-shadow: 0 g.5rem 1rem rgba(0, 0, 0, .1);
     --border: .1rem solid var(--black);
 }
 
 * {
     font-family: "Lucida Console", Courier, monospace;
+
+}
+body{
+    background-image: url("../images/jon-tyson-HxLrVD55l34-unsplash.jpg");
+    background-position: center;
 
 }
 
@@ -22,17 +27,14 @@
     background-image: none;
 }
 
-html {
-    background-image: url("../images/background.png");
-}
 
 .btn {
     width: 30%;
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: pointer;
     border-radius: .5rem;
     margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 1rem 3rem;
     text-align: center;
 }
@@ -67,7 +69,7 @@ html {
 
 .admin-product-form-container form h3 {
     text-transform: uppercase;
-    color: #87adfe;
+    color: #232D60;
     margin-bottom: 1rem;
     text-align: center;
     font-size: 2rem;
@@ -115,7 +117,7 @@ html {
 
 .product-display .product-display-table th {
     padding: 1rem;
-    color: #87adfe;
+    color: #232D60;
     font-size: 1.5rem;
 }
 
