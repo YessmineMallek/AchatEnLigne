@@ -154,7 +154,8 @@ td {
 }
 
 .box2 {
-    width: 330px;
+    
+    width: 300px;
     float: right;
     padding-right: 20px;
     font-size: large;
