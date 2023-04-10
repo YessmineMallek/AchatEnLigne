@@ -13,32 +13,32 @@
 <body>
     <section>
         <div class="container">
-           <!--Heder section starts -->
-    <header>
-        <img width="130px" src="logo.png" class="logo">
+            <!--Heder section starts -->
+            <header>
+                <img width="130px" src="logo.png" class="logo">
 
-        <div class="navBar">
+                <div class="navBar">
 
-            <a href="">Home</a>
-            <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
+            <a href="../home.html">Home</a>
+            <a href="../home.html">About</a>
+            <a href="../home.html">Contact Us</a>
     
 
         </div>
         <div class="navBar2">
-            <a id="panier"><img class="cart" src="cart.png"></a>
+            <a id="panier"  href="../panier.html" ><img class="cart" src="cart.png"></a>
             <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
         </div>
     </header>
     <!--Heder section ends -->
-        </div>
     </section>
     <section class="manfashion">
         <div class="page-header">
             <h3>Summer Collection</h3>
-            <p> 
-                "Experience the perfect blend of comfort and style with our premium men's clothing, crafted with the modern gentleman in mind 🤵🏻‍♂️"</p>
+            <p>
+                "Experience the perfect blend of comfort and style with our premium men's clothing, crafted with the
+                modern gentleman in mind 🤵🏻‍♂️"</p>
 
         </div>
     </section>
@@ -48,46 +48,46 @@
             </div>
         </section>
     </div>
-<!--Service section starts-->
-<section class="service">
+    <!--Service section starts-->
+    <section class="service">
 
-    <div class="box-container">
+        <div class="box-container">
 
-        <div class="box">
-            <i class="fas fa-shipping-fast"></i>
-            <h3>fast delivery</h3>
-            <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
-                standard delivery options.</p>
+            <div class="box">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>fast delivery</h3>
+                <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
+                    standard delivery options.</p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-undo"></i>
+                <h3>10 days replacements</h3>
+                <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
+                    receive products that meet their expectations. </p>
+            </div>
+
+            <div class="box">
+                <i class="fas fa-headset"></i>
+                <h3>24 x 7 support</h3>
+                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
+                    or problems they may encounter, without having to wait until normal business hours. </p>
+            </div>
+            <div class="box">
+                <i class="fa fa-dollar"></i>
+                <h3>We Accept</h3>
+                <ul style="list-style-image:URL(../images/payement/money2.png);">
+                    <li><img src="../images/payement/Visa_Logo.png" style="width: small;"></li>
+                    <li><img src="../images/payement/MasterCard_logo.png" style="width: small;"></li>
+
+
+                </ul>
+            </div>
+
         </div>
 
-        <div class="box">
-            <i class="fas fa-undo"></i>
-            <h3>10 days replacements</h3>
-            <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
-                receive products that meet their expectations. </p>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-headset"></i>
-            <h3>24 x 7 support</h3>
-            <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
-                or problems they may encounter, without having to wait until normal business hours. </p>
-        </div>
-        <div class="box">
-            <i class="fa fa-dollar"></i>
-            <h3>We Accept</h3>
-            <ul style="list-style-image:URL(../images/payement/money2.png);">
-                <li><img src="../images/payement/Visa_Logo.png" style="width: small;"></li>
-                <li><img src="../images/payement/MasterCard_logo.png" style="width: small;"></li>
-
-
-            </ul>
-        </div>
-
-    </div>
-
-</section>
-<!--Service section ends-->
+    </section>
+    <!--Service section ends-->
 </body>
 
 </html>
@@ -153,4 +153,11 @@
         creationNoeud(value);
 
     }
+    //logIn Button
+    var role = localStorage.getItem("role");
+    var logInBtn = document.getElementById("logInBtn");
+    if (role != null) {
+        logInBtn.hidden = true;
+
+    } 
 </script>
