@@ -103,7 +103,7 @@ p{   text-shadow: #465;
 
 
 .page-header{
-    background-color: rgb(216, 241, 253);
+    background-color: white;
     width: 100%;
     height: 20vh;
     background-size: cover;
@@ -129,6 +129,7 @@ p{   text-shadow: #465;
 }
 #product .pro{
     width: 5%;
+    background-color: rgb(216, 241, 253);
     min-width: 270px;
     padding: 10px 22px;
     margin: 2%;
