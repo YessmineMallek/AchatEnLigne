@@ -1,0 +1,120 @@
+.container2 {
+    justify-content: center;
+
+    margin-left: 15%;
+    height: 250px;
+    width: 73%;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 30px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ProductReview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.skill {
+    padding-right: 20%;
+    width: 160px;
+    height: 160px;
+    /*background: cornflowerblue;*/
+    position: relative;
+
+}
+
+.outer {
+
+    height: 160px;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+    width: 160px;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.inner {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+
+#number,
+#number2,
+#number3 {
+    font-weight: 600;
+    font-size: medium;
+    color: #555;
+}
+
+#circle1 {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim 2s linear forwards;
+}
+
+#circle2 {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim2 2s linear forwards;
+}
+
+#circle3 {
+    fill: none;
+    stroke: url(#GradientColor);
+    stroke-width: 20px;
+    stroke-dasharray: 472;
+    stroke-dashoffset: 472;
+    animation: anim3 2s linear forwards;
+}
+
+.topixText2 {
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    font-size: medium;
+    color: #3e2093;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+@keyframes anim {
+    100% {
+        stroke-dashoffset: 188;
+
+    }
+}
+
+@keyframes anim2 {
+    100% {
+        stroke-dashoffset: 80;
+
+    }
+}
+
+@keyframes anim3 {
+    100% {
+        stroke-dashoffset: 145;
+
+    }
+}
