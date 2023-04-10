@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="styleHome.css">
 
     <link rel="stylesheet" href="contactUsStyle.css">
+    <link rel="stylesheet" href="productReview.css">
+
     <!--Font awsome links-->
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -26,7 +28,7 @@
 
             <a href="">Home</a>
             <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
+            <a href="#contactUs">Contact us</a>
 
 
         </div>
@@ -43,7 +45,9 @@
     <!--Home section starts-->
     <section class="home" id="home">
         <div class="content">
+
             <div class="row">
+
                 <div class="col">
                     <a id="product" href="Products/addProductForm.html" class="btn">Add Product</a>
                     <h1>You should always feel pretty</h1>
@@ -55,16 +59,17 @@
                             src="images/next-arrow.png">
 
                     </div>
+
                 </div>
                 <div class="col">
                     <a id="lienFemme">
                         <div class="card card1">
-                            <h3>Women</h3>
+                            <h3>Womens</h3>
                         </div>
                     </a>
                     <a id="lienHomme">
                         <div class="card card2">
-                            <h3>Men</h3>
+                            <h3>Mens</h3>
                         </div>
                     </a>
                     <a id="lienEnfant">
@@ -76,6 +81,8 @@
 
 
                 </div>
+
+
 
 
             </div>
@@ -124,38 +131,150 @@
     </section>
 
     <!--About section ends-->
+    <!---Product review starts-->
+    <section>
+        <h1 class="heading">
+            <span>
+                Product
+            </span>
+            Review
+        </h1>
+        <div class="container2">
+            <div class="ProductReview">
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle1" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Men's Collection</div>
+
+
+
+
+                </div>
+                <!--Skill 2--->
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number2">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle2" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Women's Collection</div>
+
+
+                </div>
+                <!--Skill 3--->
+                <div class="skill">
+
+                    <div class="outer">
+                        <div class="inner">
+                            <div id="number3">
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
+                        <defs>
+                            <linearGradient id="GradientColor">
+                                <stop offset="0%" stop-color="#e91e63" />
+                                <stop offset="100%" stop-color="#673ab7" />
+                            </linearGradient>
+                        </defs>
+                        <circle id="circle3" cx="80" cy="80" r="70" stroke-linecap="round" />
+                    </svg>
+                    <br>
+                    <div class="topixText2">Kid's Collection</div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-----Product review END----->
     <!--Contacts us starts-->
-    <section class="ContactUs">
+    <section class="ContactUsSection">
         <h1 class="heading">
             <span>
                 Contact
             </span>
             us
         </h1>
-        <div class="row">
-            <div class="container" id="contactUs">
-                <form>
-                    <label class="label" for="fname">First Name</label>
-                    <span id="fname-error"></span>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." id="contact-fname"
-                        onkeyup="validateFName()">
+        <div class="container1">
+            <div class="contactUs">
+                <div class="left-side">
+                    <div class="adresse details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <div class="text-one">Campus Universitaire de Manouba </div>
 
-                    <label class="label" for="lname">Last Name</label>
-                    <span id="lname-error"></span>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." id="contact-lname"
-                        onkeyup="validateLName()">
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+216 70 000 000</div>
+                        <div class="text-two">+216 70 000 000</div>
 
-                    <label class="label" for="subject">Subject</label>
-                    <span id="message-error"></span>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
-                        onkeyup="validateMessage()"></textarea>
+                    </div>
+                    <div class="Email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one"><a href="mailto:Jeasmine@gmail.Com">Jeasmine@gmail.Com</a></div>
+                        <div class="text-two"><a href="mailto:info@gmail.Com">info@gmail.Com</a></div>
 
-                    <input class="btn" type="submit" value="Submit" onclick="return validateForm()">
-                    <span id="submit-error"></span>
-                </form>
+                    </div>
+
+                </div>
+                <div class="right-side">
+
+                    <div class="topixText">Send us a message</div>
+                    <form>
+                        <span id="fname-error"></span>
+                        <div class="inputBox">
+                            <input type="text" id="fname" name="firstname" placeholder="Enter Your name.."
+                                id="contact-fname" onkeyup="validateFName()">
+                        </div>
+                        <span id="lname-error"></span>
+                        <div class="inputBox">
+                            <input type="text" id="lname" name="lastname" placeholder="Enter you Email.."
+                                id="contact-lname" onkeyup="validateLName()">
+                        </div>
+                        <span id="message-error"></span>
+                        <div class="inputBox"> <textarea id="subject" name="subject" placeholder="Write message.."
+                                onkeyup="validateMessage()"></textarea></div>
+
+
+                        <input class="btnn" type="button" value="Submit" onclick="return validateForm()">
+                        <span id="submit-error"></span>
+                    </form>
+
+                </div>
 
             </div>
-            <img style="float: right;" width="40%" src="images/contactUs.jpg" class="imageContactUs">
         </div>
     </section>
     <!--Contacts us ends-->
@@ -165,27 +284,29 @@
         <div class="box-container">
 
             <div class="box">
-                <i class="fas fa-shipping-fast"></i>
+                <div class="rotate"> <i class="fas fa-shipping-fast"></i></div>
                 <h3>fast delivery</h3>
                 <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
                     standard delivery options.</p>
             </div>
 
             <div class="box">
-                <i class="fas fa-undo"></i>
+                <div class="rotate"> <i class="fas fa-undo"></i></div>
                 <h3>10 days replacements</h3>
-                <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
+                <p>This policy is designed to give customers peace of mind when making purchases and ensure that
+                    they
                     receive products that meet their expectations. </p>
             </div>
 
             <div class="box">
-                <i class="fas fa-headset"></i>
+                <div class="rotate"> <i class="fas fa-headset"></i></div>
                 <h3>24 x 7 support</h3>
-                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
-                    or problems they may encounter, without having to wait until normal business hours. </p>
+                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any
+                    issues
+                    or problems they may encounter.</p>
             </div>
             <div class="box">
-                <i class="fa fa-dollar"></i>
+                <div class="rotate"><i class="fa fa-dollar"></i></div>
                 <h3>We Accept</h3>
                 <ul style="list-style-image:URL(images/payement/money2.png);">
                     <li><img src="images/payement/Visa_Logo.png" style="width: small;"></li>
@@ -216,8 +337,7 @@
         "Clothes aren't going to change the world, but the women who wear them will.",
         "Style is a way to say who you are without having to speak.",
         "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
-        "Fashion is about dressing according to what's fashionable. Style is more about being yourself.",
-        "The dress must follow the body of a woman, not the body following the shape of the dress.",
+        "Fashion is about dressing according to what's fashionable.",
         "Fashion is the armor to survive the reality of everyday life."];
     var place = document.getElementById("displayData");
     var texte = document.createTextNode(quotes[0]);
@@ -229,7 +349,6 @@
         localStorage.clear();
         window.location.href = "sign up.html"
     }
-    setInterval(next, 2000);
 
     function back() {
 
@@ -250,6 +369,7 @@
 
         }
     }
+    window.setInterval(next, 2000)
     if (role != "admin") {
         productsBtn.hidden = true;
     } else {
@@ -294,16 +414,16 @@
         return true;
     }
     function validateLName() {
-        var name = document.getElementById('lname').value;
-        if (name.length == 0) {
-            fnameError.innerHTML = 'Last Name is required ';
+        var Lname = document.getElementById('lname').value;
+        if (Lname.length == 0) {
+            lnameError.innerHTML = 'Last Name is required ';
             return false;
         }
-        if (name.length < 3) {
-            fnameError.innerHTML = 'Last Name has to be at least 3 characters ';
+        if (Lname.length < 3) {
+            lnameError.innerHTML = 'Last Name has to be at least 3 characters ';
             return false;
         }
-        fnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        lnameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
         return true;
     }
     function validateMessage() {
@@ -324,4 +444,37 @@
             return false;
         }
     }
+    var numb1 = document.getElementById("number");
+
+    let counter = 0;
+    setInterval(() => {
+        if (counter == 60) {
+            clearInterval();
+        } else {
+            counter += 1;
+            numb1.textContent = counter + "%";
+        }
+    }, 30);
+    var numb2 = document.getElementById("number2");
+
+    let counter2 = 0;
+    setInterval(() => {
+        if (counter2 == 90) {
+            clearInterval();
+        } else {
+            counter2 += 1;
+            numb2.textContent = counter2 + "%";
+        }
+    }, 25);
+    var numb3 = document.getElementById("number3");
+
+    let counter3 = 0;
+    setInterval(() => {
+        if (counter3 == 70) {
+            clearInterval();
+        } else {
+            counter3 += 1;
+            numb3.textContent = counter3 + "%";
+        }
+    }, 30);
 </script>

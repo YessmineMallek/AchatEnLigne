@@ -21,6 +21,7 @@ ul {
 
 .imageContactUs {
     animation: animate 3s linear infinite;
+    width: 20%;
 }
 
 html {
@@ -34,21 +35,20 @@ html {
 .navBar {
     width: 100%;
     height: 15vh;
-    margin-left: 12px;
+    margin-left: 11px;
     display: flex;
     align-items: center;
 }
 
 .navBar2 {
-    width: 100%;
     height: 15vh;
-    margin-left: 50%;
+    margin-left: 60%;
     display: flex;
     align-items: center;
 }
 
 header .navBar2 a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 0 1.5rem;
     color: #666;
 }
@@ -62,10 +62,9 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding: 2rem 9%;
+    padding: 0.5rem 2%;
     display: flex;
     align-items: center;
-    z-index: 1000;
 
 
 }
@@ -143,13 +142,15 @@ header .navBar a:hover {
 .col {
     margin-left: 10%;
     margin-top: 10%;
-    flex-basis: 50%;
+    flex-basis: 70%;
 }
 
 .col p {
     font-size: 20px;
     color: #6a7199;
 }
+
+
 
 .col h3 {
     margin-top: 90%;
@@ -158,8 +159,8 @@ header .navBar a:hover {
 }
 
 .card {
-    width: 200px;
-    height: 200px;
+    width: 170px;
+    height: 170px;
     display: inline-block;
     border-radius: 10px;
     padding: 15px 25px;
@@ -169,8 +170,15 @@ header .navBar a:hover {
     cursor: pointer;
     background-position: center;
     background-size: cover;
-    transition: transform 0.5;
+    transition: width 2s, height 4s;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
 
+
+}
+
+.card:hover {
+    width: 230px;
+    height: 230px;
 }
 
 .card1 {
@@ -281,13 +289,38 @@ header .navBar a:hover {
     }
 
 }
-form span{
+
+form span {
     position: relative;
     margin-left: 4px;
     font-size: 15px;
-    color:red;
+    color: red;
 }
-form span i{
+
+form span i {
     color: seagreen;
     margin-left: 4px;
+}
+
+#displayData {
+    width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+
+}
+
+.rotate {
+    -webkit-animation: spin 2s infinite linear;
+
+
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateY(360deg);
+    }
 }

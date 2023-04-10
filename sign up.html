@@ -19,18 +19,14 @@
             <div class="navBar">
 
 
-            <a href="home.html">Home</a>
-            <a href="home.html">About</a>
-            <a href="home.html">Contact Us</a>
-    
-
-        </div>
-      
-            <div class="navBar2">
-                <a id="panier"><img class="cart" src="images/cart.png"></a>
+                <a href="home.html">Home</a>
+                <a href="home.html">About</a>
+                <a href="home.html">Contact Us</a>
 
 
             </div>
+
+
         </header>
         <!--Heder section ends -->
         <div class="main">
@@ -97,6 +93,8 @@
             signupBtn.classList.remove("disable");
             signinBtn.classList.add("disable");
         }
+        var products = [];
+
         function signUp() {
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
@@ -110,7 +108,6 @@
                     localStorage.setItem("panier", JSON.stringify(products));
                     window.location.href = "home.html";
                 }
-                var products = [];
 
             } else {
                 alert("please fill out all!!");

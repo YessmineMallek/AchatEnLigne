@@ -7,6 +7,8 @@
     <link rel="icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="articles.js"></script>
+    <script src="../filter.js"></script>
+
     <title>Men Collection</title>
 </head>
 
@@ -19,19 +21,20 @@
 
                 <div class="navBar">
 
-            <a href="../home.html">Home</a>
-            <a href="../home.html">About</a>
-            <a href="../home.html">Contact Us</a>
-    
+                    <a href="../home.html">Home</a>
+                    <a href="../home.html">About</a>
+                    <a href="../home.html">Contact Us</a>
 
-        </div>
-        <div class="navBar2">
-            <a id="panier"  href="../panier.html" ><img class="cart" src="cart.png"></a>
-            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
-            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
-        </div>
-    </header>
-    <!--Heder section ends -->
+
+                </div>
+                <div class="navBar2">
+                    <a id="panier" href="../panier.html"><img class="cart" src="cart.png"></a>
+                    <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px"
+                            href="../sign up.html"></a></span>
+                    <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+                </div>
+            </header>
+            <!--Heder section ends -->
     </section>
     <section class="manfashion">
         <div class="page-header">
@@ -43,6 +46,12 @@
         </div>
     </section>
     <div>
+        <select onchange="val()" id="filter">
+            <option>---</option>
+            <option value="croissant">Lower to higher prices</option>
+            <option value="Decroissant">Higher to Lower prices</option>
+
+        </select>
         <section id="product">
             <div class="pro-container" id="pro-container">
             </div>
@@ -54,27 +63,29 @@
         <div class="box-container">
 
             <div class="box">
-                <i class="fas fa-shipping-fast"></i>
+                <div class="rotate"> <i class="fas fa-shipping-fast"></i></div>
                 <h3>fast delivery</h3>
                 <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
                     standard delivery options.</p>
             </div>
 
             <div class="box">
-                <i class="fas fa-undo"></i>
+                <div class="rotate"> <i class="fas fa-undo"></i></div>
                 <h3>10 days replacements</h3>
-                <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
+                <p>This policy is designed to give customers peace of mind when making purchases and ensure that
+                    they
                     receive products that meet their expectations. </p>
             </div>
 
             <div class="box">
-                <i class="fas fa-headset"></i>
+                <div class="rotate"> <i class="fas fa-headset"></i></div>
                 <h3>24 x 7 support</h3>
-                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
-                    or problems they may encounter, without having to wait until normal business hours. </p>
+                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any
+                    issues
+                    or problems they may encounter.</p>
             </div>
             <div class="box">
-                <i class="fa fa-dollar"></i>
+                <div class="rotate"><i class="fa fa-dollar"></i></div>
                 <h3>We Accept</h3>
                 <ul style="list-style-image:URL(../images/payement/money2.png);">
                     <li><img src="../images/payement/Visa_Logo.png" style="width: small;"></li>
@@ -92,7 +103,10 @@
 
 </html>
 <script>
-
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "../sign up.html"
+    }
     function navigate(id) {
 
         window.location.href = 'article.html?id=' + id;
@@ -159,5 +173,25 @@
     if (role != null) {
         logInBtn.hidden = true;
 
-    } 
+    }
+    function val() {
+        var filter = document.getElementById("filter");
+        console.log(filter.value);
+        if (filter.value == "croissant") {
+            articles =
+                mapNumeriqueCroissant(articles);
+            document.getElementById("pro-container").innerHTML = ""
+            articles.forEach(afficher);
+        } else if (filter.value == "Decroissant") {
+            articles =
+                mapNumeriqueDeCroissant(articles);
+            document.getElementById("pro-container").innerHTML = ""
+            articles.forEach(afficher);
+
+        } else {
+            document.getElementById("pro-container").innerHTML = ""
+
+            articles.forEach(afficher);
+        }
+    }
 </script>
