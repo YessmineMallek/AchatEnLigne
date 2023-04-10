@@ -26,7 +26,7 @@
 
             <a href="">Home</a>
             <a href="#about">About</a>
-            <a href="#contactUs">Contact Us</a>
+            <a href="#contactUs">Contact us</a>
 
 
         </div>
@@ -43,7 +43,9 @@
     <!--Home section starts-->
     <section class="home" id="home">
         <div class="content">
+
             <div class="row">
+
                 <div class="col">
                     <a id="product" href="Products/addProductForm.html" class="btn">Add Product</a>
                     <h1>You should always feel pretty</h1>
@@ -55,6 +57,7 @@
                             src="images/next-arrow.png">
 
                     </div>
+
                 </div>
                 <div class="col">
                     <a id="lienFemme">
@@ -76,6 +79,8 @@
 
 
                 </div>
+
+
 
 
             </div>
@@ -125,37 +130,64 @@
 
     <!--About section ends-->
     <!--Contacts us starts-->
-    <section class="ContactUs">
+    <section class="ContactUsSection">
         <h1 class="heading">
             <span>
                 Contact
             </span>
             us
         </h1>
-        <div class="row">
-            <div class="container" id="contactUs">
-                <form>
-                    <label class="label" for="fname">First Name</label>
-                    <span id="fname-error"></span>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name.." id="contact-fname"
-                        onkeyup="validateFName()">
+        <div class="container1">
+            <div class="contactUs">
+                <div class="left-side">
+                    <div class="adresse details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <div class="text-one">Campus Universitaire de Manouba </div>
 
-                    <label class="label" for="lname">Last Name</label>
-                    <span id="lname-error"></span>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name.." id="contact-lname"
-                        onkeyup="validateLName()">
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+216 70 000 000</div>
+                        <div class="text-two">+216 70 000 000</div>
 
-                    <label class="label" for="subject">Subject</label>
-                    <span id="message-error"></span>
-                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
-                        onkeyup="validateMessage()"></textarea>
+                    </div>
+                    <div class="Email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">Jeasmine@gmail.Com</div>
+                        <div class="text-two">info@gmail.Com</div>
 
-                    <input class="btn" type="submit" value="Submit" onclick="return validateForm()">
-                    <span id="submit-error"></span>
-                </form>
+                    </div>
+
+                </div>
+                <div class="right-side">
+
+                    <div class="topixText">Send us a message</div>
+                    <form>
+                        <span id="fname-error"></span>
+                        <div class="inputBox">
+                            <input type="text" id="fname" name="firstname" placeholder="Enter Your name.."
+                                id="contact-fname" onkeyup="validateFName()">
+                        </div>
+                        <span id="lname-error"></span>
+                        <div class="inputBox">
+                            <input type="text" id="lname" name="lastname" placeholder="Enter you Email.."
+                                id="contact-lname" onkeyup="validateLName()">
+                        </div>
+                        <span id="message-error"></span>
+                        <div class="inputBox"> <textarea id="subject" name="subject" placeholder="Write message.."
+                                onkeyup="validateMessage()"></textarea></div>
+
+
+                        <input class="btnn" type="button" value="Submit" onclick="return validateForm()">
+                        <span id="submit-error"></span>
+                    </form>
+
+                </div>
 
             </div>
-            <img style="float: right;" width="40%" src="images/contactUs.jpg" class="imageContactUs">
         </div>
     </section>
     <!--Contacts us ends-->
@@ -165,27 +197,29 @@
         <div class="box-container">
 
             <div class="box">
-                <i class="fas fa-shipping-fast"></i>
+                <div class="rotate"> <i class="fas fa-shipping-fast"></i></div>
                 <h3>fast delivery</h3>
                 <p>Fast delivery services typically prioritize speed over cost, so they may be more expensive than
                     standard delivery options.</p>
             </div>
 
             <div class="box">
-                <i class="fas fa-undo"></i>
+                <div class="rotate"> <i class="fas fa-undo"></i></div>
                 <h3>10 days replacements</h3>
-                <p>This policy is designed to give customers peace of mind when making purchases and ensure that they
+                <p>This policy is designed to give customers peace of mind when making purchases and ensure that
+                    they
                     receive products that meet their expectations. </p>
             </div>
 
             <div class="box">
-                <i class="fas fa-headset"></i>
+                <div class="rotate"> <i class="fas fa-headset"></i></div>
                 <h3>24 x 7 support</h3>
-                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any issues
-                    or problems they may encounter, without having to wait until normal business hours. </p>
+                <p>Having 24 X 7 support can be beneficial for customers as it allows them to quickly resolve any
+                    issues
+                    or problems they may encounter.</p>
             </div>
             <div class="box">
-                <i class="fa fa-dollar"></i>
+                <div class="rotate"><i class="fa fa-dollar"></i></div>
                 <h3>We Accept</h3>
                 <ul style="list-style-image:URL(images/payement/money2.png);">
                     <li><img src="images/payement/Visa_Logo.png" style="width: small;"></li>
@@ -216,8 +250,7 @@
         "Clothes aren't going to change the world, but the women who wear them will.",
         "Style is a way to say who you are without having to speak.",
         "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
-        "Fashion is about dressing according to what's fashionable. Style is more about being yourself.",
-        "The dress must follow the body of a woman, not the body following the shape of the dress.",
+        "Fashion is about dressing according to what's fashionable.",
         "Fashion is the armor to survive the reality of everyday life."];
     var place = document.getElementById("displayData");
     var texte = document.createTextNode(quotes[0]);
@@ -249,6 +282,7 @@
 
         }
     }
+    window.setInterval(next, 2000)
     if (role != "admin") {
         productsBtn.hidden = true;
     } else {

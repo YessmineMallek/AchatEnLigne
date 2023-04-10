@@ -5,7 +5,6 @@
     box-sizing: border-box;
     font-family: "Lucida Console", Courier, monospace;
     outline: none;
-    border: none;
     text-decoration: none;
     text-transform: capitalize;
     transition: .2s linear;
@@ -36,15 +35,15 @@ html {
 }
 
 .navBar2 {
-    width: 100%;
     height: 15vh;
     margin-left: 60%;
     display: flex;
     align-items: center;
 }
 
+
 header .navBar2 a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 0 1.5rem;
     color: #666;
 }
@@ -58,10 +57,11 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    padding: 2rem 9%;
+    padding: 0.5rem 2%;
     display: flex;
     align-items: center;
-    z-index: 1000;
+
+
 }
 
 header .navBar a {
@@ -95,6 +95,12 @@ header .navBar a:hover {
     width: 40px;
     cursor: pointer
 }
+
+.cart:hover {
+    transform: scale(1.1);
+}
+
+
 
 p {
     text-shadow: #465;
@@ -143,7 +149,6 @@ p {
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15xp 0;
-    transition: 0.2s ease;
 
 
 
@@ -151,6 +156,8 @@ p {
 
 #product .pro:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+
 
 }
 
@@ -378,4 +385,24 @@ p {
     font-size: 1.5rem;
     color: #666;
     padding: 1rem 0;
+}
+
+#filter {
+    margin-left: 2%;
+}
+
+.rotate {
+    -webkit-animation: spin 2s infinite linear;
+
+
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateY(360deg);
+    }
 }

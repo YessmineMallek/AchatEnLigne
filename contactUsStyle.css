@@ -1,47 +1,112 @@
-input[type=text],
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
-
-input[type=submit] {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-.container {
-    display: flex;
-    width: 50%;
-    border: 1.5rem solid #fff;
-    border-radius: .5rem;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    height: 100%;
+.ContactUsSection {
+    min-height: 80vh;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
     margin: 2%;
-    object-fit: cover;
 }
 
-.label {
+.container1 {
+    width: 80%;
+    background: #fff;
+    border-radius: 6px;
+    padding: 30px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contactUs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contactUs .left-side {
+    width: 25%;
+    height: 100%;
+    position: relative;
+}
+
+.contactUs .left-side .details {
+    margin-left: 14px;
+    text-align: center;
+
+}
+
+.contactUs .left-side::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #afafb6;
+}
+
+.contactUs .left-side .details i {
+    font-size: 30px;
+    color: #3e2093
+}
+
+.contactUs .left-side .details .topic {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.contactUs .left-side .details .text-one,
+.contactUs .left-side .details .text-two {
+    font-size: 14px;
+    color: #afafb6;
+
+}
+
+.contactUs .right-side {
+    width: 75%;
+    height: 100%;
+    margin-left: 75px;
+}
+
+.contactUs .right-side .topixText {
+    font-size: 23px;
+    font-weight: 600;
+    color: #3e2093;
+}
+
+.inputBox {
+    height: 50px;
     width: 100%;
-    font-size: 1.7rem;
-    color: var(--blueDark);
-    text-transform: none;
 }
 
-#contactUs {
-    display: block
+.inputBox input,
+.inputBox textarea {
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none;
+}
+
+#subject {
+    min-height: 110px;
+    margin-top: 6px;
+}
+
+.right-side .btnn {
+    color: #fff;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    padding: 8PX 16px;
+    border-radius: 6px;
+    background: #3e2093;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.right-side .btnn:hover {
+    background: #5029bc;
 }
