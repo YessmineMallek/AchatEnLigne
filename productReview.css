@@ -67,7 +67,7 @@
     stroke-width: 20px;
     stroke-dasharray: 472;
     stroke-dashoffset: 472;
-    animation: anim 2s linear forwards;
+    animation: anim 2s linear infinite;
 }
 
 #circle2 {
@@ -76,7 +76,7 @@
     stroke-width: 20px;
     stroke-dasharray: 472;
     stroke-dashoffset: 472;
-    animation: anim2 2s linear forwards;
+    animation: anim2 2s linear infinite;
 }
 
 #circle3 {
@@ -85,7 +85,7 @@
     stroke-width: 20px;
     stroke-dasharray: 472;
     stroke-dashoffset: 472;
-    animation: anim3 2s linear forwards;
+    animation: anim3 2s linear infinite;
 }
 
 .topixText2 {

@@ -246,39 +246,7 @@ header .navBar a:hover {
     }
 }
 
-@media (max-width:768px) {
 
-    header .navBar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #eee;
-        border-top: .1rem solid rgba(0, 0, 0, .1);
-    }
-
-    header .navBar a {
-        margin: 1.5rem;
-        padding: 1.5rem;
-        background: #eee;
-        border: .1rem solid rgba(0, 0, 0, .1);
-        display: block;
-    }
-
-    .home .content h1 {
-        font-size: 30px;
-    }
-
-}
-
-@media (max-width:450px) {
-    html {
-        font-size: 50%;
-
-    }
-
-
-}
 
 @keyframes animate {
     0% {
