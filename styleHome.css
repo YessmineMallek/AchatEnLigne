@@ -41,6 +41,10 @@ html {
     align-items: center;
 }
 
+#btns {
+    justify-content: space-between;
+}
+
 .navBar2 {
     height: 15vh;
     margin-left: 60%;
