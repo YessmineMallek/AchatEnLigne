@@ -1,0 +1,38 @@
+.container3 {
+    justify-content: center;
+
+    margin-left: 15%;
+    height: 200px;
+    width: 73%;
+    background: #F0F1F8;
+    border-radius: 6px;
+    padding: 30px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slider {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+}
+
+.slider .slide-track {
+    animation: scroll 40s linear infinite;
+    display: flex;
+    width: calc(250px*14);
+}
+
+.slider .slide {
+    width: 250px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-250px*7));
+    }
+}

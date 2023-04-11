@@ -154,7 +154,7 @@ td {
 .box1 {
     float: left;
     height: 65%;
-    overflow: scroll;
+    overflow-y: scroll;
     font-size: large;
 }
 
