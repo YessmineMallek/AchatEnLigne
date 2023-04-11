@@ -86,7 +86,7 @@ header .navBar a:hover {
 .home {
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
     background-image: url("images/background.png");
     background-size: cover;
     background-position: center;
