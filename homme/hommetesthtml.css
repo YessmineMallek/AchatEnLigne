@@ -401,3 +401,8 @@ p {
         -webkit-transform: rotateY(360deg);
     }
 }
+
+#MainImag {
+    border-radius: 8%;
+
+}

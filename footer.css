@@ -3,7 +3,8 @@ footer {
     margin-top: 3.5%;
     position: relative;
     width: 100%;
-    background: #ff719b ;
+    background: #ff719b;
+    opacity: 0.4;
     padding: 5px 10px;
     display: flex;
     justify-content: center;

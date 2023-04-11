@@ -34,6 +34,9 @@
             <div class="form-box">
                 <h1 id="title">Sign up </h1>
                 <form>
+                    <span id="signin-error"></span>
+                    <span id="signup-error"></span>
+
                     <div class="input-group">
                         <div class="input-field" id="nameField">
                             <i class="fa-regular fa-user"></i>
@@ -56,12 +59,8 @@
                         <p>Lost password <a href="#">Click here ! </a></p>
                     </div>
                     <div class="btn-field">
-                        <button type="button" id="signupBtn" ondblclick="signUp()"
-                            onclick="return validateFormup()">Sign up</button>
-                        <span id="signup-error"></span>
-                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()"
-                            onclick="return validateFormin()">Sign in</button>
-                        <span id="signin-error"></span>
+                        <button type="button" id="signupBtn" ondblclick="signUp()">Sign up</button>
+                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()">Sign in</button>
                     </div>
                 </form>
             </div>
@@ -99,20 +98,23 @@
         function signUp() {
             var email = document.getElementById("email").value;
             var password = document.getElementById("password").value;
-            if (email != "" && password != "") {
-                if (email.toUpperCase() == "ADMIN@GMAIL.COM" && password == "admin123") {
-                    localStorage.setItem("role", "admin");
-                    localStorage.setItem("panier", JSON.stringify(products));
-                    window.location.href = "home.html";
-                } else {
-                    localStorage.setItem("role", "autre");
-                    localStorage.setItem("panier", JSON.stringify(products));
-                    window.location.href = "home.html";
-                }
+            if (validateFormin()) {
+                if (email != "" && password != "") {
+                    if (email.toUpperCase() == "ADMIN@GMAIL.COM" && password == "admin123") {
+                        localStorage.setItem("role", "admin");
+                        localStorage.setItem("panier", JSON.stringify(products));
+                        window.location.href = "home.html";
+                    } else {
+                        localStorage.setItem("role", "autre");
+                        localStorage.setItem("panier", JSON.stringify(products));
+                        window.location.href = "home.html";
+                    }
 
-            } else {
-                alert("please fill out all!!");
+                } else {
+                    alert("please fill out all!!");
+                }
             }
+
 
 
         }
@@ -175,6 +177,7 @@
                 signinError.innerHTML = 'please fix error to submit';
                 return false;
             }
+            return true;
         }
         var img = document.getElementById("logo");
         function hover() {
@@ -188,8 +191,8 @@
 
         }
     </script>
-      <!--Footer starts-->
-      <footer id="footer">
+    <!--Footer starts-->
+    <footer id="footer">
         <div class="waves">
             <div class="wave" id="wave1"></div>
             <div class="wave" id="wave2"></div>

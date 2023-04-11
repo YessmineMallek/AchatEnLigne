@@ -365,6 +365,11 @@ p {
     padding: 2rem;
 }
 
+#MainImag {
+    border-radius: 8%;
+
+}
+
 .service .box-container .box {
     text-align: center;
     flex: 1 1 30rem
