@@ -4,15 +4,28 @@ body {
 
 }
 
+h1 {
+    font-size: 35;
+    font-weight: 100;
+    margin-top: 24px;
+    margin-left: 24px;
+    margin-bottom: 15px;
+    color: #232d60;
+}
+
 .containerAvis {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
     position: relative;
+    margin-bottom: 40vh;
     max-width: 200vh;
     flex-wrap: wrap;
     z-index: 1;
+}
+
+#Titre {
+    padding-top: 10%;
 }
 
 .containerAvis .cardAvis {
@@ -35,7 +48,6 @@ body {
 }
 
 .containerAvis .cardAvis .contentAvis {
-    padding: 20px;
 
     text-align: center;
     transition: 0.5px;
@@ -43,7 +55,7 @@ body {
 
 
 .containerAvis .cardAvis:hover {
-    transform: translateX(-20px);
+    transform: translateX(-10px);
     opacity: 1;
 }
 
@@ -140,8 +152,9 @@ header .icons a:hover {
     color: var(--pink);
 
 }
+
 .container {
-   
+
     font-size: 13px;
 }
 
@@ -149,10 +162,12 @@ ul.ks-cboxtags {
     list-style: none;
     padding: 10px;
 }
-ul.ks-cboxtags li{
-  display: inline;
+
+ul.ks-cboxtags li {
+    display: inline;
 }
-ul.ks-cboxtags li label{
+
+ul.ks-cboxtags li label {
     display: inline-block;
     background-color: rgba(218, 203, 228, 0.9);
     border: 2px solid rgba(163, 162, 162, 0.3);
@@ -188,13 +203,13 @@ ul.ks-cboxtags li label::before {
     transition: transform .3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
     content: "\f00c";
     transform: rotate(-360deg);
     transition: transform .3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+ul.ks-cboxtags li input[type="checkbox"]:checked+label {
     border: 2px solid #ffffff;
     background-color: #ff77cd;
     color: #ffffff;
@@ -202,12 +217,14 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
 }
 
 ul.ks-cboxtags li input[type="checkbox"] {
-  display: absolute;
+    display: absolute;
 }
+
 ul.ks-cboxtags li input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
+    position: absolute;
+    opacity: 0;
 }
-ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-  border: 2px solid #e9a1ff;
+
+ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+    border: 2px solid #e9a1ff;
 }
