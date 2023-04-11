@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <script src="imageEffet.js"></script>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="avis.css">
+
+    <link rel="stylesheet" href="styleHome.css">
+
+
+
+    <!--Font awsome links-->
+    <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png">
+
+    <title>People's opinions </title>
+</head>
+
+<body>
+    <!--Heder section starts -->
+    <header>
+        <img width="130px" src="images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
+
+        <div class="navBar">
+
+            <a href="home.html">Home</a>
+            <a href="home.html">About</a>
+            <a href="home.html">Contact us</a>
+
+
+
+        </div>
+        <div class="navBar2">
+
+            <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
+
+        </div>
+    </header>
+    <!--Heder section ends -->
+    <section>
+        <div class="containerAvis">
+            <div class="cardAvis">
+                <div class="contentAvis">
+                    <h2>01</h2>
+                    <h3>Card one</h3>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <br>
+                    <br>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo ex quidem incidunt corporis
+                        voluptas sint dolores accusamus atque magni, optio, eveniet commodi facilis blanditiis dolor
+                        laudantium a iure tempore eos?</p>
+                    <a href="">Read More</a>
+
+                </div>
+            </div>
+            <div class="cardAvis">
+
+                <div class="contentAvis">
+
+                    <h2>02</h2>
+                    <h3>Card Two</h3>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <br>
+                    <br>
+
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo ex quidem incidunt corporis
+                        voluptas sint dolores accusamus atque magni, optio, eveniet commodi facilis blanditiis dolor
+                        laudantium a iure tempore eos?</p>
+
+                    <br>
+                    <a href="">Read More</a>
+
+                </div>
+            </div>
+            <div class="cardAvis">
+                <div class="contentAvis">
+                    <h2>03</h2>
+                    <h3>Card three</h3>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <br>
+                    <br>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo ex quidem incidunt corporis
+                        voluptas sint dolores accusamus atque magni, optio, eveniet commodi facilis blanditiis dolor
+                        laudantium a iure tempore eos?</p>
+                    <a href="">Read More</a>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Footer starts-->
+    <footer id="footer">
+        <div class="waves">
+            <div class="wave" id="wave1"></div>
+            <div class="wave" id="wave2"></div>
+            <div class="wave" id="wave3"></div>
+            <div class="wave" id="wave4"></div>
+        </div>
+
+        <ul class="social-icons">
+            <li><a href="#"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+
+        </ul>
+        <ul class="menu">
+            <li>
+                <a href="#">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#ContactUsSection">Contact Us</a>
+                <a href="#Reviews">Product Review</a>
+            </li>
+        </ul>
+
+        <p>
+            <i class="fa-regular fa-copyright"></i>2023 Jeasmine | All Rights Reserved
+        </p>
+    </footer>
+    <!--Footer ends-->
+</body>
+
+</html>
+<script>
+    var img = document.getElementById("logo");
+
+    function hover() {
+        img.width = "200";
+        img.height = "200"
+
+    }
+    function small() {
+        img.width = "130";
+        img.height = "130"
+
+    }
+    function LogOut() {
+        localStorage.clear();
+        window.location.href = "sign up.html"
+    }</script>
