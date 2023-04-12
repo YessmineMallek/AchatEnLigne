@@ -93,8 +93,8 @@
             </div>
         </div>
         <div class="social-links">
-            <a href="">FACEBOOK</a>
-            <a href="">INSTAGRAM</a>
+            <a href="https://www.facebook.com/">FACEBOOK</a>
+            <a href="https://www.instagram.com/">INSTAGRAM</a>
         </div>
     </section>
 
@@ -198,6 +198,7 @@
         <div class="row">
             <div class="video-container">
                 <video src="images/video.mp4" loop autoplay muted></video>
+
                 <h3>Best Clothes sellers</h3>
             </div>
             <div class="content">
@@ -207,7 +208,13 @@
                     providing detailed descriptions and images to help you make informed purchases. We prioritize
                     customer satisfaction and are committed to providing a convenient and enjoyable shopping experience.
                     Shop with us and elevate your style with our trendy and affordable clothing options.</p>
+                <br>
+                <br><br><br>
+                <br><br>
+                <audio controls>
 
+                    <source src="sounds.mp3" type="audio/mpeg">
+                </audio>
 
             </div>
 
@@ -402,11 +409,21 @@
     var i = 1;
     const quotes = [
         "Clothes that are sure to heat up your winter.",
-        "Clothes aren't going to change the world, but the women who wear them will.",
-        "Style is a way to say who you are without having to speak.",
-        "Clothing is a form of self-expression, there are hints about who you are in what you wear.",
         "Fashion is about dressing according to what's fashionable.",
-        "Fashion is the armor to survive the reality of everyday life."];
+        "Style is a way to say who you are without having to speak.",
+        "Fashion is the armor to survive the reality of everyday life.",
+        "Fashion is the armor to survive the reality of everyday life.",
+
+        "Style is a way to say who you are without having to speak.",
+        "Clothes that are sure to heat up your winter.",
+        "Fashion is about dressing according to what's fashionable.",
+        "Style is a way to say who you are without having to speak.",
+        "Fashion is the armor to survive the reality of everyday life.",
+        "Fashion is the armor to survive the reality of everyday life.",
+
+        "Style is a way to say who you are without having to speak.",
+
+    ];
     var place = document.getElementById("displayData");
     var texte = document.createTextNode(quotes[0]);
     place.appendChild(texte);
@@ -437,6 +454,7 @@
 
         }
     }
+    window.setInterval(next, 2000)
     if (role != "admin") {
         productsBtn.hidden = true;
     } else {

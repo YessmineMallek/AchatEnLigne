@@ -47,14 +47,14 @@ html {
 
 .navBar2 {
     height: 15vh;
-    margin-left: 60%;
+    margin-left: 55%;
     display: flex;
     align-items: center;
 }
 
 header .navBar2 a {
     font-size: 1rem;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     color: #666;
 }
 
