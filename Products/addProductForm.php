@@ -152,7 +152,7 @@ if (!empty($_GET['edit'])) {
                     <br>
                     <br>
 
-                    <input type="file" id="inputFile" accept="image/*" name="product_image"><br>
+                    <input type="file" id="inputFile" accept="image/*" name="product_image[]" multiple><br>
 
                     <input type="submit" class="btn" name="add_product" value="Save">
 
