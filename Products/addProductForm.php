@@ -16,7 +16,6 @@ if (isset($_POST["add_product"]) == 1) {
         try {
 
             $rep = $conn->exec("insert into produit values('$name' , '$description ' , '$ref' , $price ,'$sexe')") or die(print_r($conn->errorInfo()));
-            echo "<h2>" . $rep . "</h2>";
 
             if ($rep > 0) {
                 $rep2 = $conn->exec("insert into images_produit values('$ref','$image')") or die(print_r($conn->errorInfo()));
@@ -36,14 +35,21 @@ if (isset($_POST["add_product"]) == 1) {
         $message[] = "Please fill out all";
     }
 }
-if (isset($_GET['delete'])) {
+if (!empty($_GET['delete'])) {
     $id = $_GET['delete'];
-    echo "<h2> heyyyyy " . $id . "</h2>";
 
-    $rep = $conn->exec("delete from produit where ref=$id") or die(print_r($conn->errorInfo()));
+    $rep = $conn->exec("delete from produit where ref  like '$id'") or die(print_r($conn->errorInfo()));
     if ($rep > 0) {
-        echo "<script>alert('suppression effectuer avec succés');</script>";
+        $message[] = "Product deleted successfully";
     }
+};
+if (!empty($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $req = "select * from produit where ref  like '$id'";
+    $resultat = $conn->query($req);
+    $resultat->setFetchMode(PDO::FETCH_BOTH);
+
+    $rows = $resultat->fetchAll();
 };
 
 
@@ -82,6 +88,11 @@ if (isset($_GET['delete'])) {
     <section class="home">
         <div class="content">
             <div class=" product-display">
+                <?php if (isset($message)) {
+                    foreach ($message as $msg) {
+                        echo "<span class='error'> <h3>" . $msg . "</h3></span><br>";
+                    }
+                } ?>
                 <table class="product-display-table" id="product-display-table" name="tab">
                     <thead>
                         <tr>
@@ -107,8 +118,7 @@ if (isset($_GET['delete'])) {
                             /* $resultat2 = $conn->query($req2);
                             $resultat2->setFetchMode(PDO::FETCH_BOTH);
                             $rows2 = $resultat2->fetchAll():*/
-                            echo $p["ref"];
-                            echo "<tr value=" . $p["ref"] . "> <td><img height = \"100\" src=' '></td><td>" . $p["nom"] . "</td> <td> " . $p["prix"] . "DT</td><td>" . $p["sexe"] . "</td><td><a href='' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete='" . $p["ref"] . "'><i class='fas fa-trash'> </i></a></td></tr>";
+                            echo "<tr value=" . $p["ref"] . "> <td><img height = \"100\" src=\"uploaded_img/" . $p["imageName"][0] . "></td><td>" . $p["nom"] . "</td> <td> " . $p["prix"] . "DT</td><td>" . $p["sexe"] . "</td><td><a href='addProductForm.php?edit=" . $p["ref"] . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $p["ref"] . "'><i class='fas fa-trash'> </i></a></td></tr>";
                         }
 
                         ?>
@@ -121,11 +131,7 @@ if (isset($_GET['delete'])) {
 
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="f1" id="myForm" enctype="multipart/form-data">
                     <h3>Add new product</h3>
-                    <?php if (isset($message)) {
-                        foreach ($message as $msg) {
-                            echo "<span class='error'>" . $msg . "</span><br>";
-                        }
-                    } ?>
+
                     <label class="label" for="ref">Product reference <span class="required">*</span></label>
                     <input type="text" placeholder="Enter product reference" name="product_ref" class="box" id="product_ref" value="<?php if (isset($_POST['product_ref'])) echo $_POST['product_ref'] ?>">
 
