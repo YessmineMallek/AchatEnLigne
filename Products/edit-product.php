@@ -7,7 +7,6 @@ if (!empty($_GET['edit'])) {
     $resultat->setFetchMode(PDO::FETCH_BOTH);
 
     $rows = $resultat->fetchAll();
-    print_r($rows);
     foreach ($rows as $prod) {
         $ref = $prod["ref"];
         $description = $prod["descrip"];
