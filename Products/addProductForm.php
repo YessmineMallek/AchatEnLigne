@@ -128,6 +128,7 @@ if (!empty($_GET['edit'])) {
                             <th>product image</th>
                             <th>product name</th>
                             <th>product price</th>
+                            <th>product quantity</th>
                             <th>Gender</th>
                             <th>Actions</th>
 
