@@ -8,6 +8,7 @@ $code_postale = $_POST["code_postale"];
 
 // Function to verify form inputs
 function verifyInputs($name, $email, $address, $city, $phone, $code_postale) {
+function verifyInputs($name, $email, $address, $city, $phone, $code_postale) {
     $errors = array();
 
     // Verify name input
@@ -63,8 +64,8 @@ function sendEmail($to, $name, $email, $address, $city, $phone, $code_postale) {
 $errors = verifyInputs($name, $email, $address, $city, $phone, $code_postale);
 
 if (empty($errors)) {
-    $to = "jessamine@ensi-uma.tn"; // Set the recipient email address
-    sendEmail($to, $name, $email, $address, $city, $phone, $code_postale);
+    $to = "your_email@example.com"; // Set the recipient email address
+    sendEmail($to, $name, $email, $address, $city, $state, $code_postale, $card_pay, $credit_card_number);
     echo "Email sent successfully.";
 } else {
     // Display errors
