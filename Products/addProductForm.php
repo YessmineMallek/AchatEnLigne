@@ -62,21 +62,7 @@ if (!empty($_GET['delete'])) {
         $message[] = "Product deleted successfully";
     }
 };
-if (!empty($_GET['edit'])) {
-    $id = $_GET['edit'];
-    $req = "select * from produit where ref  like '$id'";
-    $resultat = $conn->query($req);
-    $resultat->setFetchMode(PDO::FETCH_BOTH);
 
-    $rows = $resultat->fetchAll();
-    foreach ($rows as $prod) {
-        $ref = $prod["ref"];
-        $description = $prod["descrip"];
-        $name = $prod["nom"];
-        $price = $prod["prix"];
-        $gender = $prod["sexe"];
-    }
-};
 
 
 ?>
