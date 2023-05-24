@@ -1,13 +1,31 @@
+<?php
+
+if (isset($_POST['signUp'])) {
+    if (isset($_POST['name']) && isset($_POST["password"]) && isset($_POST['email'])) {
+        include("../../entites/commentaire.php");
+        $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $u = new Utilisateur($_POST['name'], $passwordHash, $_POST['email']);
+        $rep = Utilisateur::ajouter_Utilisateur($u);
+        if ($rep > 0) {
+            echo "<script>alert('User addedd');</script>";
+        }
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="signUp.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../css/signUp.css">
+    <link rel="stylesheet" href="../css/footer.css">
     <title>Sign in and sign up form </title>
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="../images/logo.png">
 
 </head>
 
@@ -15,14 +33,14 @@
     <div class="container">
         <!--Heder section starts -->
         <header>
-            <img width="130px" src="images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
+            <img width="130px" src="../images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
             <div class="navBar">
 
 
-                <a href="home.html">Home</a>
-                <a href="home.html">About</a>
-                <a href="home.html">Contact Us</a>
+                <a href="../home/home.html">Home</a>
+                <a href="../home/home.html">About</a>
+                <a href="../home/home.html">Contact Us</a>
 
 
             </div>
@@ -33,34 +51,33 @@
         <div class="main">
             <div class="form-box">
                 <h1 id="title">Sign up </h1>
-                <form>
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <span id="signin-error"></span>
                     <span id="signup-error"></span>
 
                     <div class="input-group">
                         <div class="input-field" id="nameField">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="Name" id="contact-name" onkeyup="validateName()">
+                            <input type="text" placeholder="Name" name="name" id="contact-name" onkeyup="validateName()">
                             <span id="name-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" placeholder="Email" id="email" onkeyup="validateEmail()">
+                            <input type="email" placeholder="Email" name="email" id="email" onkeyup="validateEmail()">
                             <span id="email-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" placeholder="Password" id="password" onkeyup="validatePassword()">
+                            <input type="password" placeholder="Password" name="password" id="password" onkeyup="validatePassword()">
                             <span id="password-error"></span>
 
                         </div>
                         <p>Lost password <a href="#">Click here ! </a></p>
                     </div>
                     <div class="btn-field">
-                        <button type="button" id="signupBtn" ondblclick="signUp()">Sign up</button>
-                        <button type="button" class="disable" id="signinBtn" ondblclick="signUp()">Sign in</button>
+                        <button type="submit" name='signUp' id="signupBtn">Sign up</button>
                     </div>
                 </form>
             </div>
@@ -74,50 +91,14 @@
         </div>
     </div>
     <script>
-
         let signupBtn = document.getElementById("signupBtn");
-        let signinBtn = document.getElementById("signinBtn");
         let nameField = document.getElementById("nameField");
         let title = document.getElementById("title");
 
-        signinBtn.onclick = function () {
-            nameField.style.maxHeight = "0";
-            title.innerHTML = "Sign In ";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-        }
-
-        signupBtn.onclick = function () {
-            nameField.style.maxHeight = "60px";
-            title.innerHTML = "Sign Up ";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
-        }
-        var products = [];
-
-        function signUp() {
-            var email = document.getElementById("email").value;
-            var password = document.getElementById("password").value;
-            if (validateFormin()) {
-                if (email != "" && password != "") {
-                    if (email.toUpperCase() == "ADMIN@GMAIL.COM" && password == "admin123") {
-                        localStorage.setItem("role", "admin");
-                        localStorage.setItem("panier", JSON.stringify(products));
-                        window.location.href = "home.html";
-                    } else {
-                        localStorage.setItem("role", "autre");
-                        localStorage.setItem("panier", JSON.stringify(products));
-                        window.location.href = "home.html";
-                    }
-
-                } else {
-                    alert("please fill out all!!");
-                }
-            }
 
 
 
-        }
+
         //Javascript Form Validation 
         var nameError = document.getElementById('name-error')
         var emailError = document.getElementById('email-error')
@@ -138,6 +119,7 @@
             nameError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
             return true;
         }
+
         function validateEmail() {
             var email = document.getElementById('email').value;
 
@@ -152,6 +134,7 @@
             emailError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
             return true;
         }
+
         function validatePassword() {
             var password = document.getElementById('password').value;
 
@@ -166,12 +149,14 @@
             passwordError.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
             return true;
         }
+
         function validateFormup() {
             if (!validateName() || !validateEmail() || !validatePassword()) {
                 signupError.innerHTML = 'please fix error to submit';
                 return false;
             }
         }
+
         function validateFormin() {
             if (!validateEmail() || !validatePassword()) {
                 signinError.innerHTML = 'please fix error to submit';
@@ -180,11 +165,13 @@
             return true;
         }
         var img = document.getElementById("logo");
+
         function hover() {
             img.width = "200";
             img.height = "200"
 
         }
+
         function small() {
             img.width = "130";
             img.height = "130"

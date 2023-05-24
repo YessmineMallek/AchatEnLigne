@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="kid.css">
     <link rel="icon" href="logo.png">
-    <link rel="stylesheet" href="../footer.css">
-    <script src="../filter.js"></script>
+    <link rel="stylesheet" href="../css/footer.css">
+
 
     <title>kid Collection</title>
     <!--Font awsome links-->
@@ -24,14 +24,14 @@
                 <div class="navBar">
 
 
-                    <a href="../home.html">Home</a>
-                    <a href="../home.html">About</a>
-                    <a href="../home.html">Contact Us</a>
+                    <a href="../home/home.html">Home</a>
+                    <a href="../home/home.html">About</a>
+                    <a href="../home/home.html">Contact Us</a>
 
 
                 </div>
                 <div class="navBar2">
-                    <a id="panier" href="../panier.html"><img class="cart" src="cart.png"></a>
+                    <a id="panier" href="../panier/panier.html"><img class="cart" src="cart.png"></a>
 
                     <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="../sign up.html"></a></span>
                     <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
@@ -61,7 +61,7 @@
             <div class="pro-container" id="pro-container">
 
                 <?php
-                include("../entités/produit.php");
+                include("../../entites/produit.php");
                 $gender = $_GET['gender'];
                 $rows = Produit::findByGender($gender);
                 foreach ($rows as $p) {

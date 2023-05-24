@@ -187,22 +187,22 @@ header .navBar a:hover {
 }
 
 .card1 {
-    background-image: url("images/fem2.jpg");
+    background-image: url("../images/fem2.jpg");
 
 }
 
 .card2 {
-    background-image: url("images/hom.jpg");
+    background-image: url("../images/hom.jpg");
 
 }
 
 .card3 {
-    background-image: url("images/enfant1.jpg");
+    background-image: url("../images/enfant1.jpg");
 
 }
 
 .card4 {
-    background-image: url("images/fem1.jpg");
+    background-image: url("../images/fem1.jpg");
 
 }
 

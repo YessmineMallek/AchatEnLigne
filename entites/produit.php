@@ -30,7 +30,8 @@ class Produit
 
     public static function findAll()
     {
-        include("../connexion/connection.php");
+        include("connection.php");
+
         $resultat = $conn->query("select * from produit");
         $rows = $resultat->fetchAll();
         $listeProduits = [];
@@ -42,7 +43,7 @@ class Produit
     }
     public static function findByRef($ref)
     {
-        include("../connexion/connection.php");
+        include("connection.php");
         $resultat = $conn->query("select * from produit where ref like '$ref'");
         $rows = $resultat->fetchAll();
         $listeProduits = [];
@@ -54,7 +55,7 @@ class Produit
     /****************FindByGender************* */
     public static function findByGender($gender)
     {
-        include("../connexion/connection.php");
+        include("connection.php");
         $resultat = $conn->query("select * from produit where sexe=$gender");
         $rows = $resultat->fetchAll();
         $listeProduits = [];
@@ -67,7 +68,8 @@ class Produit
 
     public function _getImages()
     {
-        include("../connexion/connection.php");
+        include("connection.php");
+
         $req2 = "select * from images_produit where ref_prod = '" . $this->ref . "' ;";
         $resultat2 = $conn->query($req2);
         $resultat2->setFetchMode(PDO::FETCH_BOTH);
@@ -79,7 +81,7 @@ class Produit
 
         $images = $this->_getImages();
 
-        return "<div class=\"pro\" id='$this->ref' onclick='navigate(this.id)'> <img src='../uploaded_Images/" . $images[0]['imageName'] . "'> 
+        return "<div class=\"pro\" id='$this->ref' onclick='navigate(this.id)'> <img src='../../uploaded_Images/" . $images[0]['imageName'] . "'> 
         <div class=\"des\"><span>Jessamine</span>
             <h4>" . $this->nom . "</h4>
             <h5>" . $this->description . "</h5>
@@ -92,7 +94,7 @@ class Produit
     public function afficherProd()
     {
         $images = $this->_getImages();
-        return "<tr value=" . $this->ref . "> <td><img height = \"100\" src=\"../uploaded_Images/" .  $images[0]['imageName'] . "\"></td><td>" . $this->nom . "</td> <td> " . $this->prix . "DT</td><td>" . $this->qte . "</td><td>" . $this->sexe . "</td><td><a href='edit-product.php?edit=" . $this->ref . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $this->ref . "'><i class='fas fa-trash'> </i></a></td></tr>";
+        return "<tr value=" . $this->ref . "> <td><img height = \"100\" src=\"../../uploaded_Images/" .  $images[0]['imageName'] . "\"></td><td>" . $this->nom . "</td> <td> " . $this->prix . "DT</td><td>" . $this->qte . "</td><td>" . $this->sexe . "</td><td><a href='edit-product.php?edit=" . $this->ref . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $this->ref . "'><i class='fas fa-trash'> </i></a></td></tr>";
     }
     public function afficherDetails()
     {
@@ -100,12 +102,12 @@ class Produit
         $ch = "";
         $ch .=  "
         <div class=\"single-pro-image\">
-        <img alt='image' width='100%' id='MainImag'  src='../uploaded_Images/" .  $images[0]['imageName'] . "'>";
+        <img alt='image' width='100%' id='MainImag'  src='../../uploaded_Images/" .  $images[0]['imageName'] . "'>";
 
         $ch .= "<div class='small-img-groupe'>";
         for ($i = 0; $i < count($images); $i++) {
             $ch .= "<div class='small-img-col'>
-                <img width='100%'  onclick='changeImage($i)' class='small-img' alt='NOT AVAILABLE YET' id='small-img1' src='../uploaded_Images/" .  $images[$i]['imageName'] . "'></div>";
+                <img width='100%'  onclick='changeImage($i)' class='small-img' alt='NOT AVAILABLE YET' id='small-img1' src='../../uploaded_Images/" .  $images[$i]['imageName'] . "'></div>";
         }
         $ch .= "</div></div>
     <div class='single-pro-details'>

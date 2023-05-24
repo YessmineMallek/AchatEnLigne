@@ -1,9 +1,5 @@
 <?php
-
-
-
-
-include("../connexion/connection.php");
+include("../../conn/connection.php");
 if (isset($_POST["add_product"]) == 1) {
     $error = false;
     $message = array();
@@ -110,7 +106,7 @@ if (!empty($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styleHome.css">
+    <link rel="stylesheet" href="../css/styleHome.css">
     <link rel="stylesheet" href="productStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="../images/logo.png">
@@ -126,7 +122,7 @@ if (!empty($_GET['delete'])) {
         <img width="130px" src="../images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
         <div class="navBar">
-            <a href="../home.html">Home</a>
+            <a href="../home/home.html">Home</a>
         </div>
         <div class="navBar2">
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
@@ -153,7 +149,7 @@ if (!empty($_GET['delete'])) {
 
                         </tr>
                         <?php
-                        include("../entités/produit.php");
+                        include("../../entites/produit.php");
 
                         $rows = Produit::findAll();
                         foreach ($rows as $p) {

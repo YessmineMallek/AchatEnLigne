@@ -4,20 +4,20 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styleAboutUs.css">
-    <link rel="stylesheet" href="css/serviceStyle.css">
-    <link rel="stylesheet" href="css/styleHome.css">
+    <link rel="stylesheet" href="../css/styleAboutUs.css">
+    <link rel="stylesheet" href="../css/serviceStyle.css">
+    <link rel="stylesheet" href="../css/styleHome.css">
 
-    <link rel="stylesheet" href="css/contactUsStyle.css">
-    <link rel="stylesheet" href="css/productReview.css">
-    <link rel="stylesheet" href="css/partner.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="../css/contactUsStyle.css">
+    <link rel="stylesheet" href="../css/productReview.css">
+    <link rel="stylesheet" href="../css/partner.css">
+    <link rel="stylesheet" href="../css/footer.css">
 
 
     <!--Font awsome links-->
     <script src="https://kit.fontawesome.com/514c1af453.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="icon" href="images/logo.png">
+    <link rel="icon" href="../images/logo.png">
 
     <title>Home Page</title>
 </head>
@@ -38,9 +38,10 @@
 
         </div>
         <div class="navBar2">
-            <a id="panier"><img class="cart" src="images/cart.png"></a>
+            <a id="panier"><img class="cart" src="../images/cart.png"></a>
 
-            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px" href="sign up.html"></a></span>
+            <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px"
+                    href="../authentification/sign up.html"></a></span>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
         </div>
@@ -54,7 +55,7 @@
             <div class="row">
 
                 <div class="col">
-                    <a id="product" href="Products/addProductForm.php" class="btn">Add Product</a>
+                    <a id="product" href="../Products/addProductForm.php" class="btn">Add Product</a>
                     <h1>You should always feel pretty</h1>
                     <p id="displayData"></p>
                     <div class="arrow-icons">
@@ -197,7 +198,7 @@
         </h1>
         <div class="row">
             <div class="video-container">
-                <video src="images/video.mp4" loop autoplay muted></video>
+                <video src="../images/video.mp4" loop autoplay muted></video>
 
                 <h3>Best Clothes sellers</h3>
             </div>
@@ -265,7 +266,7 @@
                 <div class="right-side">
 
                     <div class="topixText">Give us Comment </div>
-                    <form  name="checkout" id="idForm" method="post" action="commentaire.php" >
+                    <form name="checkout" id="idForm" method="post" action="commentaire.php">
                         <span id="fname-error"></span>
                         <div class="inputBox">
                             <input type="text" id="fname" name="firstname" placeholder="Enter Your name.."
@@ -280,7 +281,7 @@
                         <div class="inputBox"> <textarea id="subject" name="subject" placeholder="Write message.."
                                 onkeyup="validateMessage()"></textarea></div>
 
-                        <input class="btnn" type="submit" value="Submit" name="Submit"  onclick="return validateForm()">
+                        <input class="btnn" type="submit" value="Submit" name="Submit" onclick="return validateForm()">
                         <input style="margin-left: 60%;" class="btnn" type="button" value="Examples"
                             onclick='window.location.href="avis.html"'>
                         <span id="submit-error"></span>
@@ -432,7 +433,7 @@
 
     function LogOut() {
         localStorage.clear();
-        window.location.href = "sign up.html"
+        window.location.href = "../authentification/sign up.html";
     }
 
     function back() {
@@ -464,19 +465,19 @@
     var logInBtn = document.getElementById("logInBtn");
 
     if (role != null) {
-        lienHom.setAttribute("href", "Products/tousArticles.php?gender='men'");
-        lienFem.setAttribute("href", "Products/tousArticles.php?gender='women'");
-        lienEn.setAttribute("href", "Products/tousArticles.php?gender='kid'");
-        lienPanier.setAttribute("href", "panier.html");
+        lienHom.setAttribute("href", "../Products/tousArticles.php?gender='men'");
+        lienFem.setAttribute("href", "../Products/tousArticles.php?gender='women'");
+        lienEn.setAttribute("href", "../Products/tousArticles.php?gender='kid'");
+        lienPanier.setAttribute("href", "../panier/panier.html");
         logInBtn.hidden = true;
 
     } else {
 
 
-        lienHom.setAttribute("href", "sign up.html");
-        lienFem.setAttribute("href", "sign up.html");
-        lienEn.setAttribute("href", "sign up.html");
-        lienPanier.setAttribute("href", "sign up.html");
+        lienHom.setAttribute("href", "../authentification/sign up.html");
+        lienFem.setAttribute("href", "../authentification/sign up.html");
+        lienEn.setAttribute("href", "../authentification/sign up.html");
+        lienPanier.setAttribute("href", "../authentification/sign up.html");
     }
 
     //Javascript Form Validation 
