@@ -1,48 +1,80 @@
 <?php
+
+
+
+
 include("../connexion/connection.php");
 if (isset($_POST["add_product"]) == 1) {
-    if (
-        !empty($_POST["product_ref"]) &&  !empty($_POST["product_desc"]) && !empty($_POST["product_name"]) &&
-        !empty($_POST["product_price"]) && !empty($_POST["sexe"]) && !empty($_FILES["product_image"])
-    ) {
-        $ref = $_POST["product_ref"];
-        $description = $_POST["product_desc"];
-        $name = $_POST["product_name"];
-        $price = $_POST["product_price"];
-        $sexe = $_POST["sexe"];
-        $image = $_FILES["product_image"]["name"];
-        $image_tmp_name = $_FILES["product_image"]["tmp_name"];
-        $image_folder = "../uploaded_Images/" . $name;
-        try {
 
-            $rep = $conn->exec("insert into produit values('$name' , '$description ' , '$ref' , $price ,'$sexe')") or die(print_r($conn->errorInfo()));
-            echo "<h2>" . $rep . "</h2>";
+    $images = $_FILES["product_image"]["tmp_name"];
+    if ($images[0] == '') {
+        $message[] = "fill out the form ...!";
+    } else {
 
-            if ($rep > 0) {
-                $rep2 = $conn->exec("insert into images_produit values('$ref','$image')") or die(print_r($conn->errorInfo()));
-                if ($rep2 > 0) {
-                    move_uploaded_file($image_tmp_name, $image_folder);
-                    $message[] = 'New record created successfully';
+        if (
+            !empty($_POST["product_ref"]) &&  !empty($_POST["product_desc"]) && !empty($_POST["product_name"]) &&
+            !empty($_POST["product_price"]) && !empty($_POST["sexe"]) && $images[0] != ''
+        ) {
+            $validationExtensions = array('jpg', 'jpeg', 'png');
+            $ref = $_POST["product_ref"];
+            $uploadDir = "../uploaded_Images/";
+            $description = $_POST["product_desc"];
+            $name = $_POST["product_name"];
+            $price = $_POST["product_price"];
+            $sexe = $_POST["sexe"];
+
+            /******************Plusieurs Images********************* */
+            foreach ($images as $imagekey => $imageValue) {
+                $image = $_FILES["product_image"]["name"][$imagekey];
+                $image_temp = $_FILES["product_image"]["tmp_name"][$imagekey];
+                $imageType = pathinfo($uploadDir . $image, PATHINFO_EXTENSION);
+
+                //Get Image new name
+
+                $imageNewName = uniqid() . "." . $imageType;
+                if (!empty($image) && !in_array($imageType, $validationExtensions)) {
+                    $message[] = 'File must be an Image ...!';
+                } else {
+                    /***************Ajout du produit ************* */
+                    try {
+                        $rep = $conn->exec("insert into produit values('$name' , '$description ' , '$ref' , $price ,'$sexe')") or die(print_r($conn->errorInfo()));
+                    } catch (PDOException $e) {
+                        if ($e->getCode() == 23000) {
+                            $message[] = "Product already exists";
+                        } else {
+                            $message[] = $e->getMessage();
+                        }
+                    }
+                    $store = move_uploaded_file($image_temp, $uploadDir . $imageNewName);
+                    $rep2 = $conn->exec("insert into images_produit values('$ref','$imageNewName')") or die(print_r($conn->errorInfo()));
                 }
             }
-        } catch (PDOException $e) {
-            if ($e->getCode() == 23000) {
-                $message[] = "Product already exists";
-            } else {
-                $message[] = $e->getMessage();
-            }
+        } else {
+            $message[] = "fill out the form ...!";
         }
-    } else {
-        $message[] = "Please fill out all";
     }
 }
-if (isset($_GET['delete'])) {
+if (!empty($_GET['delete'])) {
     $id = $_GET['delete'];
-    echo "<h2> heyyyyy " . $id . "</h2>";
 
-    $rep = $conn->exec("delete from produit where ref=$id") or die(print_r($conn->errorInfo()));
+    $rep = $conn->exec("delete from produit where ref  like '$id'") or die(print_r($conn->errorInfo()));
     if ($rep > 0) {
-        echo "<script>alert('suppression effectuer avec succés');</script>";
+        $message[] = "Product deleted successfully";
+    }
+};
+if (!empty($_GET['edit'])) {
+    $id = $_GET['edit'];
+    $req = "select * from produit where ref  like '$id'";
+    $resultat = $conn->query($req);
+    $resultat->setFetchMode(PDO::FETCH_BOTH);
+
+    $rows = $resultat->fetchAll();
+    foreach ($rows as $prod) {
+        $ref = $prod["ref"];
+        $description = $prod["descrip"];
+        $name = $prod["nom"];
+        $price = $prod["prix"];
+        $gender = $prod["sexe"];
     }
 };
 
@@ -79,15 +111,24 @@ if (isset($_GET['delete'])) {
 
         </div>
     </header>
+
     <section class="home">
+
         <div class="content">
+
             <div class=" product-display">
+                <?php if (isset($message)) {
+                    foreach ($message as $msg) {
+                        echo "<span class='error'> <h3>" . $msg . "</h3></span><br>";
+                    }
+                } ?>
                 <table class="product-display-table" id="product-display-table" name="tab">
                     <thead>
                         <tr>
                             <th>product image</th>
                             <th>product name</th>
                             <th>product price</th>
+                            <th>product quantity</th>
                             <th>Gender</th>
                             <th>Actions</th>
 
@@ -103,12 +144,12 @@ if (isset($_GET['delete'])) {
                         $rows = $resultat->fetchAll();
 
                         foreach ($rows as $p) {
-                            $req2 = "select * from images_produit where ref_prod = " . $p["ref"];
-                            /* $resultat2 = $conn->query($req2);
+                            $req2 = "select * from images_produit where ref_prod = '" . $p["ref"] . "' ;";
+                            $resultat2 = $conn->query($req2);
                             $resultat2->setFetchMode(PDO::FETCH_BOTH);
-                            $rows2 = $resultat2->fetchAll():*/
-                            echo $p["ref"];
-                            echo "<tr value=" . $p["ref"] . "> <td><img height = \"100\" src=' '></td><td>" . $p["nom"] . "</td> <td> " . $p["prix"] . "DT</td><td>" . $p["sexe"] . "</td><td><a href='' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete='" . $p["ref"] . "'><i class='fas fa-trash'> </i></a></td></tr>";
+
+                            $rows2 = $resultat2->fetchAll();
+                            echo "<tr value=" . $p["ref"] . "> <td><img height = \"100\" src=\"../uploaded_Images/" . $rows2[0]['imageName'] . "\"></td><td>" . $p["nom"] . "</td> <td> " . $p["prix"] . "DT</td><td>" . $p["sexe"] . "</td><td><a href='edit-product.php?edit=" . $p["ref"] . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $p["ref"] . "'><i class='fas fa-trash'> </i></a></td></tr>";
                         }
 
                         ?>
@@ -121,11 +162,7 @@ if (isset($_GET['delete'])) {
 
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="f1" id="myForm" enctype="multipart/form-data">
                     <h3>Add new product</h3>
-                    <?php if (isset($message)) {
-                        foreach ($message as $msg) {
-                            echo "<span class='error'>" . $msg . "</span><br>";
-                        }
-                    } ?>
+
                     <label class="label" for="ref">Product reference <span class="required">*</span></label>
                     <input type="text" placeholder="Enter product reference" name="product_ref" class="box" id="product_ref" value="<?php if (isset($_POST['product_ref'])) echo $_POST['product_ref'] ?>">
 
@@ -146,7 +183,7 @@ if (isset($_GET['delete'])) {
                     <br>
                     <br>
 
-                    <input type="file" id="inputFile" accept="image/*" name="product_image"><br>
+                    <input type="file" id="inputFile" accept="image/*" name="product_image[]" multiple><br>
 
                     <input type="submit" class="btn" name="add_product" value="Save">
 
@@ -182,8 +219,3 @@ if (isset($_GET['delete'])) {
 
     }
 </script>
-
-<?php
-
-
-?>
