@@ -41,7 +41,7 @@
             <a id="panier"><img class="cart" src="../images/cart.png"></a>
 
             <span id="logInBtn"><a class="fa fa-sign-in" style="font-size:24px"
-                    href="../authentification/sign up.html"></a></span>
+                    href="../authentification/auth.php"></a></span>
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
 
         </div>
@@ -433,7 +433,7 @@
 
     function LogOut() {
         localStorage.clear();
-        window.location.href = "../authentification/sign up.html";
+        window.location.href = "../authentification/auth.php";
     }
 
     function back() {
@@ -474,10 +474,10 @@
     } else {
 
 
-        lienHom.setAttribute("href", "../authentification/sign up.html");
-        lienFem.setAttribute("href", "../authentification/sign up.html");
-        lienEn.setAttribute("href", "../authentification/sign up.html");
-        lienPanier.setAttribute("href", "../authentification/sign up.html");
+        lienHom.setAttribute("href", "../authentification/auth.php");
+        lienFem.setAttribute("href", "../authentification/auth.php");
+        lienEn.setAttribute("href", "../authentification/auth.php");
+        lienPanier.setAttribute("href", "../authentification/auth.php");
     }
 
     //Javascript Form Validation 

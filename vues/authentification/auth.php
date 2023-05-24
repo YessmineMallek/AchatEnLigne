@@ -1,3 +1,52 @@
+<?php
+$errors = array();
+function verifyInputs($email, $password)
+{
+    $errors = array();
+    // Verify email input
+    if (empty($email)) {
+        array_push($errors, "Email is required");
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        array_push($errors, "Invalid email format");
+    }
+
+    // Verify address input
+    if (empty($password)) {
+        array_push($errors,  "password is required");
+    }
+
+
+    return $errors;
+}
+if (isset($_POST['signIn'])) {
+    $errors = verifyInputs($_POST['email'], $_POST['password']);
+    if (count($errors) == 0) {
+
+
+        include("../../entites/user.php");
+        $users = Utilisateur::FindByEmail($_POST['email']);
+        if (count($users) > 0) {
+            foreach ($users as $user)
+                if (password_verify($user["password"], $password)) {
+                    echo "<script>
+                     var product =[];
+                        localStorage.setItem('panier', JSON.stringify(products));
+                        localStorage.setItem('role','autre');
+                        localStorage.setItem('userId'," . $_POST['email'] . ");
+                         alert('User addedd');</script>";
+                    header('Location: ../home/home.html');
+                } else {
+                }
+        } else {
+            array_push($errors, "User email already used ...!");
+        }
+    }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,35 +81,30 @@
         <!--Heder section ends -->
         <div class="main">
             <div class="form-box">
-                <h1 id="title">Sign up </h1>
+                <h1 id="title">Sign In </h1>
                 <form>
                     <span id="signin-error"></span>
                     <span id="signup-error"></span>
 
                     <div class="input-group">
-                        <div class="input-field" id="nameField">
-                            <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="Name" id="contact-name" onkeyup="validateName()">
-                            <span id="name-error"></span>
-                        </div>
+
 
                         <div class="input-field">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" placeholder="Email" id="email" onkeyup="validateEmail()">
+                            <input type="email" name="email" placeholder="Email" id="email" onkeyup="validateEmail()">
                             <span id="email-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-solid fa-key"></i>
-                            <input type="password" placeholder="Password" id="password" onkeyup="validatePassword()">
+                            <input type="password" placeholder="Password" name="password" id="password" onkeyup="validatePassword()">
                             <span id="password-error"></span>
 
                         </div>
-                        <p>Lost password <a href="#">Click here ! </a></p>
+                        <p>I don't have an account <a href="signUp.php">Click here ! </a></p>
                     </div>
                     <div class="btn-field">
-                        <button type="submit" name='signUp' id="signupBtn" onclick="signUp()">Sign up</button>
-                        <button type="submit" name='signIn' class="disable" id="signinBtn" onclick="signIn()">Sign in</button>
+                        <button type="submit" name='signIn' id="signinBtn">Sign in</button>
                     </div>
                 </form>
             </div>
@@ -79,22 +123,8 @@
         let nameField = document.getElementById("nameField");
         let title = document.getElementById("title");
 
-        function signIn() {
-            nameField.style.maxHeight = "0";
-            title.innerHTML = "Sign In ";
-            signupBtn.classList.add("disable");
-            signinBtn.classList.remove("disable");
-        }
-
-        function signUp() {
-            nameField.style.maxHeight = "60px";
-            title.innerHTML = "Sign Up ";
-            signupBtn.classList.remove("disable");
-            signinBtn.classList.add("disable");
-        }
 
 
-        var products = [];
 
 
 

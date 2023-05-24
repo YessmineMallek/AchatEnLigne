@@ -1,13 +1,53 @@
 <?php
+$errors = array();
+function verifyInputs($name, $email, $password)
+{
+    $errors = array();
+
+    // Verify name input
+    if (empty($name)) {
+        array_push($errors, "Name is required");
+    }
+
+    // Verify email input
+    if (empty($email)) {
+        array_push($errors, "Email is required");
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        array_push($errors, "Invalid email format");
+    }
+
+    // Verify address input
+    if (empty($password)) {
+        array_push($errors,  "password is required");
+    }
+
+
+    return $errors;
+}
 
 if (isset($_POST['signUp'])) {
-    if (isset($_POST['name']) && isset($_POST["password"]) && isset($_POST['email'])) {
-        include("../../entites/commentaire.php");
-        $passwordHash = password_hash($_POST["password"], PASSWORD_DEFAULT);
-        $u = new Utilisateur($_POST['name'], $passwordHash, $_POST['email']);
-        $rep = Utilisateur::ajouter_Utilisateur($u);
-        if ($rep > 0) {
-            echo "<script>alert('User addedd');</script>";
+    $name = $_POST['name'];
+    $email = $_POST["email"];
+    $password = $_POST['password'];
+    $errors = verifyInputs($name, $email, $password);
+
+    if (count($errors) == 0) {
+        include("../../entites/user.php");
+
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+        $u = new Utilisateur($name, $passwordHash, $email);
+        if (count(Utilisateur::FindByEmail($_POST['email'])) == 0) {
+            $rep = Utilisateur::ajouter_Utilisateur($u);
+            if ($rep > 0) {
+                echo "<script>
+                var product =[];
+                localStorage.setItem('panier', JSON.stringify(products));
+                localStorage.setItem('role','autre');
+                localStorage.setItem('userId'," . $_POST['email'] . ");
+                alert('User addedd');</script>";
+                header('Location: ../home/home.html');
+            }
         }
     }
 }
@@ -51,20 +91,24 @@ if (isset($_POST['signUp'])) {
         <div class="main">
             <div class="form-box">
                 <h1 id="title">Sign up </h1>
+
                 <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                    <span id="signin-error"></span>
-                    <span id="signup-error"></span>
+                    <?php if (isset($errors)) {
+                        foreach ($errors as $msg) {
+                            echo "<span class='signup-error'> " . $msg . "</span><br>";
+                        }
+                    } ?>
 
                     <div class="input-group">
                         <div class="input-field" id="nameField">
                             <i class="fa-regular fa-user"></i>
-                            <input type="text" placeholder="Name" name="name" id="contact-name" onkeyup="validateName()">
+                            <input type="text" placeholder="Name" name="name" id="contact-name" value="<?php if (isset($_POST['name'])) echo $_POST['name'] ?>" onkeyup=" validateName()">
                             <span id="name-error"></span>
                         </div>
 
                         <div class="input-field">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" placeholder="Email" name="email" id="email" onkeyup="validateEmail()">
+                            <input type="email" placeholder="Email" name="email" id="email" value="<?php if (isset($_POST['email'])) echo $_POST['email'] ?>" onkeyup="validateEmail()">
                             <span id="email-error"></span>
                         </div>
 
@@ -74,7 +118,7 @@ if (isset($_POST['signUp'])) {
                             <span id="password-error"></span>
 
                         </div>
-                        <p>Lost password <a href="#">Click here ! </a></p>
+                        <p>I already have an account <a href="auth.php">Click here ! </a></p>
                     </div>
                     <div class="btn-field">
                         <button type="submit" name='signUp' id="signupBtn">Sign up</button>
@@ -95,6 +139,7 @@ if (isset($_POST['signUp'])) {
         let nameField = document.getElementById("nameField");
         let title = document.getElementById("title");
 
+        var products = [];
 
 
 

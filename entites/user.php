@@ -23,21 +23,21 @@ class Utilisateur
     public static function ajouter_Utilisateur($u)
     {
         try {
-            include_once('connetion.php');
+            include("connection.php");
             $id = uniqid();
-            $rep = $conn->exec("insert into utilisateur(id_user,login,password,email) values($id,'$u->login','$u->password','$u->email')") or die(print_r($conn->errorInfo()));
+            $rep = $conn->exec("insert into utilisateur(id_user,login,password,email) values('$id','$u->login','$u->password','$u->email');") or die(print_r($conn->errorInfo()));
             return $rep;
         } catch (PDOException $e) {
             die('Erreur : ' . $e->getMessage());
         }
     }
-    public static function FindAll()
+    public static function FindByEmail($email)
     {
-        include_once('connetion.php');
-        $selection = $conn->query("select * from utilisateur") or die(print_r($conn->errorInfo()));
+        include("connection.php");
+        $selection = $conn->query("select * from utilisateur where email like '$email'") or die(print_r($conn->errorInfo()));
         $lesUtilisateur = [];
         foreach ($selection as $utili) {
-            $u = new Utilisateur($utili['login'], $utili['password'], $utili['email']);
+            $u = new Utilisateur( $utili['login'], $utili['password'], $utili['email']);
             $lesUtilisateur[] = $u;
         }
         return $lesUtilisateur;
