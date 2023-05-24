@@ -7,7 +7,7 @@ $phone = $_POST["phone"];
 $code_postale = $_POST["code_postale"];
 
 // Function to verify form inputs
-function verifyInputs($name, $email, $address, $city, $state, $code_postale, $card_pay, $credit_card_number) {
+function verifyInputs($name, $email, $address, $city, $phone, $code_postale) {
     $errors = array();
 
     // Verify name input
@@ -32,60 +32,39 @@ function verifyInputs($name, $email, $address, $city, $state, $code_postale, $ca
         $errors[] = "City is required";
     }
 
-    // Verify state input
-    if (empty($state)) {
-        $errors[] = "State is required";
+    if (empty($phone)) {
+        $errors[] = "Le numéro de téléphone est requis";
+    } else if (!is_numeric($phone)) {
+        $errors[] = "Le numéro de téléphone doit être un nombre";
     }
+
 
     // Verify code postale input
     if (empty($code_postale)) {
         $errors[] = "Code postale is required";
-    } else if (!preg_match("/^\d{3}\s?\d{3}$/", $code_postale)) {
-        $errors[] = "Invalid code postale format";
+    }else if (!is_numeric($code_postale)) {
+        $errors[] = "Le code postale doit être un nombre";
     }
-
-    // Verify card pay input
-    if (empty($card_pay)) {
-        $errors[] = "Card pay is required";
-    }
-
-    // Verify credit card number input
-    if (empty($credit_card_number)) {
-        $errors[] = "Credit card number is required";
-    } else if (!preg_match("/^\d{4}-\d{4}-\d{4}-\d{4}$/", $credit_card_number)) {
-        $errors[] = "Invalid credit card number format";
-    }
-
+    
     return $errors;
 }
 
 // Function to send email
-function sendEmail($to, $name, $email, $address, $city, $state, $code_postale, $card_pay, $credit_card_number) {
+function sendEmail($to, $name, $email, $address, $city, $phone, $code_postale) {
     $subject = "New checkout operation";
-    $message = "A new checkout operation has been submitted with the following information:\n\n";
-    $message .= "Name: " . $name . "\n";
-    $message .= "Email: " . $email . "\n";
-    $message .= "Address: " . $address . "\n";
-    $message .= "City: " . $city . "\n";
-    $message .= "State: " . $state . "\n";
-    $message .= "Code postale: " . $code_postale . "\n";
-    $message .= "Card pay: " . $card_pay . "\n";
-    $message .= "Credit card number: " . $credit_card_number . "\n";
-
-    $headers = "From: your_email@example.com" . "\r\n" .
-        "Reply-To: your_email@example.com" . "\r\n" .
-        "X-Mailer: PHP/" . phpversion();
+    $message = "A new checkout operation has been submitted with the following information:\n\n"
+        . "Name: " . $name . "\n"."Email: " . $email . "\n" . "Address: " . $address . "\n". "City: " . $city . "\n". "phone number: " . $phone . "Code postale: " . $code_postale . "\n". "From:jessamine@ensi-uma.tn" . "\r\n" . "Reply-To: ".$email . "\r\n". phpversion();
 
     // Send email
     mail($to, $subject, $message, $headers);
 }
 
 // Verify inputs and send email
-$errors = verifyInputs($name, $email, $address, $city, $state, $code_postale, $card_pay, $credit_card_number);
+$errors = verifyInputs($name, $email, $address, $city, $phone, $code_postale);
 
 if (empty($errors)) {
-    $to = "your_email@example.com"; // Set the recipient email address
-    sendEmail($to, $name, $email, $address, $city, $state, $code_postale, $card_pay, $credit_card_number);
+    $to = "maroua.bakri@ensi-uma.tn"; // Set the recipient email address
+    sendEmail($to, $name, $email, $address, $city, $phone, $code_postale);
     echo "Email sent successfully.";
 } else {
     // Display errors

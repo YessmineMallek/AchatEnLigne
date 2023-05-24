@@ -1,3 +1,18 @@
+<?php
+
+if (isset($_POST['submit'])){
+   $name = $_POST["firstname"];
+   $email = $_POST["lastname"];
+   $commentaire = $_POST["subject"];
+    // extract($_POST);
+    if (!empty($name ) and !empty($email) and !empty($commentaires)){
+         require_once('<commentaire>dp_commentaires.php');
+         $req=$dp->prepare('INSERT INTO comm (IDcomm,name,email,message,date)) VALUES (?,?,?,?,NOW())');
+         $req->execute(array($name,$email,$commentaire));
+    
+    }
+} 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +39,6 @@
 
 <body>
     <!--Heder section starts -->
-    <header>
         <img width="130px" src="images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
         <div class="navBar">
@@ -265,19 +279,19 @@
                 <div class="right-side">
 
                     <div class="topixText">Give us Comment </div>
-                    <form  name="checkout" id="idForm" method="post" action="commentaire.php" >
+                    <form  name="checkout" id="idForm" method="post" action="" enctype="application/x-www-form-urlencoded">
                         <span id="fname-error"></span>
                         <div class="inputBox">
-                            <input type="text" id="fname" name="firstname" placeholder="Enter Your name.."
-                                id="contact-fname" onkeyup="validateFName()">
+                            <input type="text" id="fname" name="firstname" placeholder="Enter Your name.." required="" 
+                                 id="contact-fname" onkeyup="validateFName()">
                         </div>
                         <span id="lname-error"></span>
                         <div class="inputBox">
-                            <input type="text" id="lname" name="lastname" placeholder="Enter you Email.."
+                            <input type="text" id="lname" name="lastname" placeholder="Enter you Email.."  required=""
                                 id="contact-lname" onkeyup="validateLName()">
                         </div>
                         <span id="message-error"></span>
-                        <div class="inputBox"> <textarea id="subject" name="subject" placeholder="Write message.."
+                        <div class="inputBox"> <textarea id="subject" name="subject" placeholder="Write message.." required=""
                                 onkeyup="validateMessage()"></textarea></div>
 
                         <input class="btnn" type="submit" value="Submit" name="Submit"  onclick="return validateForm()">
