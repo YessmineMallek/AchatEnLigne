@@ -79,6 +79,23 @@ if (isset($_POST["envoyer"])) {
                 $_POST["address"] = "";
                 $_POST["city"] = "";
                 $_POST["phone"] = "";
+
+
+                $to_email = "mallek.yessmin@gmail.com";
+                $subject = "Confirmation formation";
+                $body = " Salut,
+                votre demande pour la formation est accepté
+                merci pour votre participation";
+                $headers = "From: sender\'s email";
+
+                if (mail($to_email, $subject, $body)) {
+                    echo "<script>alert ('Email successfully sent to $to_email...');</script>";
+                } else {
+                    print_r("------------------------");
+
+                    print_r(error_get_last());
+                    echo "<script>alert ('Email sending failed...');</script>";
+                }
             }
         } else {
             array_push($errors, "Email address not available ...! ");

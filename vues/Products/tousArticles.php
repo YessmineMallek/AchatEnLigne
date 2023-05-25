@@ -50,12 +50,12 @@
         </div>
     </section>
     <div>
-        <select onchange="val()" id="filter">
+        <!-- <select onchange="val()" id="filter">
             <option>---</option>
             <option value="croissant">Lower to higher prices</option>
             <option value="Decroissant">Higher to Lower prices</option>
 
-        </select>
+        </select>-->
         <section id="product">
 
             <div class="pro-container" id="pro-container">
