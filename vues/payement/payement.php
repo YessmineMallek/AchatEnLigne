@@ -81,15 +81,18 @@ if (isset($_POST["envoyer"])) {
                 $_POST["phone"] = "";
 
 
-                $to_email = "mallek.yessmin@gmail.com";
-                $subject = "Confirmation formation";
-                $body = " Salut,
-                votre demande pour la formation est accepté
-                merci pour votre participation";
+                $to_email = $email;
+                $subject = "Jessmine Store";
+                $body = " 
+                Thank you " . $name . " for your purchase!
+                Order confirmed";
                 $headers = "From: sender\'s email";
 
                 if (mail($to_email, $subject, $body)) {
-                    echo "<script>alert ('Email successfully sent to $to_email...');</script>";
+                    echo "<script>
+                    localStorage.setItem('panier', JSON.stringify([]));
+
+                    alert ('Email successfully sent to $to_email...');</script>";
                 } else {
                     print_r("------------------------");
 

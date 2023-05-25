@@ -48,6 +48,8 @@ if (isset($_POST['signUp'])) {
                 alert('User addedd');</script>";
                 header('Location: ../home/home.html');
             }
+        } else {
+            array_push($errors,  "User email is used");
         }
     }
 }
