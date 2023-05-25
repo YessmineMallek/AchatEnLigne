@@ -81,10 +81,11 @@ class Produit
 
         $images = $this->_getImages();
 
-        return "<div class=\"pro\" id='$this->ref' onclick='navigate(this.id)'> <img src='../../uploaded_Images/" . $images[0]['imageName'] . "'> 
+        return "
+        
+        <div class=\"pro\" id='$this->ref' onclick='navigate(this.id)'> <img src='../../uploaded_Images/" . $images[0]['imageName'] . "'> 
         <div class=\"des\"><span>Jessamine</span>
             <h4>" . $this->nom . "</h4>
-            <h5>" . $this->description . "</h5>
 
             <h5>" . $this->prix . "DT</h5>  
 
