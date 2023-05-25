@@ -88,9 +88,6 @@ header .navBar a:hover {
 
 
 
-body {
-  background-image: url("background.png");
-}
 
 .container {
   display: flex;

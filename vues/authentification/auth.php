@@ -19,7 +19,9 @@ function verifyInputs($email, $password)
     return $errors;
 }
 if (isset($_POST['signIn'])) {
-    $errors = verifyInputs($_POST['email'], $_POST['password']);
+    $email = $_POST['email'];
+    $pass = $_POST['password'];
+    $errors = verifyInputs($email, $pass);
     if (count($errors) == 0) {
 
 
@@ -27,18 +29,24 @@ if (isset($_POST['signIn'])) {
         $users = Utilisateur::FindByEmail($_POST['email']);
         if (count($users) > 0) {
             foreach ($users as $user)
-                if (password_verify($user["password"], $password)) {
-                    echo "<script>
-                     var product =[];
-                        localStorage.setItem('panier', JSON.stringify(products));
-                        localStorage.setItem('role','autre');
-                        localStorage.setItem('userId'," . $_POST['email'] . ");
-                         alert('User addedd');</script>";
-                    header('Location: ../home/home.html');
+                if (password_verify($pass, $user->password)) {
+
+                    if ($email == 'admin@gmail.com') {
+                        echo "<script>localStorage.setItem('role','admin');
+                        localStorage.setItem('panier', JSON.stringify([])); 
+                        localStorage.setItem('userId','" . $email . "');
+                        window.location.href = '../home/home.html';</script>";
+                    } else {
+                        echo "<script>localStorage.setItem('role','autre');
+                        localStorage.setItem('panier', JSON.stringify([])); 
+                        localStorage.setItem('userId','" . $email . "');
+                        window.location.href = '../home/home.html';</script>";
+                    }
                 } else {
+                    array_push($errors, "Incorrect password ...!");
                 }
         } else {
-            array_push($errors, "User email already used ...!");
+            array_push($errors, "Incorrect User email ...!");
         }
     }
 }
@@ -82,16 +90,18 @@ if (isset($_POST['signIn'])) {
         <div class="main">
             <div class="form-box">
                 <h1 id="title">Sign In </h1>
-                <form>
-                    <span id="signin-error"></span>
-                    <span id="signup-error"></span>
-
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                    <?php if (isset($errors)) {
+                        foreach ($errors as $msg) {
+                            echo "<span class='signup-error'> " . $msg . "</span><br>";
+                        }
+                    } ?>
                     <div class="input-group">
 
 
                         <div class="input-field">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" name="email" placeholder="Email" id="email" onkeyup="validateEmail()">
+                            <input type="email" name="email" placeholder="Email" id="email" value="<?php if (isset($_POST['email'])) echo $_POST['email'] ?>" onkeyup="validateEmail()">
                             <span id="email-error"></span>
                         </div>
 
@@ -122,13 +132,6 @@ if (isset($_POST['signIn'])) {
         let signinBtn = document.getElementById("signinBtn");
         let nameField = document.getElementById("nameField");
         let title = document.getElementById("title");
-
-
-
-
-
-
-
 
 
         //Javascript Form Validation 

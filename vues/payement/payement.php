@@ -78,6 +78,11 @@ if (isset($_POST["envoyer"])) {
     <!-- custom css file link  -->
     <link rel="stylesheet" href="../css/payement.css">
     <title>Payement</title>
+    <style>
+        body {
+            background-image: url("background.png");
+        }
+    </style>
 
 
 </head>
@@ -197,7 +202,7 @@ if (isset($_POST["envoyer"])) {
 <script>
     function LogOut() {
         localStorage.clear();
-        window.location.href = "sign up.html"
+        window.location.href = "../authentification/auth.php"
     }
     var img = document.getElementById("logo");
 
