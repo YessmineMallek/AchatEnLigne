@@ -59,7 +59,7 @@ if (isset($_POST["edit_product"])) {
         <img width="130px" src="../images/logo.png" id="logo" onmouseover="hover()" onmouseleave="small()">
 
         <div class="navBar">
-            <a href="../home.html">Home</a>
+            <a href="../home/home.html">Home</a>
         </div>
         <div class="navBar2">
             <a class="fa fa-sign-out" style="font-size:24px" onclick="LogOut()"></a>
