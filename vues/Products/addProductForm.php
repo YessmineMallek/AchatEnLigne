@@ -1,8 +1,9 @@
 <?php
+$message = [];
+
 include("../../conn/connection.php");
 if (isset($_POST["add_product"]) == 1) {
     $error = false;
-    $message = array();
     $images = $_FILES["product_image"]["tmp_name"];
     if ($images[0] == '') {
         $error = true;
@@ -40,7 +41,7 @@ if (isset($_POST["add_product"]) == 1) {
     if ($error == false) {
         $validationExtensions = array('jpg', 'jpeg', 'png');
         $ref = $_POST["product_ref"];
-        $uploadDir = "../uploaded_Images/";
+        $uploadDir = "../../uploaded_Images/";
         $description = $_POST["product_desc"];
         $name = $_POST["product_name"];
         $price = $_POST["product_price"];
@@ -88,10 +89,16 @@ if (isset($_POST["add_product"]) == 1) {
 }
 if (!empty($_GET['delete'])) {
     $id = $_GET['delete'];
-
-    $rep = $conn->exec("delete from produit where ref  like '$id'") or die(print_r($conn->errorInfo()));
-    if ($rep > 0) {
-        echo  "<script> alert('Product deleted successfully');</script>";
+    try {
+        $rep = $conn->exec("delete from produit where ref = '$id'");
+        if ($rep > 0) {
+            echo  "<script> alert('Product deleted successfully');</script>";
+        }
+    } catch (PDOException $e) {
+        print_r($e->getMessage());
+        if ($e->getCode() == 23000) {
+            array_push($message,  "The product has orders...!");
+        }
     }
 };
 

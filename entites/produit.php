@@ -94,7 +94,7 @@ class Produit
     public function afficherProd()
     {
         $images = $this->_getImages();
-        return "<tr value=" . $this->ref . "> <td><img height = \"100\" src=\"../../uploaded_Images/" .  $images[0]['imageName'] . "\"></td><td>" . $this->nom . "</td> <td> " . $this->prix . "DT</td><td>" . $this->qte . "</td><td>" . $this->sexe . "</td><td><a href='edit-product.php?edit=" . $this->ref . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $this->ref . "'><i class='fas fa-trash'> </i></a></td></tr>";
+        return "<tr value=" . $this->ref . "> <td><img height = \"100\" src='../../uploaded_Images/" .  $images[0]['imageName'] . "'></td><td>" . $this->nom . "</td> <td> " . $this->prix . "DT</td><td>" . $this->qte . "</td><td>" . $this->sexe . "</td><td><a href='edit-product.php?edit=" . $this->ref . "' class='btn'><i class=\"fas fa-edit\"> </i></a><a class='btn' href='addProductForm.php?delete=" . $this->ref . "'><i class='fas fa-trash'> </i></a></td></tr>";
     }
     public function afficherDetails()
     {

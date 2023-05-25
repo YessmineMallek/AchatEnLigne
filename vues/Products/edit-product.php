@@ -1,5 +1,5 @@
 <?php
-include("../connexion/connection.php");
+include("../../conn/connection.php");
 if (!empty($_GET['edit'])) {
     $ref = $_GET['edit'];
     $req = "select * from produit where ref  like '$ref'";
@@ -43,7 +43,7 @@ if (isset($_POST["edit_product"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styleHome.css">
+    <link rel="stylesheet" href="../css/styleHome.css">
     <link rel="stylesheet" href="productStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="../images/logo.png">
