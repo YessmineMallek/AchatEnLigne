@@ -177,11 +177,13 @@ form p a {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    margin-left: ;
 
 }
 
 .btn-field button {
     flex-basis: 48%;
+    margin-left: 25%;
     background: #ad5cad;
     color: #fff;
     height: 40px;

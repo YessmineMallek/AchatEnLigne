@@ -1,5 +1,5 @@
 /* Cibler tous les elements du page */
-* {
+* {font-size:medium;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -139,7 +139,8 @@ header .navBar a:hover {
 }
 
 .container form .row .col .inputBox input {
-  width: 100%;
+  border-radius: 10%;
+  width: 90%;
   border: 1px solid #ccc;
   padding: 10px 15px;
   font-size: 15px;
@@ -166,10 +167,12 @@ header .navBar a:hover {
 }
 
 .container form .submit-btn {
-  width: 100%;
+  border-radius: 8%;
+  margin-left: 5%;
+  width: 90%;
   padding: 12px;
   font-size: 17px;
-  background: #b56ebb;
+  background: #fa0000;
   color: #fff;
   margin-top: 5px;
   cursor: pointer;
