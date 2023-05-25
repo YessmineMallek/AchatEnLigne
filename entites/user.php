@@ -1,15 +1,18 @@
 <?php
 class Utilisateur
 {
+    private $id;
     private $login;
     private $password;
     private $email;
-    function __construct($l, $pass, $email)
+    function __construct($l, $pass, $email, $id)
     {
         $this->login = $l;
         $this->password = $pass;
         $this->email = $email;
+        $this->id = $id;
     }
+
     public function __get($attr)
     {
         if (!isset($this->$attr))
@@ -37,7 +40,7 @@ class Utilisateur
         $selection = $conn->query("select * from utilisateur where email like '$email'") or die(print_r($conn->errorInfo()));
         $lesUtilisateur = [];
         foreach ($selection as $utili) {
-            $u = new Utilisateur( $utili['login'], $utili['password'], $utili['email']);
+            $u = new Utilisateur($utili['login'], $utili['password'], $utili['email'], $utili["id_user"]);
             $lesUtilisateur[] = $u;
         }
         return $lesUtilisateur;

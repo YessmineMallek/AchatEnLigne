@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if (isset($_GET["lignes"])) {
+    $lignes =    $_GET["lignes"];
+    $arrays = json_decode($lignes, true);
+    $_SESSION['lignes'] = $arrays;
+}
+
+
 // Function to verify form inputs
 function verifyInputs($name, $email, $address, $city, $phone)
 {
@@ -44,18 +53,36 @@ if (isset($_POST["envoyer"])) {
     if (count($errors) == 0) {
         include('../../entites/commande.php');
         include('../../entites/LigneCommande.php');
+        include('../../entites/user.php');
+        $id_user = "";
+        $id_cmd = uniqid();
 
-        $loc = "<script>document.writeln(localStorage.getItem('panier'));</script>";
-        $id = uniqid();
-        print_r(explode(',', $loc));
-        /* for ($i = 0; $i < count($loc); $i++) {
-            print_r($loc[$i]);
+        $users = Utilisateur::FindByEmail($email);
+        if (count($users) > 0) {
+            foreach ($users as $u) {
+                $id_user = $u->id;
+            }
 
-            /*$ligneCmd = new LigneCommande($id, $email, $ligne["id"], $ligne['Qte']);
-            array_push($lesLignes, $ligneCmd);
-        }*/
-        //$cmd = new Commande($id, $email, $address, $city, $phone, $lesLignes);
-        //Commande::addCommande($cmd);
+            $arrays = $_SESSION['lignes'];
+            $arrLignes = [];
+            for ($i = 0; $i < count($arrays); $i++) {
+
+                $l = new LigneCommande($id_cmd, $arrays[$i]["id"], $arrays[$i]["qte"]);
+                array_push($arrLignes, $l);
+            }
+            $cmd = new Commande($id_cmd, $email, $address, $city, $phone, $id_user, $arrLignes);
+            $rep = Commande::addCommande($cmd);
+            if ($rep > 0) {
+                array_push($errors, 'Order successfully added ');
+                $_POST["name"] = "";
+                $_POST["email"] = "";
+                $_POST["address"] = "";
+                $_POST["city"] = "";
+                $_POST["phone"] = "";
+            }
+        } else {
+            array_push($errors, "Email address not available ...! ");
+        }
     }
 }
 
@@ -130,26 +157,26 @@ if (isset($_POST["envoyer"])) {
                     } ?>
                     <div class="inputBox">
                         <span>full name :</span>
-                        <input type="text" name="name" placeholder="yassmine_jammeli">
+                        <input type="text" name="name" value=<?php if (!empty($_POST["name"])) echo $_POST["name"] ?>>
                     </div>
                     <div class="inputBox">
                         <span>email :</span>
-                        <input type="email" name="email" placeholder="example@example.com">
+                        <input type="email" name="email" value=<?php if (!empty($_POST["email"])) echo $_POST["email"] ?>>
                     </div>
                     <div class="inputBox">
                         <span>address :</span>
-                        <input type="text" name="address" placeholder="room - street - locality">
+                        <input type="text" name="address" value=<?php if (!empty($_POST["address"])) echo $_POST["address"] ?>>
                     </div>
 
                     <div class="inputBox">
                         <span>city :</span>
-                        <input type="text" name="city" placeholder="Manouba">
+                        <input type="text" name="city" value=<?php if (!empty($_POST["city"])) echo $_POST["city"] ?>>
                     </div>
 
                     <div class="flex">
                         <div class="inputBox">
                             <span>phone number</span>
-                            <input type="text" name="phone" placeholder="+216 12345678">
+                            <input type="text" name="phone" value=<?php if (!empty($_POST["phone"])) echo $_POST["phone"] ?>>
                         </div>
 
                     </div>

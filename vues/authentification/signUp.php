@@ -36,7 +36,7 @@ if (isset($_POST['signUp'])) {
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-        $u = new Utilisateur($name, $passwordHash, $email);
+        $u = new Utilisateur($name, $passwordHash, $email, "");
         if (count(Utilisateur::FindByEmail($_POST['email'])) == 0) {
             $rep = Utilisateur::ajouter_Utilisateur($u);
             if ($rep > 0) {

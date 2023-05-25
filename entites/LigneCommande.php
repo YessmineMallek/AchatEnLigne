@@ -2,14 +2,12 @@
 class LigneCommande
 {
     private $idCmd;
-    private $idUser;
     private $refProd;
     private $qte;
-    function __construct($idCmd, $idUser, $refProd, $qte)
+    function __construct($idCmd, $refProd, $qte)
     {
 
         $this->idCmd = $idCmd;
-        $this->idUser = $idUser;
         $this->refProd = $refProd;
         $this->qte = $qte;
     }
@@ -25,8 +23,8 @@ class LigneCommande
     public static function addLigneCommande($ligCmd)
     {
         try {
-            include("/connection.php");
-            $rep =  $conn->exec("insert into lignecommande(id_cmd,id_user,ref_prod,qte)values('$ligCmd->id_cmd',$ligCmd->idUser,'$ligCmd->ref_prod',$ligCmd->qte) ") or die(print_r($conn->errorInfo()));
+            include("connection.php");
+            $rep =  $conn->exec("insert into lignecommande(idCmd ,refProd ,qte)values('$ligCmd->idCmd','$ligCmd->refProd',$ligCmd->qte) ") or die(print_r($conn->errorInfo()));
         } catch (PDOException $e) {
             echo $e;
         }

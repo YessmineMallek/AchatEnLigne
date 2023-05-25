@@ -165,7 +165,7 @@
             "img": document.getElementById("MainImag").src,
             "name": name,
             "price": price,
-            "qte": parseInt(qte, 10),
+            "qte": qte,
         };
         while (i < products.length) {
             if (products[i]["id"] == ref)
@@ -175,7 +175,7 @@
         if (i == products.length)
             products.push(product);
         else
-            products[i]["qte"] = parseInt(products[i]["qte"], 10) + parseInt(qte, 10);
+            products[i]["qte"] = (String)(parseInt(products[i]["qte"], 10) + parseInt(qte, 10));
 
 
         localStorage.setItem("panier", JSON.stringify(products));

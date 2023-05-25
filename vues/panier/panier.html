@@ -89,11 +89,11 @@
                             <p><span id="total2"></span>TND</p>
                         </div>
                     </div>
-                    <a href="../payement/payement.php">
-                        <div id="checkout">
-                            Checkout
-                        </div>
-                    </a>
+                    <a> <button onclick="checkout()">
+                            <div id="checkout">
+                                Checkout
+                            </div>
+                        </button> </a>
                 </div>
             </div>
 
@@ -143,7 +143,24 @@
 
 </html>
 <script>
+    var products = JSON.parse(localStorage.getItem("panier"));
+    var lignes = [];
+    function checkout() {
+        products.forEach(element => {
+            var obj = { "id": "", "qte": 0 }
 
+            obj["id"] = element["id"];
+            obj["qte"] = element["qte"];
+            lignes.push(obj);
+        }
+        );
+
+        window.location.href = "../payement/payement.php?lignes=" + JSON.stringify(lignes);
+
+
+
+
+    }
     localStorage.setItem("total", 0);
     var table = document.getElementById("tab")
 
@@ -153,7 +170,7 @@
     total2.innerHTML = 0;
     function LogOut() {
         localStorage.clear();
-        window.location.href = "sign up.html"
+        window.location.href = "../authentification/auth.php"
     }
     //logIn Button
     var role = localStorage.getItem("role");
@@ -163,7 +180,6 @@
     }
 
     function deleteProd(prod) {
-
         var id = prod.id;
         var products = JSON.parse(localStorage.getItem("panier"));
         var obj = document.getElementsByTagName("tr");
@@ -233,7 +249,7 @@
         table.appendChild(tr);
 
     }
-    var products = JSON.parse(localStorage.getItem("panier"));
+
     products.forEach(element => {
         var obj = { "id": "", "name": "", "price": 0, "img": "", "qte": 0 }
 
