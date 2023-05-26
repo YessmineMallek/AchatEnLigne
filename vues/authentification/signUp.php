@@ -24,7 +24,7 @@ function verifyInputs($name, $email, $password)
 
     return $errors;
 }
-
+//signup button
 if (isset($_POST['signUp'])) {
     $name = $_POST['name'];
     $email = $_POST["email"];
@@ -33,6 +33,7 @@ if (isset($_POST['signUp'])) {
 
     if (count($errors) == 0) {
         include("../../entites/user.php");
+        
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
