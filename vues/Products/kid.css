@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:content-box;
     font-family: "Lucida Console", Courier, monospace;
     outline: none;
     text-decoration: none;
@@ -129,17 +129,17 @@ p {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-}
 
+}
+/*hethiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii*/
 #product .pro-container {
-    display: flex;
     justify-content: space-between;
     padding-top: 5px;
 
 }
 
 #product .pro {
-    width: 5%;
+    width: 5px;
     background-color: rgb(216, 241, 253);
     min-width: 270px;
     padding: 10px 22px;
@@ -148,8 +148,8 @@ p {
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15xp 0;
-
-
+  /* ahyaaaaaaaaaaaaaaaaaaaaaaa*/
+    display: inline-block;
 
 }
 
@@ -223,6 +223,422 @@ p {
 }
 
 /* ajuster la page de l'article avec styling de chaque small img*/
+#prodetails {
+    display: flex;
+    margin-top: 30px;
+    text-decoration: double;
+    text-shadow: #333;
+    font-size: 20px;
+    line-height: 54xp;
+    color: black;
+
+}
+
+#prodetails .single-pro-image {
+    width: 30%;
+    margin: 8px;
+    margin-left: 6%;
+}
+
+.small-img-groupe {
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+#prodetails .single-pro-details {
+    width: 50%;
+    padding-top: 10px;
+
+}
+
+#prodetails .single-pro-details h4 {
+    padding: 10px 0 10px 0;
+}
+
+#prodetails .single-pro-details h2 {
+    font-size: 20px;
+}
+
+#prodetails .single-pro-details select {
+    display: block;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+
+}
+
+#prodetails .single-pro-details input {
+    width: 50px;
+    height: 20px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#prodetails .single-pro-details input:focus {
+    outline: none;
+}
+
+#prodetails .single-pro-details button {
+    background: rgb(91, 175, 175);
+    color: #fff;
+    width: 50px;
+    height: 25px;
+    border: #fff;
+
+}
+
+#prodetails .single-pro-details button:hover {
+    box-shadow: 0 0 20px rgba(15, 212, 203, 0.603);
+}
+
+#prodetails .single-pro-details span {
+    line-height: 25px;
+    font-size: 80%;
+    color: #333;
+}
+
+@media (max-width:477xp) {
+    .selection-p1 {
+        padding: 20px;
+
+    }
+
+    #header {
+        padding: 10px 30px;
+    }
+
+    h1 {
+        font-size: 38 px;
+    }
+
+    h2 {
+        font-size: 32px;
+
+    }
+
+    #hero {
+        padding: 0 20px;
+        background-position: 55%;
+
+    }
+
+    #product .pro {
+        width: 100%;
+    }
+
+    #prodetails {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #prodetails .single-pro-image {
+        width: 100%;
+
+        padding-top: 0px;
+    }
+}
+
+
+
+:root {
+    --pink: #ff77cd;
+}
+
+.service {
+    display: block;
+}
+
+.service .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border: 1.5rem solid #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+#MainImag {
+    border-radius: 8%;
+
+}
+
+.service .box-container .box {
+    text-align: center;
+    flex: 1 1 30rem
+}
+
+.service .box-container .box i {
+    font-size: 4rem;
+    color: var(--pink);
+}
+
+.service .box-container .box h3 {
+    font-size: 2rem;
+    color: #6a7199;
+    padding-top: 1rem;
+}
+
+.service .box-container .box p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+#filter {
+    margin-left: 2%;
+}
+
+.rotate {
+    -webkit-animation: spin 2s infinite linear;
+
+
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotateY(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotateY(360deg);
+    }
+}
+/* Cibler tous les elements du page 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lucida Console", Courier, monospace;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+ul {
+    display: inline-block;
+}
+
+.imageContactUs {
+    animation: animate 3s linear infinite;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+
+}
+
+.navBar {
+    width: 100%;
+    height: 15vh;
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.navBar2 {
+    height: 15vh;
+    margin-left: 60%;
+    display: flex;
+    align-items: center;
+}
+
+
+header .navBar2 a {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+header .navBar2 a:hover {
+    color: var(--pink);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 2%;
+    display: flex;
+    align-items: center;
+
+
+}
+
+header .navBar a {
+    font-size: 1.5rem;
+    padding: 0 1.5rem;
+    color: #666;
+}
+
+
+header .navBar a:hover {
+    color: var(--pink);
+}
+
+.container {
+    height: 20vh;
+    width: 100%;
+    background-image: url("background.png");
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.MainImag:hover {
+    transform: scale(1.1);
+}
+
+.cart {
+    width: 40px;
+    cursor: pointer
+}
+
+.cart:hover {
+    transform: scale(1.1);
+}
+
+
+
+p {
+    text-shadow: #465;
+    font-size: 20xp;
+    color: #465;
+    margin: 15xp 0 20xp 0;
+
+}
+
+
+.page-header {
+    background-color: white;
+    width: 100%;
+    height: 20vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    font-size: large;
+}
+
+/* ajuster les produits
+
+#product {
+    display: flex ;
+    flex-wrap: wrap;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+#product .pro-container {
+    display: flex ;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 5px;
+
+}
+
+#product .pro {
+    width: 5%;
+    background-color: rgb(216, 241, 253);
+    min-width: 270px;
+    padding: 10px 22px;
+    margin: 2%;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15xp 0;
+
+
+
+}
+
+#product .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.3);
+    transform: translateY(-20px);
+
+
+}
+
+#product .pro img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#product .pro .des {
+    padding: 10xp 0;
+}
+
+#product .pro .des span {
+    color: #545455;
+    font-size: 12px;
+}
+
+#product .pro .des h5 {
+    padding-top: 7px;
+    color: #000;
+    font-size: 14px;
+}
+
+#product .pro .des h4 {
+    padding-top: 7px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #088;
+
+}
+
+
+
+
+/* ajuster le bouton de add 
+
+.btn {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1xp;
+    font-weight: bold;
+    background-color: rgb(181, 162, 199);
+    width: 10px;
+    padding: 1px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.03;
+    transition-duration: 0.03;
+
+
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+
+}
+
+/* ajuster la page de l'article avec styling de chaque small img
 #prodetails {
     display: flex;
     margin-top: 30px;
