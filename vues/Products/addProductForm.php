@@ -224,7 +224,7 @@ if (!empty($_GET['delete'])) {
 <script>
     function LogOut() {
         localStorage.clear();
-        window.location.href = "../sign up.html"
+        window.location.href = "../authentification/auth.php"
     }
     var img = document.getElementById("logo");
 
