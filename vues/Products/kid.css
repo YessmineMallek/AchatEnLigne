@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
     font-family: "Lucida Console", Courier, monospace;
     outline: none;
     text-decoration: none;
@@ -129,17 +129,18 @@ p {
     text-align: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+
 }
 
+/*hethiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii*/
 #product .pro-container {
-    display: flex;
     justify-content: space-between;
     padding-top: 5px;
 
 }
 
 #product .pro {
-    width: 5%;
+    width: 5px;
     background-color: rgb(216, 241, 253);
     min-width: 270px;
     padding: 10px 22px;
@@ -148,8 +149,8 @@ p {
     cursor: pointer;
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
     margin: 15xp 0;
-
-
+    /* ahyaaaaaaaaaaaaaaaaaaaaaaa*/
+    display: inline-block;
 
 }
 
